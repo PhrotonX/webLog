@@ -15,8 +15,11 @@ a, h1, h2, h3, h4, h5, h6, p{
 
 #toolbar{
     height: auto;
+    position: -webkit-sticky;
     position: sticky;
+    top: 0;
     width: 100%;
+    z-index: 500;
 }
 
 #nav a{
