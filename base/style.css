@@ -19,14 +19,16 @@ footer{
 }
 
 nav a{
+    color: white;
     background-color: var(--primary);
     padding: 14px 16px;
     text-decoration: none;
 }
 nav a:visited{
-    background-color: var(--primary2);
+    background-color: var(--primary);
 }
 nav a:hover{
+    color: black;
     background-color: var(--primary3);
 }
 nav a:active{
@@ -42,6 +44,7 @@ section, header, nav, article, aside, footer{
     display: flex;
     justify-content: space-between;
     height: auto;
+    left: 0;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
