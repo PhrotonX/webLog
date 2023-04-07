@@ -29,7 +29,8 @@ section, header, nav, article, aside, footer{
 }
 
 #toolbar{
-    display: inline;
+    display: flex;
+    justify-content: space-between;
     height: auto;
     position: -webkit-sticky;
     position: sticky;
