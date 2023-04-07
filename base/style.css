@@ -39,11 +39,24 @@ section, header, nav, article, aside, footer{
     display: block;
 }
 
-#site-search-submit{
+#site-search{
+    display: flex;
+    float: left;
+    height: auto;
+    justify-content: space-between;
+}
+
+#site-search-bar{
     background-color: white;
     height: auto;
     padding: 14px 16px;
     width: 30%;
+}
+
+#site-search-submit{
+    background-color: white;
+    height: auto;
+    padding: 14px 16px;
 }
 
 #toolbar{
