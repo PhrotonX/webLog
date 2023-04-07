@@ -49,8 +49,8 @@ section, header, nav, article, aside, footer{
 #site-search-bar{
     background-color: white;
     height: auto;
-    padding: 14px 16px;
-    width: 30%;
+    padding: 14px;
+    width: 35%;
 }
 
 #site-search-submit{
