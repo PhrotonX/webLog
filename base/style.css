@@ -16,8 +16,6 @@ a, h1, h2, h3, h4, h5, h6, p{
 
 footer{
     background-color: var(--footer-color);
-    width: 100% !important;
-    height: auto;
 }
 
 nav a{
@@ -31,6 +29,7 @@ section, header, nav, article, aside, footer{
 }
 
 #toolbar{
+    display: inline-block;
     height: auto;
     position: -webkit-sticky;
     position: sticky;
