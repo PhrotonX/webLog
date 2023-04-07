@@ -29,7 +29,7 @@ section, header, nav, article, aside, footer{
 }
 
 #toolbar{
-    display: inline-block;
+    display: inline;
     height: auto;
     position: -webkit-sticky;
     position: sticky;
