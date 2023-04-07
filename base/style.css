@@ -39,6 +39,13 @@ section, header, nav, article, aside, footer{
     display: block;
 }
 
+#site-search-submit{
+    background-color: white;
+    height: auto;
+    padding: 14px 16px;
+    width: 30%;
+}
+
 #toolbar{
     background: var(--primary);
     display: flex;
