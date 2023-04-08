@@ -69,7 +69,7 @@ section, header, nav, article, aside, footer{
 #site-search-submit{
     background-color: white;
     height: auto;
-    padding: 14px 16px;
+    padding: auto 16px;
     width: 25%;
 }
 
@@ -78,7 +78,7 @@ section, header, nav, article, aside, footer{
     display: flex;
     float: left;
     justify-content: space-between;
-    height: 90%;
+    height: auto%;
     left: 0;
     position: -webkit-sticky;
     position: sticky;
