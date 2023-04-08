@@ -27,6 +27,7 @@ header{
 nav{
     float: right;
     height: auto;
+    overflow: hidden;
     width: 100%;
 }
 
