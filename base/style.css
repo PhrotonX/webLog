@@ -43,6 +43,7 @@ section, header, nav, article, aside, footer{
     display: flex;
     float: left;
     height: auto;
+    width: 35%;
     justify-content: space-between;
 }
 
@@ -50,7 +51,7 @@ section, header, nav, article, aside, footer{
     background-color: white;
     height: auto;
     padding: 14px;
-    width: 35%;
+    width: 100%;
 }
 
 #site-search-submit{
