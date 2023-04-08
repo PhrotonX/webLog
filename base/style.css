@@ -36,6 +36,7 @@ nav a{
     float: right;
     padding: 14px 16px;
     text-decoration: none;
+    top: 0;
 }
 nav a:visited{
     background-color: var(--primary);
