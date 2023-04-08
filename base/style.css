@@ -78,7 +78,7 @@ section, header, nav, article, aside, footer{
     display: flex;
     float: left;
     justify-content: space-between;
-    height: auto;
+    height: 95%;
     left: 0;
     position: -webkit-sticky;
     position: sticky;
