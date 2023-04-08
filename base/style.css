@@ -76,7 +76,7 @@ section, header, nav, article, aside, footer{
 #toolbar{
     background: var(--primary);
     display: flex;
-    float: left;
+    float: right;
     justify-content: space-between;
     height: auto%;
     left: 0;
