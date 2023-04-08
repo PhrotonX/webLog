@@ -18,6 +18,12 @@ footer{
     background-color: var(--footer-color);
 }
 
+nav{
+    float: left;
+    height: auto;
+    width: 100%;
+}
+
 nav a{
     color: white;
     background-color: var(--primary);
