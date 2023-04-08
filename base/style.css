@@ -18,6 +18,10 @@ footer{
     background-color: var(--footer-color);
 }
 
+header{
+    margin: none;
+}
+
 nav{
     float: left;
     height: auto;
