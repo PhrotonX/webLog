@@ -89,3 +89,10 @@ section, header, nav, article, aside, footer{
     width: 100%;
     z-index: 500;
 }
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
