@@ -19,7 +19,7 @@ footer{
 }
 
 header{
-    margin-top: none;
+    top: 0;
 }
 
 nav{
