@@ -25,7 +25,7 @@ header{
 }
 
 nav{
-    float: right;
+    float: left;
     height: auto;
     width: 100%;
 }
@@ -75,6 +75,7 @@ section, header, nav, article, aside, footer{
 
 #toolbar{
     background: var(--primary);
+    align-content: end;
     display: flex;
     float: left;
     justify-content: space-between;
