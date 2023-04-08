@@ -24,6 +24,12 @@ header{
     vertical-align: middle;
 }
 
+nav{
+    float: right;
+    height: auto;
+    width: 100%;
+}
+
 nav a{
     background-color: var(--primary);
     color: white;
