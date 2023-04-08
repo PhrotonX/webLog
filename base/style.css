@@ -31,8 +31,9 @@ nav{
 }
 
 nav a{
-    color: white;
     background-color: var(--primary);
+    color: white;
+    float: right;
     padding: 14px 16px;
     text-decoration: none;
 }
@@ -75,7 +76,6 @@ section, header, nav, article, aside, footer{
 
 #toolbar{
     background: var(--primary);
-    align-content: end;
     display: flex;
     float: left;
     justify-content: space-between;
