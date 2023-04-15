@@ -5,13 +5,23 @@
     --primary3: #64b5f6;
 }
 
+a, h1, h2, h3, h4, h5, h6, p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.acrylic {
+    padding: 4em 6em;
+    position: relative;
+    background: rgba(0,0,0,0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    margin: 7px;
+}
+
 body{
     width: 95%;
     height: auto;
     margin: 2.5%;
-}
-a, h1, h2, h3, h4, h5, h6, p{
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 footer{
@@ -76,12 +86,17 @@ section, header, nav, article, aside, footer{
     width: 25%;
 }
 
+.shadow {
+    border-radius: 1px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.2);
+}
+
 #toolbar{
     background: var(--primary);
     display: flex;
     float: left;
     justify-content: space-between;
-    height: auto%;
+    height: auto;
     left: 0;
     position: -webkit-sticky;
     position: sticky;
