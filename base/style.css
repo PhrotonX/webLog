@@ -96,13 +96,13 @@ section, header, nav, article, aside, footer{
     display: flex;
     float: left;
     justify-content: space-between;
-    height: auto;
+    /*height: auto;
     left: 0;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 500;
+    z-index: 500;*/
 }
 
 nav ul {
