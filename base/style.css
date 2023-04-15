@@ -1,12 +1,12 @@
 :root{
     --footer-color: #f3f3f3;
-    /*--primaryDark: #1e88e5;
-    --primaryDark2: #0d47a1;
-    --primaryDark3: #64b5f6;*/
-    --primaryDark: rgba(0, 0, 0, 0.5);
-    --primaryDark2: rgba(255, 255, 255, 0.5);
-    --primaryDark3: rgba(150, 150, 150, 0.5);
-    
+    /*--primary: #1e88e5;
+    --primary2: #0d47a1;
+    --primary3: #64b5f6;*/
+    --primary: rgba(0, 0, 0, 0.5);
+    --primary2: rgba(255, 255, 255, 0.5);
+    --primary3: rgba(150, 150, 150, 0.5);
+    --static: rgba(75, 75, 75, 0.5);
 }
 
 a, h1, h2, h3, h4, h5, h6, p{
@@ -16,7 +16,6 @@ a, h1, h2, h3, h4, h5, h6, p{
 .acrylic {
     /*padding: 4em 6em;
     position: relative;*/
-    background: rgba(0,0,0,0.5);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     margin: 7px;
@@ -29,13 +28,27 @@ body{
 }
 
 footer{
-    background-color: var(--footer-color);
+    background-color: var(--primary);
 }
 
 header{
     margin-top: -16px;
     margin-bottom: -40px;
     vertical-align: middle;
+}
+
+input[type=search], input[type=text], input[type=submit]{
+    background: var(--staticDark);
+    border-style: none;
+}
+
+input[type=search]:hover, input[type=text]:hover, input[type=submit]:hover{
+    background: var(--primary3);
+    border-style: none;
+}
+input[type=submit]:active{
+    background: var(--primary2);
+    border-style: none;
 }
 
 nav{
@@ -53,14 +66,14 @@ nav a{
     top: 0;
 }
 nav a:visited{
-    background-color: var(--primaryDark);
+    background-color: var(--primary);
 }
 nav a:hover{
     color: black;
-    background-color: var(--primaryDark3);
+    background-color: var(--primary3);
 }
 nav a:active{
-    background-color: var(--primaryDark2);
+    background-color: var(--primary2);
 }
 
 section, header, nav, article, aside, footer{
@@ -95,7 +108,7 @@ section, header, nav, article, aside, footer{
 }
 
 #toolbar{
-    /*background: var(--primaryDark);*/
+    background: var(--primary);
     display: flex;
     float: left;
     justify-content: space-between;
