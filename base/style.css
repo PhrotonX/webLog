@@ -1,11 +1,12 @@
 :root{
     --footer-color: #f3f3f3;
-    /*--primary: #1e88e5;
-    --primary2: #0d47a1;
-    --primary3: #64b5f6;*/
-    --primary: rgba(0,0,0,0.5);
-    --primary2: rgba(0,0,0,0.75);
-    --primary3: rgba(0,0,0,0.25);
+    /*--primaryDark: #1e88e5;
+    --primaryDark2: #0d47a1;
+    --primaryDark3: #64b5f6;*/
+    --primaryDark: rgba(0,0,0,0.5);
+    --primaryDark2: rgba(0,0,0,0.75);
+    --primaryDark3: rgba(0,0,0,0.25);
+    
 }
 
 a, h1, h2, h3, h4, h5, h6, p{
@@ -45,7 +46,7 @@ nav{
 }
 
 nav a{
-    background-color: var(--primary);
+    background-color: var(--primaryDark);
     color: white;
     float: right;
     padding: 14px 16px;
@@ -53,14 +54,14 @@ nav a{
     top: 0;
 }
 nav a:visited{
-    background-color: var(--primary);
+    background-color: var(--primaryDark);
 }
 nav a:hover{
     color: black;
-    background-color: var(--primary3);
+    background-color: var(--primaryDark3);
 }
 nav a:active{
-    background-color: var(--primary2);
+    background-color: var(--primaryDark2);
 }
 
 section, header, nav, article, aside, footer{
@@ -95,7 +96,7 @@ section, header, nav, article, aside, footer{
 }
 
 #toolbar{
-    /*background: var(--primary);*/
+    /*background: var(--primaryDark);*/
     display: flex;
     float: left;
     justify-content: space-between;
