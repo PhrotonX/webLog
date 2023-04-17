@@ -7,7 +7,7 @@
         <script type="text/javascript" src="script.js"></script>
     </head>
     <body>
-        <span class="acrylic shadow" id="toolbar">
+        <span class="acrylic shadow parent" id="toolbar">
             <header>
                 <h1><a href="index.html">WebLog</a></h1>
             </header>
@@ -26,9 +26,9 @@
             </nav>
         </span>
         
-        <section class="acrylic" id="content">
+        <section class="acrylic shadow parent" id="content">
             <button onclick='testButton()'>Create a Blog</button>
-            <div class="acrylic" id="sample-content">
+            <div class="acrylic shadow child" id="sample-content">
                 <p>Sample Text</p>
                 <p>Sample Text</p>
                 <p>Sample Text</p>
@@ -108,7 +108,7 @@
             <p>Sample Text</p>
             
         </section>
-        <footer class="acrylic shadow">
+        <footer class="acrylic shadow parent">
             <p>23w14a - For testing purposes only.</p>
         </footer>
     </body>
