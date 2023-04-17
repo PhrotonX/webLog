@@ -63,13 +63,13 @@ a, h1, h2, h3, h4, h5, h6, p{
 .parent::after {
     /* background-color: rgba(230, 240, 255, 0.50); */
     background-color: var(--primary);
-    opacity: 0.30;
+    opacity: 0.80;
 }
   
 .child::after {
     /* background-color: rgba(230, 240, 255, 0.30); */
     background-color: var(--primary);
-    opacity: 0.60;
+    opacity: 0.80;
 }
   
 .shadow {
