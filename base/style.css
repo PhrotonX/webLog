@@ -63,18 +63,18 @@ a, h1, h2, h3, h4, h5, h6, p{
 .parent::after {
     /* background-color: rgba(230, 240, 255, 0.50); */
     background: var(--primary);
-    opacity: 0.75;
-  }
+    opacity: 0.30;
+}
   
-  .child::after {
+.child::after {
     /* background-color: rgba(230, 240, 255, 0.30); */
     background-color: var(--primary);
-    opacity: 0.75;
-  }
+    opacity: 0.60;
+}
   
-  .shadow {
+.shadow {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 1px 8px rgba(0, 0, 0, 0.4);
-  }
+}
 
 body{
     background-image: url("../pages/mountain.jpg");
