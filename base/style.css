@@ -22,14 +22,16 @@ a, h1, h2, h3, h4, h5, h6, p{
 }*/
 
 .acrylic{
-    padding: 4em 6em;
+    /* padding: 4em 6em; */
     /* position: relative; */
     overflow: hidden;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
 .acrylic::before{
     content: '';
-    /* position: absolute; */
+    position: absolute;
     z-index: -1;
     height: 100%;
     top: 0;
@@ -41,13 +43,11 @@ a, h1, h2, h3, h4, h5, h6, p{
     -o-filter: blur(8px);
     -ms-filter: blur(8px);
     background-blend-mode: exclusion;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
 }
 
 .acrylic::after {
     content: "";
-    /* position: absolute; */
+    position: absolute;
     height: 100%;
     left: 0;
     top: 0;
