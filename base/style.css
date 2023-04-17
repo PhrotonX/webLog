@@ -28,7 +28,9 @@ body{
 }
 
 footer{
-    background-color: var(--primary);
+    /* background-color: var(--primary); */
+    background-color: -webkit-linear-gradient(blue, cyan, black);
+    height: 25%;
 }
 
 header{
