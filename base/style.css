@@ -22,6 +22,7 @@ a, h1, h2, h3, h4, h5, h6, p{
 }
 
 body{
+    background-image: url("../../../../../Users/cpasc/Pictures/Wallpaper/Mountains/223483-landscape-nature-mist-sunrise-mountain-river-sun_rays-valley-bridge-clouds.jpg");
     width: 95%;
     height: auto;
     margin: 2.5%;
@@ -74,6 +75,10 @@ nav a:hover{
 }
 nav a:active{
     background-color: var(--primary2);
+}
+
+#sample-content{
+    padding: 75%;
 }
 
 section, header, nav, article, aside, footer{
