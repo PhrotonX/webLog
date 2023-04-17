@@ -27,10 +27,10 @@ a, h1, h2, h3, h4, h5, h6, p{
     overflow: hidden;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    border: none;
 }
 
 .acrylic::before{
-    content: "";
     position: absolute;
     z-index: -1;
     height: 100%;
@@ -46,7 +46,6 @@ a, h1, h2, h3, h4, h5, h6, p{
 }
 
 .acrylic::after {
-    content: "";
     position: absolute;
     height: 100%;
     left: 0;
