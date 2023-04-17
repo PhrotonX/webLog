@@ -23,7 +23,7 @@ a, h1, h2, h3, h4, h5, h6, p{
 
 .acrylic{
     /* padding: 4em 6em; */
-    /* position: relative; */
+    position: relative;
     overflow: hidden;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -31,7 +31,7 @@ a, h1, h2, h3, h4, h5, h6, p{
 
 .acrylic::before{
     content: "";
-    /* position: absolute; */
+    position: absolute;
     z-index: -1;
     height: 100%;
     top: 0;
@@ -47,7 +47,7 @@ a, h1, h2, h3, h4, h5, h6, p{
 
 .acrylic::after {
     content: "";
-    /* position: absolute; */
+    position: absolute;
     height: 100%;
     left: 0;
     top: 0;
