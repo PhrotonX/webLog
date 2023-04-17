@@ -29,7 +29,7 @@ body{
 
 footer{
     /* background-color: var(--primary); */
-    background: -webkit-radial-gradient(center, blue, cyan, black);
+    background: -webkit-linear-gradient(left, blue, cyan, black);
     height: 25%;
 }
 
