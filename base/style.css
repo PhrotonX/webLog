@@ -23,6 +23,7 @@ a, h1, h2, h3, h4, h5, h6, p{
 
 .acrylic{
     /* padding: 4em 6em; */
+    padding: auto;
     position: relative;
     overflow: hidden;
     -webkit-backdrop-filter: blur(25px);
