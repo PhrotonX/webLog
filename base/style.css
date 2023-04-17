@@ -60,13 +60,13 @@ a, h1, h2, h3, h4, h5, h6, p{
     /* opacity: 75%; */
 }
 
-.child::after {
+.parent::after {
     /* background-color: rgba(230, 240, 255, 0.50); */
-    background: var(--primary);
+    background-color: var(--primary);
     opacity: 0.30;
 }
   
-.parent::after {
+.child::after {
     /* background-color: rgba(230, 240, 255, 0.30); */
     background-color: var(--primary);
     opacity: 0.60;
