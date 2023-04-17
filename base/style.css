@@ -3,10 +3,10 @@
     /*--primary: #1e88e5;
     --primary2: #0d47a1;
     --primary3: #64b5f6;*/
-    --primary: rgba(0, 0, 0, 0.5);
-    --primary2: rgba(255, 255, 255, 0.5);
-    --primary3: rgba(150, 150, 150, 0.5);
-    --static: rgba(75, 75, 75, 0.5);
+    --primary: rgba(0, 0, 0, 0.75);
+    --primary2: rgba(255, 255, 255, 0.75);
+    --primary3: rgba(150, 150, 150, 0.75);
+    --static: rgba(75, 75, 75, 0.75);
 }
 
 a, h1, h2, h3, h4, h5, h6, p{
