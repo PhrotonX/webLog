@@ -97,12 +97,12 @@ input[type=search], input[type=text], input[type=submit]{
     border-style: none;
 }
 
-input[type=search]:hover, input[type=text]:hover, input[type=submit]:hover{
-    background: var(--primary2);
+input[type=search]:hover, input[type=text]:hover, input[type=submit]:hover, button{
+    background: var(--primary3);
     border-style: none;
 }
 input[type=submit]:active{
-    background: var(--primary3);
+    background: var(--primary2);
     border-style: none;
 }
 
