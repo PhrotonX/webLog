@@ -3,11 +3,10 @@
     /*--primary: #1e88e5;
     --primary2: #0d47a1;
     --primary3: #64b5f6;*/
-    --primary: rgba(0, 0, 0, 0.85);
-    --primary2: rgba(255, 255, 255, 85);
-    --primary3: rgba(150, 150, 150, 0.85);
-    --primary4: rgba(150, 150, 150, 0.65);
-    --static: rgba(75, 75, 75, 0.85);
+    --primary: rgba(0, 0, 0, 0.75);
+    --primary2: rgba(255, 255, 255, 0.75);
+    --primary3: rgba(150, 150, 150, 0.75);
+    --static: rgba(75, 75, 75, 0.75);
 }
 
 a, h1, h2, h3, h4, h5, h6, p{
@@ -64,13 +63,13 @@ a, h1, h2, h3, h4, h5, h6, p{
 .parent::after {
     /* background-color: rgba(230, 240, 255, 0.50); */
     background-color: var(--primary);
-    opacity: 0.30;
+    opacity: 0.80;
 }
   
 .child::after {
     /* background-color: rgba(230, 240, 255, 0.30); */
-    background-color: var(--primary4);
-    opacity: 0.60;
+    background-color: var(--primary);
+    opacity: 0.80;
 }
   
 .shadow {
