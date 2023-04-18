@@ -4,8 +4,8 @@
     --primary2: #0d47a1;
     --primary3: #64b5f6;*/
     --primary: rgba(0, 0, 0, 0.75);
-    --primary2: rgba(255, 255, 255, 0.75);
-    --primary3: rgba(150, 150, 150, 0.75);
+    --primary2: rgba(255, 255, 255, 0.50);
+    --primary3: rgba(150, 150, 150, 0.70);
     --static: rgba(75, 75, 75, 0.75);
 }
 
@@ -99,11 +99,11 @@ input[type=search], input[type=text], input[type=submit]{
 }
 
 input[type=search]:hover, input[type=text]:hover, input[type=submit]:hover{
-    background: var(--primary3);
+    background: var(--primary2);
     border-style: none;
 }
 input[type=submit]:active{
-    background: var(--primary2);
+    background: var(--primary3);
     border-style: none;
 }
 
