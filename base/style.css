@@ -5,7 +5,7 @@
     --primary3: #64b5f6;*/
     --primary: rgba(0, 0, 0, 0.75);
     --primary2: rgba(255, 255, 255, 0.50);
-    --primary3: rgba(150, 150, 150, 0.70);
+    --primary3: rgba(150, 150, 150, 0.50);
     --static: rgba(75, 75, 75, 0.75);
 }
 
@@ -77,7 +77,6 @@ a, h1, h2, h3, h4, h5, h6, p{
 }
 
 body{
-    background-image: url("../pages/mountain.jpg");
     width: 95%;
     height: auto;
     margin: 2.5%;
