@@ -98,11 +98,11 @@ input[type=search], input[type=text], input[type=submit]{
 }
 
 input[type=search]:hover, input[type=text]:hover, input[type=submit]:hover, button{
-    background: var(--primary3);
+    background: var(--primary2);
     border-style: none;
 }
 input[type=submit]:active{
-    background: var(--primary2);
+    background: var(--primary3);
     border-style: none;
 }
 
