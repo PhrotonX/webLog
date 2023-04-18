@@ -97,7 +97,7 @@ header{
 }
 
 input[type=search], input[type=text], input[type=submit]{
-    background: var(--staticDark);
+    background-color: var(--staticDark);
     border-style: none;
 }
 
