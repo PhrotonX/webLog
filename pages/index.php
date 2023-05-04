@@ -10,7 +10,7 @@
         <?php require_once '../components/toolbar.html' ?>
         
         <section class="acrylic shadow parent" id="content">
-            <button onclick='testButton()'>Create a Blog</button>
+            <button onclick='navigate(create.html)'>Create a Blog</button>
             <p>Sample Text</p>
             <p>Sample Text</p>
             <p>Sample Text</p>
