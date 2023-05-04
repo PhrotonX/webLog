@@ -7,24 +7,7 @@
         <script type="text/javascript" src="script.js"></script>
     </head>
     <body>
-        <span class="acrylic shadow parent" id="toolbar">
-            <header>
-                <h1><a href="index.html">WebLog</a></h1>
-            </header>
-            <nav>
-                <div id="site-search">
-                    <input type="search" id="site-search-bar">
-                    <input type="submit" id="site-search-submit">
-                </div>
-                <ul>
-                    <a href="#">Create</a>
-                    <a href="index.html">Home</a>
-                    <a href="#">Blogs</a>
-                    <a href="#">News</a>
-                    <a href="#">About</a>
-                </ul>
-            </nav>
-        </span>
+        <?php require_once '../components/toolbar.html' ?>
         
         <section class="acrylic shadow parent" id="content">
             <button onclick='testButton()'>Create a Blog</button>
@@ -106,8 +89,6 @@
             <p>Sample Text</p>
             
         </section>
-        <footer class="acrylic shadow parent">
-            <p>23w14a - For testing purposes only.</p>
-        </footer>
+        <?php require_once '../components/footer.html'?>
     </body>
 </html>
