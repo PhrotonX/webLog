@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>WebLog - Web Blogger</title>
         <link rel="stylesheet" href="../base/style.css" type="text/css">
-        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="../base/script.js"></script>
     </head>
     <body>
         <?php require_once '../components/toolbar.html' ?>
