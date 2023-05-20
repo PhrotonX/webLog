@@ -1,15 +1,31 @@
-:root{
-    --footer-color: #f3f3f3;
-    /*--primary: #1e88e5;
-    --primary2: #0d47a1;
-    --primary3: #64b5f6;*/
-    --primary: rgba(0, 0, 0, 0.75);
-    --primary2: rgba(255, 255, 255, 0.50);
-    --primary3: rgba(150, 150, 150, 0.50);
-    --static: rgba(75, 75, 75, 0.75);
+@media (prefers-color-scheme: light){
+    :root{
+        --footer-color: #f3f3f3;
+        /*--primary: #1e88e5;
+        --primary2: #0d47a1;
+        --primary3: #64b5f6;*/
+        --primary: rgba(255, 255, 255, 0.75);
+        --primary2: rgba(0, 0, 0, 0.5);
+        --primary3: rgba(125, 125, 125, 0.50);
+        --static: rgba(180, 180, 180, 0.75);
+    }
 }
 
-a, h1, h2, h3, h4, h5, h6, p{
+@media (prefers-color-scheme: dark){
+    :root{
+        --footer-color: #f3f3f3;
+        /*--primary: #1e88e5;
+        --primary2: #0d47a1;
+        --primary3: #64b5f6;*/
+        --primary: rgba(0, 0, 0, 0.75);
+        --primary2: rgba(255, 255, 255, 0.50);
+        --primary3: rgba(150, 150, 150, 0.50);
+        --static: rgba(75, 75, 75, 0.75);
+    }
+}
+
+
+a, h1, h2, h3, h4, h5, h6, label, p{
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -80,11 +96,11 @@ button{
     padding: 4em 6em;
 }
 
-body{
+/*body{
     width: 95%;
     height: auto;
     margin: 2.5%;
-}
+}*/
 
 footer{
     padding: 50px;
@@ -97,7 +113,7 @@ header{
 }
 
 input[type=search], input[type=text], input[type=submit]{
-    background-color: var(--staticDark);
+    background-color: var(--static);
     border-style: none;
 }
 
@@ -144,7 +160,8 @@ section, header, nav, article, aside, footer{
 }
 
 section{
-    width: 100%;
+    margin: 2.5%;
+    width: 95%;
     height: auto;
 }
 
