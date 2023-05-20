@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8"/>
         <title>Create Blog</title>
-        <link rel="stylesheet" ref="../base/style.css" type="text/css"/>
+        <link rel="stylesheet" href="../base/style.css" type="text/css"/>
         <script src="script.js"></script>
     </head>
     <body>
