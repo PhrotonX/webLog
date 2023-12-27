@@ -10,7 +10,7 @@
 
         <section id="content">
             <h1>Create Blog</h1>
-            <form>
+            <form action="../base/post_config.php">
                 <label for="create-title">Title: </label>
                 <input type="text" id="create-title" name="create-title"><br>
                 <label for="create-content">Content: </label>
