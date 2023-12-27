@@ -14,11 +14,13 @@
                     DB_PASSWORD,
                     [PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION]
                 );    
+
+                echo "Connected successfully!";
             }catch(PDOException $e){
                 echo "Unable to connect to Database: " . $e->getMessage();
             }
         }
     }
 
-    Database $db = new Database();
+    $db = new Database();
 ?>
