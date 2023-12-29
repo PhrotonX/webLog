@@ -80,6 +80,7 @@ a, h1, h2, h3, h4, h5, h6, label, p{
 body{
     background-color: var(--background);
     color: var(--color);
+    margin: 16px;
 }
 
 #content{
@@ -160,6 +161,8 @@ section, header, nav, article, aside, footer{
 section{
     width: 95%;
     height: auto;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 
 #site-search{
