@@ -80,8 +80,6 @@ a, h1, h2, h3, h4, h5, h6, label, p{
 body{
     background-color: var(--background);
     color: var(--color);
-    padding: 0px;
-    margin: 0px;
 }
 
 #content{
@@ -160,7 +158,6 @@ section, header, nav, article, aside, footer{
 }
 
 section{
-    margin: 2.5%;
     width: 95%;
     height: auto;
 }
