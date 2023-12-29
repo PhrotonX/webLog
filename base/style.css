@@ -82,6 +82,10 @@ body{
     color: var(--color);
 }
 
+#content{
+    padding-top: 36px;
+}
+
 footer{
     padding: 50px;
 }
