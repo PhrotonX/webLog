@@ -177,12 +177,12 @@ section{
     width: 75%;
 }
 
-#site-search-submit{
+/*#site-search-submit{
     background-color: white;
     height: auto;
     padding: 14px 8px;
     width: 25%;
-}
+}*/
 
 .shadow {
     border-radius: 1px;
