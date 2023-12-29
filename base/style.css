@@ -82,7 +82,7 @@ body{
     color: var(--color);
 }
 
-.content{
+#content{
     margin-top: 36px;
 }
 
@@ -182,7 +182,7 @@ section{
     height: auto;
     padding: 14px 8px;
     width: 25%;
-    border: none;
+    /* border: none; */
 }
 
 .shadow {
