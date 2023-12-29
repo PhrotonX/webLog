@@ -6,7 +6,7 @@
         <link rel="stylegsheet" href="../base/style.css" type="text/css"/>
     </head>
     <body>
-        <?php require_once '../components/header.html' ?>
+        <?php require_once '../components/toolbar.html' ?>
 
         <section id="content">
             <h1>Log In or Sign Up</h1>
