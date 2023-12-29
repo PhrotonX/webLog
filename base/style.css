@@ -83,7 +83,7 @@ body{
 }
 
 .content{
-    margin-top: 16px;
+    margin-top: 36px;
 }
 
 footer{
@@ -177,12 +177,13 @@ section{
     width: 75%;
 }
 
-/*#site-search-submit{
+.site-search-submit{
     background-color: white;
     height: auto;
     padding: 14px 8px;
     width: 25%;
-}*/
+    border: none;
+}
 
 .shadow {
     border-radius: 1px;
