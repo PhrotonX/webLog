@@ -15,8 +15,8 @@
                 <input type="text" id="login-email" name="login-email"/><br>
                 <label for="login-password">Password: </label><br>
                 <input type="password" id="login-password" name="login-password"/><br>
-                <input type="submit">
-                <input type="reset">
+                <input class="small-button" type="submit">
+                <input class="small-button" type="reset">
             </form>
 
             <p>Already had an account?</p>

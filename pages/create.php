@@ -16,8 +16,8 @@
                 <label for="create-content">Content: </label>
                 <input type="text" id="create-content" name="create-content"><br>
 
-                <input type="submit" id="create-submit">
-                <input type="reset" id="create-reset>">
+                <input class="small-button" type="submit" id="create-submit">
+                <input class="small-button" type="reset" id="create-reset>">
             </form>
         </section>
 
