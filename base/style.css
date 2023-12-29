@@ -95,6 +95,8 @@ header{
 input[type=search], input[type=text], input[type=submit]{
     background-color: var(--static);
     border-style: none;
+    padding: 14px;
+    width: 75%;
 }
 
 input[type=search]:hover, input[type=text]:hover, input[type=submit]:hover, button{
