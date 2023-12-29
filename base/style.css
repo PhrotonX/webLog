@@ -95,6 +95,7 @@ header{
 input[type=search], input[type=text], input[type=submit], input[type=reset]{
     background-color: var(--static);
     border-style: none;
+    margin: 0px 3px 3px 0px;
 }
 
 input[type=search], input[type=text]{
