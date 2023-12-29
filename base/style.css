@@ -82,6 +82,10 @@ body{
     color: var(--color);
 }
 
+.content{
+    margin-top: 16px;
+}
+
 footer{
     padding: 50px;
 }
@@ -92,21 +96,21 @@ header{
     vertical-align: middle;
 }
 
-input[type=search], input[type=text], input[type=submit], input[type=reset]{
+input[type=search], .input-text, button, .small-button{
     background-color: var(--static);
     border-style: none;
 }
 
-input[type=search], input[type=text]{
+input[type=search], .input-text{
     padding: 14px;
     width: 75%;
 }
 
-input[type=search]:hover, input[type=text]:hover, input[type=submit]:hover, input[type=reset]:hover, button{
+input[type=search]:hover, .input-text:hover, .small-button:hover, button{
     background: var(--primary2);
     border-style: none;
 }
-input[type=submit]:active, input[type=reset]:active, button:active{
+.small-button:active, button:active{
     background: var(--primary3);
     border-style: none;
 }
