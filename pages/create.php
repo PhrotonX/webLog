@@ -12,9 +12,9 @@
             <h1>Create Blog</h1>
             <form action="../base/post_config.php">
                 <label for="create-title">Title: </label>
-                <input type="text" id="create-title" name="create-title"><br>
+                <input class="input-text" type="text" id="create-title" name="create-title"><br>
                 <label for="create-content">Content: </label>
-                <input type="text" id="create-content" name="create-content"><br>
+                <input class="input-text" type="text" id="create-content" name="create-content"><br>
 
                 <input class="small-button" type="submit" id="create-submit">
                 <input class="small-button" type="reset" id="create-reset>">

@@ -12,9 +12,9 @@
             <h1>Log In or Sign Up</h1>
             <form action="../base/login_config.php" method="post" name="login-form" autocomplete="on">
                 <label for="login-email">Email: </label><br>
-                <input type="text" id="login-email" name="login-email"/><br>
+                <input class="input-text" type="text" id="login-email" name="login-email"/><br>
                 <label for="login-password">Password: </label><br>
-                <input type="password" id="login-password" name="login-password"/><br>
+                <input class="input-text" type="password" id="login-password" name="login-password"/><br>
                 <input class="small-button" type="submit">
                 <input class="small-button" type="reset">
             </form>
