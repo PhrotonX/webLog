@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <title>Log In or Sign Up - WebLog</title>
-        <link rel="stylegsheet" href="../base/style.css" type="text/css"/>
+        <link rel="stylesheet" href="../base/style.css" type="text/css"/>
     </head>
     <body>
         <?php require_once '../components/toolbar.html' ?>
