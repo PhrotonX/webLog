@@ -82,10 +82,6 @@ body{
     color: var(--color);
 }
 
-#content{
-    margin-top: 36px;
-}
-
 footer{
     padding: 50px;
 }
@@ -136,6 +132,7 @@ nav a{
     padding: 14px 16px;
     text-decoration: none;
     top: 0;
+    margin-bottom: 36px;
 }
 nav a:visited{
     background-color: var(--primary);
