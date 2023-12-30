@@ -182,9 +182,9 @@ section{
 
 .site-search-submit{
     background-color: white;
-    height: auto;
-    padding: 14px 8px;
-    width: 25%;
+    height: auto !important;
+    padding: 14px 8px !important;
+    width: 25% !important;
     /* border: none; */
 }
 
