@@ -11,7 +11,11 @@
         <section id="content">
             <h1>Create Blog</h1>
             <form action="../base/post_config.php">
-                <table>
+                <table class="form-table">
+                    <colgroup>
+                        <col class="form-table-label"/>
+                        <col class="form-table-field"/>
+                    </colgroup>
                     <tr>
                         <td>
                             <label for="create-title">Title: </label>

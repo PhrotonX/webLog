@@ -1,0 +1,47 @@
+.small-button{
+    padding: 8px 12px;
+}
+
+input[type=search], .input-text, button, .small-button{
+    background-color: var(--static);
+    border-style: none;
+}
+
+input[type=search], .input-text, #site-search-submit{
+    padding: 14px;
+    width: 75%;
+}
+
+input[type=search]:hover, .input-text:hover, .small-button:hover, button{
+    background: var(--primary2);
+    border-style: none;
+    box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.25);
+    transition: 0.1s;
+    -moz-box-shadow: 2px 6px 7px 0 #999999;
+	-webkit-box-shadow: 2px 6px 7px 0 #999999;
+	box-shadow: 2px 6px 7px 0 rgba(0, 0, 0, 0.25);
+}
+.small-button:active, button:active{
+    background: var(--primary3);
+    border-style: none;
+    -moz-box-shadow: 0px 0px 0px 0 #999999;
+	-webkit-box-shadow: 0px 0px 0px 0 #999999;
+    box-shadow: 0px 0px 0px 0  rgba(0, 0, 0, 0.25);
+    transition: 0.1s;
+}
+
+.input-text{
+    margin: 0px 3px 3px 0px;
+}
+
+.large-button{
+    padding: 4em 6em;
+}
+
+#form-table-label{
+    width: 30%;
+}
+
+#form-table-field{
+    width: 70%;
+}
