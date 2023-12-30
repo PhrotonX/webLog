@@ -9,7 +9,7 @@
         --primary: rgba(255, 255, 255, 0.75);
         /* --primary2: rgba(0, 0, 0, 0.5); */
         --primary2: rgba(200, 200, 200, 0.75);
-        --primary3: rgba(125, 125, 125, 0.50);
+        --primary3: rgba(125, 125, 125, 0.75);
         --static: rgba(180, 180, 180, 0.75);
     }
 }
