@@ -9,7 +9,7 @@ input[type=search], .input-text, button, .small-button{
 
 input[type=search], .input-text, #site-search-submit{
     padding: 14px;
-    width: 75%;
+    width: 100%;
 }
 
 input[type=search]:hover, .input-text:hover, .small-button:hover, button{
@@ -43,9 +43,9 @@ input[type=search]:hover, .input-text:hover, .small-button:hover, button{
 }
 
 .form-table-label{
-    width: 30%;
+    width: 25%;
 }
 
 .form-table-field{
-    width: 70%;
+    width: 75%;
 }
