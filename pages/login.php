@@ -11,7 +11,11 @@
         <section id="content">
             <h1>Log In or Sign Up</h1>
             <form action="../base/login_config.php" method="post" name="login-form" autocomplete="on">
-                <table>
+                <table class="form-table">
+                    <colgroup>
+                        <col class="form-table-label"/>
+                        <col class="form-table-field"/>
+                    </colgroup>
                     <tr>
                         <td>
                             <label for="login-email">Email: </label>
