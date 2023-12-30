@@ -102,7 +102,7 @@ input[type=search], .input-text, button, .small-button{
     border-style: none;
 }
 
-input[type=search], .input-text, .site-search-submit{
+input[type=search], .input-text, #site-search-submit{
     padding: 14px;
     width: 75%;
 }
@@ -180,7 +180,7 @@ section{
     width: 75%;
 }
 
-.site-search-submit{
+#site-search-submit{
     background-color: white;
     height: auto;
     padding: 14px 8px;
