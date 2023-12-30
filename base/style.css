@@ -111,8 +111,7 @@ input[type=search]:hover, .input-text:hover, .small-button:hover, button{
     background: var(--primary2);
     border-style: none;
     box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.25);
-    transition: all;
-
+    transition: 0.1s;
     -moz-box-shadow: 2px 6px 7px 0 #999999;
 	-webkit-box-shadow: 2px 6px 7px 0 #999999;
 	box-shadow: 2px 6px 7px 0 rgba(0, 0, 0, 0.25);
@@ -123,7 +122,7 @@ input[type=search]:hover, .input-text:hover, .small-button:hover, button{
     -moz-box-shadow: 0px 0px 0px 0 #999999;
 	-webkit-box-shadow: 0px 0px 0px 0 #999999;
     box-shadow: 0px 0px 0px 0  rgba(0, 0, 0, 0.25);
-    transition: all;
+    transition: 0.1s;
 }
 
 .input-text{
