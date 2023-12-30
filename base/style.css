@@ -110,10 +110,14 @@ input[type=search], .input-text, #site-search-submit{
 input[type=search]:hover, .input-text:hover, .small-button:hover, button{
     background: var(--primary2);
     border-style: none;
+    box-shadow: 0px 4px 4px 0px;
+    transition: all;
 }
 .small-button:active, button:active{
     background: var(--primary3);
     border-style: none;
+    box-shadow: 0px 1px 1px 0px;
+    transition: all;
 }
 
 .input-text{
