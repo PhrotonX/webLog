@@ -38,10 +38,10 @@ input[type=search]:hover, .input-text:hover, .small-button:hover, button{
     padding: 4em 6em;
 }
 
-#form-table-label{
+.form-table-label{
     width: 30%;
 }
 
-#form-table-field{
+.form-table-field{
     width: 70%;
 }
