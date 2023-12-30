@@ -171,6 +171,7 @@ section{
     height: auto;
     width: 40%;
     justify-content: space-between;
+    margin: 0px;
 }
 
 #site-search-bar{
