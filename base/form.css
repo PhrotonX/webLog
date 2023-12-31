@@ -15,11 +15,10 @@ input[type=search], .input-text, #site-search-submit{
 input[type=search]:hover, .input-text:hover, .small-button:hover, button:hover, .large-button:hover{
     background: var(--primary2);
     border-style: none;
-    box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.25);
-    transition: 0.1s;
-    -moz-box-shadow: 2px 6px 7px 0 #999999;
-	-webkit-box-shadow: 2px 6px 7px 0 #999999;
-	box-shadow: 2px 6px 7px 0 rgba(0, 0, 0, 0.25);
+    /* transition: 0.1s; */
+    -moz-box-shadow: 1px 2px 3px 0 #999999;
+	-webkit-box-shadow: 1px 2px 3px 0 #999999;
+	box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.25);
 }
 .small-button:active, button:active, .large-button:active{
     background: var(--primary3);
@@ -27,7 +26,7 @@ input[type=search]:hover, .input-text:hover, .small-button:hover, button:hover, 
     -moz-box-shadow: 0px 0px 0px 0 #999999;
 	-webkit-box-shadow: 0px 0px 0px 0 #999999;
     box-shadow: 0px 0px 0px 0  rgba(0, 0, 0, 0.25);
-    transition: 0.1s;
+    /* transition: 0.1s; */
 }
 
 .input-text{
