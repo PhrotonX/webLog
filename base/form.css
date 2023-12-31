@@ -7,7 +7,7 @@ input[type=search], .input-text, button, .small-button, .large-button{
     border-style: none;
 }
 
-input[type=search], .input-text, #site-search-submit, options{
+input[type=search], .input-text, #site-search-submit, select{
     padding: 14px;
     width: 100%;
 }
