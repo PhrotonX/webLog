@@ -54,7 +54,7 @@
                             <label for="signup-username">Username:</label>
                         </td>
                         <td>
-                            <input type="text" name="signup-username" id="signup-username" required/>
+                            <input class="input-text" type="text" name="signup-username" id="signup-username" required/>
                         </td>
                     </tr>
                     <tr>
@@ -62,7 +62,7 @@
                             <label for="signup-email">Email Address:</label>
                         </td>
                         <td>
-                            <input type="text" name="signup-email" id="signup-email"/>
+                            <input class="input-text" type="text" name="signup-email" id="signup-email"/>
                         </td>
                     </tr>
                     <tr>
@@ -70,7 +70,7 @@
                             <label for="signup-password">Password:</label>
                         </td>
                         <td>
-                            <input type="password" name="signup-password" id="signup-password" required/>
+                            <input class="input-text" type="password" name="signup-password" id="signup-password" required/>
                         </td>
                     </tr>
                     <tr>
@@ -78,9 +78,9 @@
                             <label>Name:</label>
                         </td>
                         <td>
-                            <input type="text" name="signup-firstname" id="signup-firstname" placeholder="First Name"/>
-                            <input type="text" name="signup-middlename" id="signup-middlename" placeholder="Middle Name"/>
-                            <input type="text" name="signup-lastname" id="signup-lastname" placeholder="Last Name"/>
+                            <input class="input-text" type="text" name="signup-firstname" id="signup-firstname" placeholder="First Name"/>
+                            <input class="input-text" type="text" name="signup-middlename" id="signup-middlename" placeholder="Middle Name"/>
+                            <input class="input-text" type="text" name="signup-lastname" id="signup-lastname" placeholder="Last Name"/>
                         </td>
                     </tr>
                     <tr>
@@ -606,8 +606,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="submit" name="singup-submit">
-                            <input type="reset" name="signup-reset">
+                            <input class="small-button" type="submit" name="singup-submit">
+                            <input class="small-button" type="reset" name="signup-reset">
                         </td>
                     </tr>
                 </table>
