@@ -7,7 +7,7 @@ input[type=search], .input-text, button, .small-button, .large-button{
     border-style: none;
 }
 
-input[type=search], .input-text, #site-search-submit{
+input[type=search], .input-text, #site-search-submit, options{
     padding: 14px;
     width: 100%;
 }
@@ -29,7 +29,7 @@ input[type=search]:hover, .input-text:hover, .small-button:hover, button:hover, 
     /* transition: 0.1s; */
 }
 
-.input-text{
+.input-text, select{
     margin: 0px 3px 3px 0px;
 }
 
