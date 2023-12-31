@@ -598,10 +598,10 @@
                             <label for="signup-gender">Gender:</label>
                         </td>
                         <td>
-                            <input type="radio" name="signup-gender" value="Male" required>
-                            <label for="signup-gender">Male</label>
-                            <input type="radio" name="signup-gender" value="Female" required>
-                            <label for="signup-gender">Female</label>
+                            <input type="radio" name="signup-gender-male" value="Male" required>
+                            <label for="signup-gender-male">Male</label>
+                            <input type="radio" name="signup-gender-female" value="Female" required>
+                            <label for="signup-gender-male">Female</label>
                         </td>
                     </tr>
                     <tr>
