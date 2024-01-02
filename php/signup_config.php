@@ -3,7 +3,7 @@
 
     session_start();
 
-    if(isset($_POST["signup-form"])){
+    //if(isset($_POST["signup-form"])){
 
         $birthday = strtotime(
             $db->validate($_POST["signup-birthmonth"]) + " " +
@@ -48,7 +48,7 @@
         echo '<script>
             window.location.href="..//html/index.php";
         </script>';
-    }
+    //}
 
     
 ?>
