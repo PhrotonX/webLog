@@ -40,7 +40,7 @@
             'N/A',
             ". true ."
             'member',
-            ". $db-.validate($_POST["signup-country"]) ."
+            ". $db->validate($_POST["signup-country"]) ."
         )";
 
         $db->save($sql);
