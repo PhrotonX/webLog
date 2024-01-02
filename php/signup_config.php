@@ -17,7 +17,6 @@
             username, 
             email,
             password_hash,
-            securepassword,
             joindate,
             firstname,
             middlename,
@@ -27,12 +26,12 @@
             description, 
             newaccount,
             type,
-            country
+            country,
+            securepassword
         ) VALUES(
             ". $db->validate($_POST["signup-username"]) .", 
             ". $db->validate($_POST["signup-email"]) .",
             ". $db->validate($_POST["signup-password"]) /* NEEDS HASHING */ .",
-            0,
             ". date("Y-m-d H:i:s") .",
             ". $db->validate($_POST["signup-firstname"]) .",
             ". $db->validate($_POST["signup-middlename"]) .",
@@ -42,7 +41,8 @@
             'N/A',
             1,
             'member',
-            ". $db->validate($_POST["signup-country"]) ."
+            ". $db->validate($_POST["signup-country"]) .",
+            0
         )";
 
         $db->save($sql);
