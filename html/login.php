@@ -43,7 +43,7 @@
                 </table>
             </form>
 
-            <form method="post" action="../php/signup-config.php" name="signup-form" autocomplete="on">
+            <form method="post" action="../php/signup_config.php" name="signup-form" autocomplete="on">
                 <table class="form-table">
                     <colgroup>
                         <col class="form-table-label"/>
