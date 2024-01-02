@@ -16,7 +16,7 @@
         $sql = "INSERT INTO accounts (
             username, 
             email,
-            password,
+            password_hash,
             securepassword,
             joindate,
             firstname,
