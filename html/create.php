@@ -11,7 +11,7 @@
 
         <section id="content">
             <h1>Create Blog</h1>
-            <form action="../base/post_config.php">
+            <form action="../php/post_config.php">
                 <table class="form-table">
                     <colgroup>
                         <col class="form-table-label"/>

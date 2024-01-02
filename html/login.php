@@ -11,7 +11,7 @@
         <section id="content">
             <h1>Log In or Sign Up</h1>
             <p>Already had an account? Login.</p>
-            <form action="../base/login_config.php" method="post" name="login-form" autocomplete="on">
+            <form action="../php/login_config.php" method="post" name="login-form" autocomplete="on">
                 <table class="form-table">
                     <colgroup>
                         <col class="form-table-label"/>
@@ -43,7 +43,7 @@
                 </table>
             </form>
 
-            <form method="post" action="../base/signup-config.php" name="signup-form" autocomplete="on">
+            <form method="post" action="../php/signup-config.php" name="signup-form" autocomplete="on">
                 <table class="form-table">
                     <colgroup>
                         <col class="form-table-label"/>
