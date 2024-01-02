@@ -20,6 +20,17 @@
                 echo "Unable to connect to Database: " . $e->getMessage();
             }
         }
+
+        function save($query){
+            $pdo->exec($query);
+        }
+
+        function validate($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
     }
 
     define("DB_HOST", "localhost");
