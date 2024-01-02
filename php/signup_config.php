@@ -46,7 +46,8 @@
         )";
 
         $db->save($sql);
-        
+        $db->close();
+
         echo '<script>
             window.location.href="..//html/index.php";
         </script>';
