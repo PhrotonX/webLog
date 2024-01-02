@@ -16,7 +16,6 @@
         $sql = "INSERT INTO accounts (
             username, 
             email,
-            password_hash,
             joindate,
             firstname,
             middlename,
@@ -27,11 +26,11 @@
             newaccount,
             type,
             country,
+            password_hash,
             securepassword
         ) VALUES(
             ". $db->validate($_POST["signup-username"]) .", 
             ". $db->validate($_POST["signup-email"]) .",
-            ". $db->validate($_POST["signup-password"]) /* NEEDS HASHING */ .",
             ". date("Y-m-d H:i:s") .",
             ". $db->validate($_POST["signup-firstname"]) .",
             ". $db->validate($_POST["signup-middlename"]) .",
@@ -42,6 +41,7 @@
             1,
             'member',
             ". $db->validate($_POST["signup-country"]) .",
+            ". $db->validate($_POST["signup-password"]) /* NEEDS HASHING */ .",
             0
         )";
 
