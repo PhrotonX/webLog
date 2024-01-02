@@ -32,7 +32,7 @@
             ". $db->validate($_POST["signup-username"]) .", 
             ". $db->validate($_POST["signup-email"]) .",
             ". $db->validate($_POST["signup-password"]) /* NEEDS HASHING */ .",
-            ". false .",
+            0,
             ". date("Y/m/d H:i:s") .",
             ". $db->validate($_POST["signup-firstname"]) .",
             ". $db->validate($_POST["signup-middlename"]) .",
@@ -40,7 +40,7 @@
             ". date("Y/m/d", $birthday) .", 
             ". $db->validate($_POST["signup-gender"]) .",
             'N/A',
-            ". true ."
+            1,
             'member',
             ". $db->validate($_POST["signup-country"]) ."
         )";
