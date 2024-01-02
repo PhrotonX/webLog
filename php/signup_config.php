@@ -6,8 +6,8 @@
     //if(isset($_POST["signup-form"])){
 
         $birthday = strtotime(
-            $db->validate($_POST["signup-birthmonth"]) + " " +
-            $db->validate($_POST["signup-birthday"]) + ", " +
+            $db->validate($_POST["signup-birthmonth"]) . " " .
+            $db->validate($_POST["signup-birthday"]) . ", " .
             $db->validate($_POST["signup-birthyear"])
         );
 
