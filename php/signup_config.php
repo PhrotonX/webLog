@@ -14,11 +14,11 @@
         );
 
         $sql = "INSERT INTO accounts (
-            username, 
-            email,
+            username,
             firstname,
             middlename,
             lastname,
+            email,
             birthdate, 
             gender, 
             description, 
@@ -30,10 +30,10 @@
             joindate
         ) VALUES(
             ". $db->validate($_POST["signup-username"]) .", 
-            ". $_POST["signup-email"] .",
             ". $db->validate($_POST["signup-firstname"]) .",
             ". $db->validate($_POST["signup-middlename"]) .",
             ". $db->validate($_POST["signup-lastname"]) .",
+            ". $_POST["signup-email"] .",
             ". date("Y-m-d", $birthday) .", 
             ". $db->validate($_POST["signup-gender"]) .",
             'N/A',
