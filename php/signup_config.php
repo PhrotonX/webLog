@@ -13,7 +13,7 @@
             $db->validate($_POST["signup-birthyear"])
         );
 
-        $sql = "INSERT INTO accounts (
+        $sql = "INSERT INTO accounts(
             username,
             email,
             firstname,
@@ -29,13 +29,13 @@
             securepassword,
             joindate
         ) VALUES(
-            ". $db->validate($_POST["signup-username"]) .", 
+            '". $db->validate($_POST["signup-username"]) ."', 
             '". $_POST["signup-email"] ."',
-            ". $db->validate($_POST["signup-firstname"]) .",
-            ". $db->validate($_POST["signup-middlename"]) .",
-            ". $db->validate($_POST["signup-lastname"]) .",
+            '". $db->validate($_POST["signup-firstname"]) ."',
+            '". $db->validate($_POST["signup-middlename"]) ."',
+            '". $db->validate($_POST["signup-lastname"]) ."',
             ". date("Y-m-d", $birthday) .", 
-            ". $db->validate($_POST["signup-gender"]) .",
+            '". $db->validate($_POST["signup-gender"]) ."',
             'N/A',
             1,
             'member',
@@ -49,7 +49,7 @@
         $db->close();
 
         echo '<script>
-            window.location.href="..//html/index.php";
+            window.location.href="..//html//index.php";
         </script>';
     //}
 
