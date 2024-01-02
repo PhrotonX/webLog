@@ -11,7 +11,7 @@
 
         function close(){
             try{
-                $this->$pdo = null;
+                $this->pdo = null;
             }catch(PDOException $e){
                 echo "Unable to disconnect from Database: " . $e->getMessage();
             }
@@ -33,7 +33,7 @@
         }
 
         function save($query){
-            $this->$pdo->exec($query);
+            $this->pdo->exec($query);
         }
 
         function validate($data){
