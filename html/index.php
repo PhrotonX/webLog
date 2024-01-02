@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>WebLog - Web Blogger</title>
-        <link rel="stylesheet" href="../base/style.css" type="text/css">
-        <script type="text/javascript" src="../base/script.js"></script>
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+        <script type="text/javascript" src="../js/script.js"></script>
     </head>
     <body>
-        <?php require_once '../components/toolbar.html' ?>
+        <?php require_once 'toolbar.html' ?>
         
         <!-- <section class="acrylic shadow parent" id="content"> -->
         <section class="parent" id="content">
@@ -90,6 +90,6 @@
             <p>Sample Text</p>
             
         </section>
-        <?php require_once '../components/footer.html'?>
+        <?php require_once 'footer.html'?>
     </body>
 </html>
