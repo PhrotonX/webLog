@@ -1,2 +1,2 @@
 AddType application/x-httpd-php .htm .html text/xml text/css .php
-DirectoryIndex html/index.php
+#DirectoryIndex html/index.php
