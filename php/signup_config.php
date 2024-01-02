@@ -30,7 +30,7 @@
             joindate
         ) VALUES(
             ". $db->validate($_POST["signup-username"]) .", 
-            ". $db->validate($_POST["signup-email"]) .",
+            ". $_POST["signup-email"] .",
             ". $db->validate($_POST["signup-firstname"]) .",
             ". $db->validate($_POST["signup-middlename"]) .",
             ". $db->validate($_POST["signup-lastname"]) .",
