@@ -6,7 +6,18 @@
         public $error = "";
 
         function __construct(){
-            
+            open();
+        }
+
+        function close(){
+            try{
+                $pdo = null;
+            }catch(PDOException $e){
+                echo "Unable to disconnect from Database: " . $e->getMessage();
+            }
+        }
+
+        function open(){
             try{
                 $this->pdo = new PDO(
                     "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET,
@@ -39,5 +50,4 @@
     define("DB_USER", "root");
     define("DB_PASSWORD", "");
 
-    $db = new Database();
 ?>

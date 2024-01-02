@@ -3,6 +3,8 @@
 
     session_start();
 
+    $db = new Database();
+
     //if(isset($_POST["signup-form"])){
 
         $birthday = strtotime(
