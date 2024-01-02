@@ -42,7 +42,7 @@
             '". $db->validate($_POST["signup-country"]) ."',
             ". $db->validate($_POST["signup-password"]) /* NEEDS HASHING */ .",
             0,
-            ". date("Y-m-d H:i:s") . "
+            NOW()
         )";
 
         $db->save($sql);
