@@ -40,7 +40,7 @@
             1,
             'member',
             '". $db->validate($_POST["signup-country"]) ."',
-            ". $db->validate($_POST["signup-password"]) /* NEEDS HASHING */ .",
+            '". $db->validate($_POST["signup-password"]) /* NEEDS HASHING */ ."',
             0,
             NOW()
         )";
