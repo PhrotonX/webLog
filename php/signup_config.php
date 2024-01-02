@@ -8,7 +8,7 @@
         $birthday = strtotime(
             $db->validate($_POST["signup-birthmonth"]) + " " +
             $db->validate($_POST["signup-birthday"]) + ", " +
-            $db->validate($_POST["signup-birthyear"]) + " " +
+            $db->validate($_POST["signup-birthyear"])
         );
 
         $sql = "INSERT INTO accounts (
