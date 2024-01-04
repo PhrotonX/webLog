@@ -13,8 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+use App\Http\Controllers\HomeController;
+
+/*Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
+*/
+
+Route::get('/', [HomeController::class, 'index']);
 
 require __DIR__.'/auth.php';
