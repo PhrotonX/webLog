@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>WebLog - Web Blogger</title>
-        <link rel="stylesheet" href="../css/style.css" type="text/css">
-        <script type="text/javascript" src="../js/script.js"></script>
+        <title>{{$pageTitle ?? 'Web Blog'}} - Web Blog</title>
+        <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
+        <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
     </head>
     <body>
         <span class="acrylic shadow parent" id="toolbar">

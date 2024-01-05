@@ -22,4 +22,13 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/about', 'ArticleController@about');
+
+Route::get('/test/{id}', function($id){
+    $data = [
+        'id' => $id
+    ];
+    return view('test', $data);
+});
+
 require __DIR__.'/auth.php';
