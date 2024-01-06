@@ -19,7 +19,7 @@
                 <span>
                     <a href="login.php">Login</a>
                     <a href="create.php">Create</a>
-                    <a href="index.php">Home</a>
+                    <a href="/">Home</a>
                     <a href="#">Blogs</a>
                     <a href="#">News</a>
                 </span>

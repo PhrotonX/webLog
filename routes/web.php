@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
 
 /*Route::get('/', function () {
     return ['Laravel' => app()->version()];
@@ -22,7 +23,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/about', 'ArticleController@about');
+Route::get('/pages/{type}/{title}', [PageController::class,  'loadArticle']);
 
 Route::get('/test/{id}', function($id){
     $data = [
