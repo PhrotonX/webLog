@@ -23,7 +23,7 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/pages/{type}/{title}', [PageController::class,  'loadArticle']);
+Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->name('pages.navigate');
 
 Route::get('/test/{id}', function($id){
     $data = [

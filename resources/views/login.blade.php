@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Log In or Sign Up - WebLog</title>
-        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-    </head>
-    <body>
-        <?php require_once 'toolbar.html' ?>
+@include('header')
 
         <section id="content">
             <h1>Log In or Sign Up</h1>
@@ -614,6 +606,4 @@
             </form>
         </section>
 
-        <?php require_once 'footer.html'?>
-    </body>
-</html>
+@include('footer')

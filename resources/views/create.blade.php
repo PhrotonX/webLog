@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Create Blog</title>
-        <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <?php require_once 'toolbar.html' ?>
+@include('header')
 
         <section id="content">
             <h1>Create Blog</h1>
@@ -44,6 +35,4 @@
             </form>
         </section>
 
-        <?php require_once 'footer.html'?>
-    </body>
-</html>
+@include('footer')

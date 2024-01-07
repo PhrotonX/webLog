@@ -9,7 +9,7 @@
     <body>
         <span class="acrylic shadow parent" id="toolbar">
             <header>
-                <h1><a href="index.php">WebLog</a></h1>
+                <h1><a href="/">WebLog</a></h1>
             </header>
             <nav>
                 <form method="get" id="site-search">
@@ -17,11 +17,11 @@
                     <input type="submit" id="site-search-submit">
                 </form>
                 <span>
-                    <a href="login.php">Login</a>
-                    <a href="create.php">Create</a>
+                    <a href="{{ route('pages.navigate', ['type'=>'login']) }}">Login</a>
+                    <a href="{{ route('pages.navigate', ['type'=>'create']) }}">Create</a>
                     <a href="/">Home</a>
                     <a href="#">Blogs</a>
-                    <a href="#">News</a>
+                    <a href="{{ route('pages.navigate', ['type'=>'article']) }}">News</a>
                 </span>
             </nav>
         </span>
