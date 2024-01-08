@@ -25,11 +25,6 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->name('pages.navigate');
 
-Route::get('/test/{id}', function($id){
-    $data = [
-        'id' => $id
-    ];
-    return view('test', $data);
-});
+Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('check.age');
 
 require __DIR__.'/auth.php';

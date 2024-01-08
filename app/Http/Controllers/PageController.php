@@ -54,6 +54,13 @@ class PageController extends Controller
         return view($type, $data);
     }
 
+    public function loadTest($webData = null){
+        $data = [
+            'id' => $webData
+        ];
+        return view('test', $data);
+    }
+
     // public function loadPage($title = null){
     //     if($title != null){
     //         $data = [
