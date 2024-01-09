@@ -16,9 +16,12 @@ class CheckAge
     public function handle(Request $request, Closure $next): Response
     {
         $age = $request->age;
-        if($age < 13){
-            die("Error 018: Cannot use this website! Your age (". $age .") is less than 13.");
-        }
+        //if($age != null){
+            if($age < 13){
+                die("Error 018: Cannot use this website! Your age (". $age .") is less than 13.");
+            }
+        //}
+        
         return $next($request);
     }
 }

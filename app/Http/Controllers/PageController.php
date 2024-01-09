@@ -12,6 +12,13 @@ use Illuminate\Http\Request;
  */
 class PageController extends Controller
 {
+    /*public function __invoke($type){
+        $data = [
+            'page' => $type
+        ];
+        return view($type, $data);
+    }*/
+
     /*
         In this function, the title and content of the webpage should be resolved from a database
         containing some path to html or php files and their metadata stored in an xml file.

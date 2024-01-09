@@ -21,9 +21,19 @@ use App\Http\Controllers\PageController;
 });
 */
 
+Route::name('submit')->middleware('check.age')->group(function(){
+    Route::get('submit/create/{age?}', function(){
+        //create.blade.php form submission function here...
+        echo "/submit/create";
+    })->name('create');
+});
+
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->name('pages.navigate');
+/* Single Invocation: */ //Route::get('/pages/{type}', 'PageController');
+
+/*Route::get('/user/blogs/{blogTitle?}')*/
 
 Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('check.age');
 
