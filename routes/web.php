@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*Route::get('/', function () {
     return ['Laravel' => app()->version()];
@@ -36,5 +39,14 @@ Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->nam
 /*Route::get('/user/blogs/{blogTitle?}')*/
 
 Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('check.age');
+
+/* RESOURCES */
+Route::resource('user', 'App\Http\Controllers\UserController');
+
+Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin']]);
+
+
+Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
+
 
 require __DIR__.'/auth.php';
