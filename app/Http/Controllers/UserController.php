@@ -6,6 +6,16 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    /**/
+
+    public function __construct(){
+        $this->middleware('check.age')->only('create');
+
+        $this->middleware(function($request, $next){
+            return $next($request);
+        });
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -17,9 +27,10 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($age)
     {
-        //
+        //@NOTE: Sample only! remove later.
+        return "age: " . $age;
     }
 
     /**

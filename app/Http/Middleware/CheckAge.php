@@ -8,6 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CheckAge
 {
+    /*public function __construct(){
+        
+    }*/
+
     /**
      * Handle an incoming request.
      *

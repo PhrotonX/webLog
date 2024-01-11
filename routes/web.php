@@ -43,6 +43,9 @@ Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('chec
 /* RESOURCES */
 Route::resource('user', 'App\Http\Controllers\UserController');
 
+//@NOTE: Sample only! remove later.
+Route::get('user/create/{age}', 'App\Http\Controllers\UserController@create');
+
 Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin']]);
 
 
