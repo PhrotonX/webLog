@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 /**
  * PagesController is a controller for static pages like special pages (about, help, contact us, etc...),
@@ -18,6 +19,21 @@ class PageController extends Controller
         ];
         return view($type, $data);
     }*/
+
+    /**
+     * Check if page exists
+     * 
+     * @param $page
+     * @return bool
+     */
+    public function isPageExists($page): bool
+    {
+        if(View::exists($page)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     /*
         In this function, the title and content of the webpage should be resolved from a database
@@ -43,27 +59,27 @@ class PageController extends Controller
     */
     public function loadPage($type = null, $title = null){
         if($type == "article" || $type == "news" || $type == "web"){
+
             if($title != null){
                 $data = [
                     'page' => $title
                 ];
             }else{
                 $data = [
-                    'page' => "All Articles"
+                    'page' => "all-articles"
                 ];
             }
             
+            return view($type, $data);
         }else{
-            $data = [
-                'page' => $type
-            ];
+            return view($type)->with('page', $type);
         }
-        return view($type, $data);
     }
 
     public function loadTest($webData = null){
         $data = [
-            'id' => $webData
+            'id' => $webData,
+            'names' => 'Charles','Robert','Martin'
         ];
         return view('test', $data);
     }
