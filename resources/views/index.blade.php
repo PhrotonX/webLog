@@ -1,87 +1,88 @@
-@include('header')
+@extends('layout.master')
 
+@section('title', 'Home')
+
+@section('content')
 <!-- <section class="acrylic shadow parent" id="content"> -->
-<section class="parent" id="content">
-    <button class="large-button" onclick="navigate(' {{route('pages.navigate', ['type'=>'create'])}} ')">Create a Blog</button>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
 
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
+<button class="large-button" onclick="navigate(' {{route('pages.navigate', ['type'=>'create'])}} ')">Create a Blog</button>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
 
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p>
-    <p>Sample Text</p><p>Sample Text</p>
-    <p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
 
-    <br>
-</section>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p>
+<p>Sample Text</p><p>Sample Text</p>
+<p>Sample Text</p>
 
+<br>
 
-@include('footer')
+@stop
