@@ -1,9 +1,10 @@
 @include('header')
 
+{{-- Soon, this form must be able to validate the user role type (e.g., member or admin) --}}
         <section id="content">
             <h1>Create Blog</h1>
-            {{-- <form action="../php/post_config.php"> --}}
-            {}
+            <form action="{{route('post.store', 'PostController')}}" method="post">
+                @csrf
                 <table class="form-table">
                     <colgroup>
                         <col class="form-table-label"/>

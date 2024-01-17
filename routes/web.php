@@ -46,7 +46,7 @@ Route::resource('user', 'App\Http\Controllers\UserController');
 //@NOTE: Sample only! remove later.
 Route::get('user/create/{age}', 'App\Http\Controllers\UserController@create');
 
-Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin']]);
+Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin', 'user' => 'member']]);
 
 
 Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);

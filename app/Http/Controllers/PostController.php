@@ -33,7 +33,12 @@ class PostController extends Controller
      */
     public function store(Request $request) /*: Response*/
     {
-        //
+        $this->validate($request, [
+            'create-title' => 'required',
+            'create-content' => 'required'
+        ]);
+
+        return "Stored to database (test)!";
     }
 
     /**
