@@ -1,8 +1,7 @@
 CREATE TABLE posts(
-    post_id INT PRIMARY KEY NOT NULL,
+    post_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     content LONGTEXT,
-    -- FOREIGN KEY (user_id) REFERENCES accounts(user_id),
     category VARCHAR(255),
     likes INT,
     dislikes INT,
@@ -12,11 +11,9 @@ CREATE TABLE posts(
 );
 
 CREATE TABLE comments(
-    comment_id INT PRIMARY KEY NOT NULL,
-    -- FOREIGN KEY (post_id) REFERENCES posts(post_id),
+    comment_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     content LONGTEXT,
-    -- FOREIGN KEY (user_id) REFERENCES accounts(user_id),
     likes INT,
     dislikes INT,
     view INT,
@@ -25,12 +22,9 @@ CREATE TABLE comments(
 );
 
 CREATE TABLE replies(
-    reply_id INT PRIMARY KEY NOT NULL,
-    -- FOREIGN KEY (post_id) REFERENCES posts(post_id),
-    -- FOREIGN KEY (comment_id) REFERENCES comments(comment_id),
+    reply_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     content LONGTEXT,
-    -- FOREIGN KEY (user_id) REFERENCES accounts(user_id),
     likes INT,
     dislikes INT,
     view INT,
@@ -39,8 +33,8 @@ CREATE TABLE replies(
 );
 
 CREATE TABLE metadata(
-    metadata_id INT PRIMARY KEY NOT NULL,
-    -- FOREIGN KEY (post_id) REFERENCES posts(post_id),
+    metadata_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    revision BIGINT,
     tags VARCHAR(255),
     metadata VARCHAR(65535)
 );

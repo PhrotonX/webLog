@@ -19,11 +19,6 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 
-/*Route::get('/', function () {
-    return ['Laravel' => app()->version()];
-});
-*/
-
 Route::name('submit')->middleware('check.age')->group(function(){
     Route::get('submit/create/{age?}', function(){
         //create.blade.php form submission function here...
@@ -40,16 +35,17 @@ Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->nam
 
 Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('check.age');
 
+/* POST */
+//Route::post('/sampleinsert', DB::insert('INSERT INTO accounts(username, email, password_hash, age), '));
+ 
 /* RESOURCES */
 Route::resource('user', 'App\Http\Controllers\UserController');
+Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin', 'user' => 'member']]);
+Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
 
 //@NOTE: Sample only! remove later.
-Route::get('user/create/{age}', 'App\Http\Controllers\UserController@create');
+//Route::get('user/create/{age}', 'App\Http\Controllers\UserController@create');
 
-Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin', 'user' => 'member']]);
-
-
-Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
 
 
 require __DIR__.'/auth.php';
