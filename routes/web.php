@@ -20,6 +20,12 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RootController;
 use App\Http\Controllers\UserController;
 
+use App\Models\User;
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->name('pages.navigate');
+
 Route::name('submit')->middleware('check.age')->group(function(){
     Route::get('submit/create/{age?}', function(){
         //create.blade.php form submission function here...
@@ -27,35 +33,51 @@ Route::name('submit')->middleware('check.age')->group(function(){
     })->name('create');
 });
 
-Route::get('/', [HomeController::class, 'index']);
-
-Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->name('pages.navigate');
-/* Single Invocation: */ //Route::get('/pages/{type}', 'PageController');
-
 /*Route::get('/user/blogs/{blogTitle?}')*/
-
-Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('check.age');
-
-/* POST */
-/*Route::get('/root/insert', function(){
-    DB::insert('INSERT INTO accounts(username, email, password_hash, age)
-    VALUES(?,?,?,?)', ['Root', 'root@root.com', 'password', 18]);
-});*/
-
-Route::get('root/delete/{id}', function($id){
-    $deleted = DB::delete("DELETE FROM ACCOUNTS WHERE ID=?", [$id]);
-    return $deleted;
-});
  
 /* RESOURCES */
-Route::resource('root', 'App\Http\Controllers\RootController');
 Route::resource('user', 'App\Http\Controllers\UserController');
 Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin', 'user' => 'member']]);
 Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
 
 //@NOTE: Sample only! remove later.
+//===================================================================================
 //Route::get('user/create/{age}', 'App\Http\Controllers\UserController@create');
 
+/* Single Invocation: */ //Route::get('/pages/{type}', 'PageController');
 
+Route::get('/root/insert', function(){
+    DB::insert('INSERT INTO accounts(username, email, password_hash, age)
+    VALUES(?,?,?,?)', ['Admin', 'admin@root.com', 'password', 18]);
+});
+
+Route::get('root/delete/{id}', function($id){
+    $deleted = DB::delete("DELETE FROM ACCOUNTS WHERE ID=?", [$id]);
+    return $deleted;
+});
+
+Route::get('root/read', function(){
+    /*$user = User::where('id', 2)->value('username');
+        echo $user;*/
+
+    $users = User::all();
+    foreach($users as $user){
+        echo $user->id . "\t-\t" . $user->username . "<br>";
+    }
+});
+
+Route::get('root/save', function(){
+    $user = new User;
+    $user->username = "Sample";
+    $user->email = "sample@email.com";
+    $user->password_hash = "sample";
+    $user->age = 17;
+    $user->save();
+});
+
+Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('check.age');
+
+Route::resource('root', 'App\Http\Controllers\RootController');
+//====================================================================================
 
 require __DIR__.'/auth.php';
