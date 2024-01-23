@@ -20,8 +20,6 @@ return new class extends Migration
             $table->integer('likes')->nullable();
             $table->integer('dislikes')->nullable();
             $table->integer('view')->nullable();
-            $table->dateTime('date_created');
-            $table->dateTime('date_modified');
             
             // Foreign keys
             $table->unsignedBigInteger('post_id');
@@ -33,6 +31,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('accounts');
             
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

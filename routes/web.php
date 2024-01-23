@@ -40,20 +40,43 @@ Route::resource('user', 'App\Http\Controllers\UserController');
 Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin', 'user' => 'member']]);
 Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
 
+
+
+
+
+
+
 //@NOTE: Sample only! remove later.
 //===================================================================================
 //Route::get('user/create/{age}', 'App\Http\Controllers\UserController@create');
 
 /* Single Invocation: */ //Route::get('/pages/{type}', 'PageController');
 
+Route::get('/root/insert/admin', function(){
+    DB::insert('INSERT INTO accounts(username, email, password_hash, age, type)
+    VALUES(?,?,?,?,?)', ['Admin', 'admin@root.com', 'password', 18, 'admin']);
+    DB::insert('INSERT INTO accounts(username, email, password_hash, age, type)
+    VALUES(?,?,?,?,?)', ['Owner', 'owner@root.com', 'password', 18, 'owner']);
+});
+
 Route::get('/root/insert', function(){
-    DB::insert('INSERT INTO accounts(username, email, password_hash, age)
-    VALUES(?,?,?,?)', ['Admin', 'admin@root.com', 'password', 18]);
+    User::create([
+        "username"=>"Sample 7",
+        "email"=>"sample7@sample.com",
+        "password_hash"=>"65g454bsd6fhnf4n65fg4n",
+        "firstname"=>"Sample 7",
+        "type"=>"admin",
+        "age"=>67
+    ]);
 });
 
 Route::get('root/delete/{id}', function($id){
-    $deleted = DB::delete("DELETE FROM ACCOUNTS WHERE ID=?", [$id]);
-    return $deleted;
+    $user = User::find($id);
+    $user->delete();
+});
+
+Route::get('root/destroy/{id}', function($id){
+    User::destroy($id);
 });
 
 Route::get('root/read', function(){
@@ -66,6 +89,19 @@ Route::get('root/read', function(){
     }
 });
 
+Route::get('root/restore/{id}', function($id){
+    User::withTrashed()->where('id', $id)->restore();
+});
+
+Route::get('root/trash/{id}', function($id){
+    $user = User::withTrashed()->where('id', $id)->get();
+    return $user;
+});
+
+Route::get('root/forcedelete/{id}', function($id){
+    User::onlyTrashed()->forceDelete('id', $id);
+});
+
 Route::get('root/save', function(){
     $user = new User;
     $user->username = "Sample";
@@ -73,6 +109,13 @@ Route::get('root/save', function(){
     $user->password_hash = "sample";
     $user->age = 17;
     $user->save();
+});
+
+Route::get('root/update', function(){
+    User::where("id", 7)->update([
+        "username" => "PogiAko",
+        "firstname" => "MrPogi",
+    ]);
 });
 
 Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('check.age');
