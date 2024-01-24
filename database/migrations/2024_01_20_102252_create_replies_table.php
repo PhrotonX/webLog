@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('replies', function (Blueprint $table) {
             $table->id('reply_id');
-            $table->string('title', 255);
-            $table->longText('content')->nullable();
+            $table->longText('content');
             $table->integer('likes')->nullable();
             $table->integer('dislikes')->nullable();
             $table->integer('view')->nullable();
@@ -25,10 +24,12 @@ return new class extends Migration
             $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('comment_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('reply_to');
             
             $table->foreign('post_id')->references('post_id')->on('posts');
             $table->foreign('comment_id')->references('comment_id')->on('comments');
             $table->foreign('user_id')->references('id')->on('accounts');
+            $table->foreign('reply_to')->references('id')->on('accounts');
             
             $table->timestamps();
             $table->softDeletes();

@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->char('username', 255);
-            $table->char('email', 255);
+            $table->char('handle', 255)->unique();
+            $table->char('email', 255)->unique();
             $table->string('password_hash', 255);
             $table->tinyInteger('securepassword')->nullable();
             $table->tinyInteger('newaccount')->nullable();
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->char('gender', 1)->nullable();
             $table->binary('description')->nullable();
             $table->char('country', 255)->nullable();
+            $table->enum('privacy', ['public', 'private', 'unlisted']);
             $table->timestamps(); // Adds created_at and updated_at columns
             $table->softDeletes(); // Adds deleted_at column for soft deletes
         });

@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('metadata', function (Blueprint $table) {
             $table->id('metadata_id');
-            $table->bigInteger('revision');
-            $table->string('tags', 255);
-            $table->longText('metadata');
+            $table->bigInteger('revision')->nullable();
+            $table->string('tags', 255)->nullable();
+            $table->longText('metadata')->nullable();
             
             // Foreign key
             $table->unsignedBigInteger('post_id');

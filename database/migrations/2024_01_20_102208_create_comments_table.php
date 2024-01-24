@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id('comment_id');
-            $table->string('title', 255);
-            $table->longText('content')->nullable();
+            $table->longText('content');
             $table->integer('likes')->nullable();
             $table->integer('dislikes')->nullable();
             $table->integer('view')->nullable();

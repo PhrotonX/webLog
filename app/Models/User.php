@@ -23,6 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'email',
+        'handle',
         'password_hash',
         'securepassword',
         'newaccount',
@@ -35,6 +36,7 @@ class User extends Authenticatable
         'gender',
         'description',
         'country',
+        'privacy',
     ];
 
     protected $guarded = [
@@ -60,4 +62,8 @@ class User extends Authenticatable
         //'email_verified_at' => 'datetime',
         'password_hash' => 'hashed',
     ];
+
+    public function post(){
+        return $this->hasOne('App\Models\Post');
+    }
 }

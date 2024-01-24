@@ -20,6 +20,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RootController;
 use App\Http\Controllers\UserController;
 
+use App\Models\Post;
 use App\Models\User;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -53,20 +54,22 @@ Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['
 /* Single Invocation: */ //Route::get('/pages/{type}', 'PageController');
 
 Route::get('/root/insert/admin', function(){
-    DB::insert('INSERT INTO accounts(username, email, password_hash, age, type)
-    VALUES(?,?,?,?,?)', ['Admin', 'admin@root.com', 'password', 18, 'admin']);
-    DB::insert('INSERT INTO accounts(username, email, password_hash, age, type)
-    VALUES(?,?,?,?,?)', ['Owner', 'owner@root.com', 'password', 18, 'owner']);
+    DB::insert('INSERT INTO accounts(username, email, password_hash, age, type, handle, privacy)
+    VALUES(?,?,?,?,?,?,?)', ['Admin', 'admin@root.com', 'password', 18, 'admin', 'admin', 'private']);
+    DB::insert('INSERT INTO accounts(username, email, password_hash, age, type, handle, privacy)
+    VALUES(?,?,?,?,?,?,?)', ['Owner', 'owner@root.com', 'password', 18, 'owner', 'owner', 'private']);
 });
 
 Route::get('/root/insert', function(){
     User::create([
         "username"=>"Sample 7",
         "email"=>"sample7@sample.com",
+        "handle"=>"sample7",
         "password_hash"=>"65g454bsd6fhnf4n65fg4n",
         "firstname"=>"Sample 7",
         "type"=>"admin",
-        "age"=>67
+        "age"=>67,
+        "privacy"=>"public",
     ]);
 });
 
@@ -108,6 +111,7 @@ Route::get('root/save', function(){
     $user->email = "sample@email.com";
     $user->password_hash = "sample";
     $user->age = 17;
+    $user->handle = "sample";
     $user->save();
 });
 
@@ -116,6 +120,14 @@ Route::get('root/update', function(){
         "username" => "PogiAko",
         "firstname" => "MrPogi",
     ]);
+});
+
+Route::get('root/user/{id}', function($id){
+    return User::find($id)->post;
+});
+
+Route::get('root/post/{id}/user', function($id){
+    return Post::find($id)->user->username;
 });
 
 Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('check.age');

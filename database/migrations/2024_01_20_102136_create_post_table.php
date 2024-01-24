@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('likes')->nullable();
             $table->integer('dislikes')->nullable();
             $table->integer('view')->nullable();
+            $table->tinyInteger('draft');
+            $table->enum('privacy', ['public', 'private', 'unlisted']);
             
             // Foreign key
             $table->unsignedBigInteger('user_id');
