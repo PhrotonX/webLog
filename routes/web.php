@@ -52,7 +52,7 @@ Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['
 //Route::get('user/create/{age}', 'App\Http\Controllers\UserController@create');
 
 /* Single Invocation: */ //Route::get('/pages/{type}', 'PageController');
-/*
+
 Route::get('/root/insert/admin', function(){
     DB::insert('INSERT INTO accounts(username, email, password_hash, age, type, handle, privacy)
     VALUES(?,?,?,?,?,?,?)', ['Admin', 'admin@root.com', 'password', 18, 'admin', 'admin', 'private']);
@@ -133,7 +133,7 @@ Route::get('root/post/{id}/user', function($id){
 Route::get('test/{age?}', [PageController::class, 'loadTest'])->middleware('check.age');
 
 Route::resource('root', 'App\Http\Controllers\RootController');
-*/
+
 //====================================================================================
 
 require __DIR__.'/auth.php';
