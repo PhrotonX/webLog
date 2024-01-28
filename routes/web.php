@@ -27,7 +27,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->name('pages.navigate');
 
-Route::name('submit')->middleware('check.age')->group(function(){
+Route::name('submit')->/*middleware('check.age')->*/group(function(){
     Route::get('submit/create/{age?}', function(){
         //create.blade.php form submission function here...
         echo "/submit/create";

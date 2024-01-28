@@ -9,7 +9,7 @@ class UserController extends Controller
     /**/
 
     public function __construct(){
-        $this->middleware('check.age')->only('create');
+        //$this->middleware('check.age')->only('create');
 
         $this->middleware(function($request, $next){
             return $next($request);
@@ -21,16 +21,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+
+        return view('user.index', compact('users'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create($age)
+    public function create()
     {
-        //@NOTE: Sample only! remove later.
-        return "age: " . $age;
+        return view('user.create');
     }
 
     /**
@@ -38,7 +39,29 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $birthdate = $data['signup-birthyear'] . $data['signup-birthmonth'] . $data['signup-birthday'];
+
+        $dateTimeInterval = new DateTimeInterval();
+        $result = $dateTimeInterval->diff(new DateTimeInterval($birthdate));
+        $age = $result->y;
+
+        User::create([
+            'username' => $data['signup-username'],
+            'email' => $data['signup-email'],
+            'password' => $data['signup-password'],
+            'firstname' => $data['signup-firstname'],
+            'middlename' => $data['signup-middlename'],
+            'lastname' => $data['signup-lastname'],
+            'birthdate' => $birthdate,
+            'age' => $age,
+            'country' => $data['signup-country'],
+            'gender' => $data['signup-gender'],
+
+        ]);
+
+        return redirect()->route('user.index');
     }
 
     /**
