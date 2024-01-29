@@ -37,11 +37,12 @@ class User extends Authenticatable
         'description',
         'country',
         'privacy',
+        'type',
     ];
 
-    protected $guarded = [
-        'type'
-    ];
+    /*protected $guarded = [
+        
+    ];*/
 
     /**
      * The attributes that should be hidden for serialization.

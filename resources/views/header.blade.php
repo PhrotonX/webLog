@@ -9,7 +9,7 @@
     <body>
         <span class="acrylic shadow parent" id="toolbar">
             <header>
-                <h1><a href="/">WebLog</a></h1>
+                <h1 id="navbar-title"><a href="/">WebLog</a></h1>
             </header>
             <nav>
                 <form method="get" id="site-search">
@@ -25,3 +25,4 @@
                 </span>
             </nav>
         </span>
+        <section id="content">

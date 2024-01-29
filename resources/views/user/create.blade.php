@@ -4,7 +4,9 @@
 
 <h1>Sign Up</h1>
 
-<form method="post" action="user/create" name="signup-form" autocomplete="on">
+<form method="post" action="store" name="signup-form" autocomplete="on">
+    @csrf
+    @method('PUT')
     <table class="form-table">
         <colgroup>
             <col class="form-table-label"/>

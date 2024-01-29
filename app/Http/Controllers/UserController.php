@@ -23,6 +23,8 @@ class UserController extends Controller
     {
         $users = User::all();
 
+        echo "index";
+
         return view('user.index', compact('users'));
     }
 
@@ -41,11 +43,11 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-        $birthdate = $data['signup-birthyear'] . $data['signup-birthmonth'] . $data['signup-birthday'];
+        /*$birthdate = $data['signup-birthyear'] . $data['signup-birthmonth'] . $data['signup-birthday'];
 
         $dateTimeInterval = new DateTimeInterval();
         $result = $dateTimeInterval->diff(new DateTimeInterval($birthdate));
-        $age = $result->y;
+        $age = $result->y;*/
 
         User::create([
             'username' => $data['signup-username'],
@@ -54,11 +56,11 @@ class UserController extends Controller
             'firstname' => $data['signup-firstname'],
             'middlename' => $data['signup-middlename'],
             'lastname' => $data['signup-lastname'],
-            'birthdate' => $birthdate,
-            'age' => $age,
+            'birthdate' => '20240123',
+            'age' => '18',
             'country' => $data['signup-country'],
             'gender' => $data['signup-gender'],
-
+            'type' => 'member'
         ]);
 
         return redirect()->route('user.index');
