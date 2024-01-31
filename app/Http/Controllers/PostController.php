@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+use App\Models\Post;
+
 class PostController extends Controller
 {
     /**
@@ -33,9 +35,19 @@ class PostController extends Controller
      */
     public function store(Request $request) /*: Response*/
     {
+        $data = $request->all();
+
         $this->validate($request, [
             'create-title' => 'required',
             'create-content' => 'required'
+        ]);
+
+        Post::create([
+            "title" => $data["create-title"],
+            "content" => $data["create-content"],
+            "draft" => "1",
+            "post_id" => 5,
+            "privacy" => "unlisted",
         ]);
 
         return "Stored to database (test)!";

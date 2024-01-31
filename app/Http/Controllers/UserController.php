@@ -49,6 +49,14 @@ class UserController extends Controller
         $result = $dateTimeInterval->diff(new DateTimeInterval($birthdate));
         $age = $result->y;*/
 
+        $this->validate($request, [
+            'signup-username' => 'required',
+            'signup-email' => 'required',
+            'password' => 'required',
+            'birthdate' => 'required',
+            'age' => 'required'
+        ]);
+
         User::create([
             'username' => $data['signup-username'],
             'email' => $data['signup-email'],
@@ -62,6 +70,8 @@ class UserController extends Controller
             'gender' => $data['signup-gender'],
             'type' => 'member'
         ]);
+
+        echo $data["signup-username"];
 
         return redirect()->route('user.index');
     }
