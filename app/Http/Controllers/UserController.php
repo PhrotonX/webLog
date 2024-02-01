@@ -57,7 +57,7 @@ class UserController extends Controller
             'age' => 'required'
         ]);
 
-        User::create([
+        /*User::create([
             'username' => $data['signup-username'],
             'email' => $data['signup-email'],
             'password' => $data['signup-password'],
@@ -69,7 +69,48 @@ class UserController extends Controller
             'country' => $data['signup-country'],
             'gender' => $data['signup-gender'],
             'type' => 'member'
-        ]);
+        ]);*/
+
+        DB::insert("INSERT INTO accounts(
+            username,
+            handle,
+            email,
+            password_hash,
+            securepassword,
+            newaccount,
+            type,
+            joindate,
+            firstname,
+            middlename,
+            lastname,
+            birthdate,
+            age,
+            gender,
+            country,
+            privacy
+        ) VALUES(
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+        )", [
+            $data["signup-username"],
+            $data["signup-handle"],
+            $data["signup-password"],
+        ]
+        );
 
         echo $data["signup-username"];
 

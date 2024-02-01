@@ -22,6 +22,14 @@
         </tr>
         <tr>
             <td>
+                <label for="signup-handle">Handle:</label>
+            </td>
+            <td>
+                <input class="input-text" type="text" name="signup-handle" id="signup-handle" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <label for="signup-email">Email Address:</label>
             </td>
             <td>
