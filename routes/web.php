@@ -41,8 +41,10 @@ Route::resource('user', 'App\Http\Controllers\UserController');
 Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin', 'user' => 'member']]);
 Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
 
+Route::post('user/store', 'App\Http\Controllers\UserController@store');
+
 /* REDIRECTS */
-Route::get('signup', 'App\Http\Controllers\UserController@create');
+//Route::get('signup', 'App\Http\Controllers\UserController@create');
 
 
 

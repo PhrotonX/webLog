@@ -41,7 +41,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        echo "store";
 
         /*$birthdate = $data['signup-birthyear'] . $data['signup-birthmonth'] . $data['signup-birthday'];
 
@@ -52,67 +52,31 @@ class UserController extends Controller
         $this->validate($request, [
             'signup-username' => 'required',
             'signup-email' => 'required',
-            'password' => 'required',
+            'password_hash' => 'required',
             'birthdate' => 'required',
             'age' => 'required'
         ]);
+        
+        $user = new User();
 
-        /*User::create([
-            'username' => $data['signup-username'],
-            'email' => $data['signup-email'],
-            'password' => $data['signup-password'],
-            'firstname' => $data['signup-firstname'],
-            'middlename' => $data['signup-middlename'],
-            'lastname' => $data['signup-lastname'],
-            'birthdate' => '20240123',
-            'age' => '18',
-            'country' => $data['signup-country'],
-            'gender' => $data['signup-gender'],
-            'type' => 'member'
-        ]);*/
+        //$user->username = $data["signup-username"];
+        $user->username = $request->input("signup-username");
+        $user->handle = $request->input("signup-handle");
+        $user->email = $request->input("signup-email");
+        $user->password_hash = $request->input("signup-password");
+        $user->securepassword = 1;
+        $user->newaccount = 1;
+        $user->type = "member";
+        $user->firstname = $request->input("signup-firstname");
+        $user->middlename = $request->input("signup-middlename");
+        $user->lastname = $request->input("signup-lastname");
+        $user->birthdate = "19700101";
+        $user->age = "18";
+        $user->gender = $request->input("signup-gender");
+        $user->country = $request->input("signup-country");
+        $user->privacy = "public";
 
-        DB::insert("INSERT INTO accounts(
-            username,
-            handle,
-            email,
-            password_hash,
-            securepassword,
-            newaccount,
-            type,
-            joindate,
-            firstname,
-            middlename,
-            lastname,
-            birthdate,
-            age,
-            gender,
-            country,
-            privacy
-        ) VALUES(
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-            ?,
-        )", [
-            $data["signup-username"],
-            $data["signup-handle"],
-            $data["signup-password"],
-        ]
-        );
-
-        echo $data["signup-username"];
+        $user->save();
 
         return redirect()->route('user.index');
     }

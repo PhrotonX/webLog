@@ -27,7 +27,6 @@ class User extends Authenticatable
         'password_hash',
         'securepassword',
         'newaccount',
-        'joindate',
         'firstname',
         'middlename',
         'lastname',
