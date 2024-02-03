@@ -4,9 +4,9 @@
 
 <h1>Sign Up</h1>
 
-<form method="post" action="store" name="signup-form" autocomplete="on">
+<form method="post" action="{{route('user.store')}}" name="signup-form" autocomplete="on">
     @csrf
-    @method('PUT')
+    @method("POST")
     <table class="form-table">
         <colgroup>
             <col class="form-table-label"/>

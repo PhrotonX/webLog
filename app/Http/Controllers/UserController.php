@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -41,7 +42,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        echo "store";
+        //echo "store";
 
         /*$birthdate = $data['signup-birthyear'] . $data['signup-birthmonth'] . $data['signup-birthday'];
 
@@ -49,17 +50,16 @@ class UserController extends Controller
         $result = $dateTimeInterval->diff(new DateTimeInterval($birthdate));
         $age = $result->y;*/
 
-        $this->validate($request, [
+        /*$this->validate($request, [
             'signup-username' => 'required',
             'signup-email' => 'required',
             'password_hash' => 'required',
             'birthdate' => 'required',
             'age' => 'required'
-        ]);
+        ]);*/
         
         $user = new User();
 
-        //$user->username = $data["signup-username"];
         $user->username = $request->input("signup-username");
         $user->handle = $request->input("signup-handle");
         $user->email = $request->input("signup-email");
@@ -72,7 +72,7 @@ class UserController extends Controller
         $user->lastname = $request->input("signup-lastname");
         $user->birthdate = "19700101";
         $user->age = "18";
-        $user->gender = $request->input("signup-gender");
+        $user->gender = trim($request->input("signup-gender"), "emale");
         $user->country = $request->input("signup-country");
         $user->privacy = "public";
 
