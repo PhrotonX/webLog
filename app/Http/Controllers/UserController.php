@@ -44,11 +44,16 @@ class UserController extends Controller
     {
         //echo "store";
 
-        /*$birthdate = $data['signup-birthyear'] . $data['signup-birthmonth'] . $data['signup-birthday'];
+        $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
+        
+        //echo $birthdate;
 
-        $dateTimeInterval = new DateTimeInterval();
-        $result = $dateTimeInterval->diff(new DateTimeInterval($birthdate));
-        $age = $result->y;*/
+        $timezone = "Asia/Manila";
+
+        $currentDate = new \DateTime($timezone);
+        $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
+        $result = $currentDate->diff($dateToCompare, $timezone);
+        $age = $result->y;
 
         /*$this->validate($request, [
             'signup-username' => 'required',
@@ -70,8 +75,8 @@ class UserController extends Controller
         $user->firstname = $request->input("signup-firstname");
         $user->middlename = $request->input("signup-middlename");
         $user->lastname = $request->input("signup-lastname");
-        $user->birthdate = "19700101";
-        $user->age = "18";
+        $user->birthdate = $birthdate;
+        $user->age = $age;
         $user->gender = trim($request->input("signup-gender"), "emale");
         $user->country = $request->input("signup-country");
         $user->privacy = "public";
