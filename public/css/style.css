@@ -84,6 +84,10 @@ body{
     padding-top: 48px;
 }
 
+.description{
+    visibility: hidden;
+}
+
 footer{
     padding: 50px;
 }

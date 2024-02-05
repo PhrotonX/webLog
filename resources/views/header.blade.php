@@ -17,11 +17,12 @@
                     <input type="submit" id="site-search-submit">
                 </form>
                 <span>
-                    <a href="{{ route('pages.navigate', ['type'=>'login']) }}">Login</a>
-                    <a href="{{ route('pages.navigate', ['type'=>'create']) }}">Create</a>
+                    <a href="{{ route('user.create', 'UserController') }}">Login</a>
+                    <a href="{{ route('post.create', 'PostController') }}">Create</a>
                     <a href="/">Home</a>
                     <a href="#">Blogs</a>
-                    <a href="{{ route('pages.navigate', ['type'=>'article']) }}">News</a>
+                    {{-- <a href="{{ route('pages.navigate', ['type'=>'article']) }}">News</a> --}}
+                    <a href="#">News</a>
                 </span>
             </nav>
         </span>

@@ -25,7 +25,7 @@ use App\Models\User;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->name('pages.navigate');
+//Route::get('/pages/{type?}/{title?}', [PageController::class,  'loadPage'])->name('pages.navigate');
 
 Route::name('submit')->/*middleware('check.age')->*/group(function(){
     Route::get('submit/create/{age?}', function(){

@@ -24,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     /**
@@ -42,15 +42,12 @@ class PostController extends Controller
             'create-content' => 'required'
         ]);
 
-        Post::create([
-            "title" => $data["create-title"],
-            "content" => $data["create-content"],
-            "draft" => "1",
-            "post_id" => 5,
-            "privacy" => "unlisted",
-        ]);
+        $post = new Post();
 
-        return "Stored to database (test)!";
+        $post->title = $request->input("post-title");
+        $post->title = $request->input("post-content");
+
+        echo "Stored to database (test)!";
     }
 
     /**
