@@ -40,7 +40,7 @@
                     <option value="unlisted">Unlisted</option>
                 </select>
                 <div id="post-privacy-description" class="description">
-                    
+                    <p></p>
                 </div>
             </td>
         </tr>
