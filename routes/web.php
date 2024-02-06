@@ -35,11 +35,15 @@ Route::name('submit')->/*middleware('check.age')->*/group(function(){
 });
 
 /*Route::get('/user/blogs/{blogTitle?}')*/
+
+Route::get('user/login', 'App\Http\Controllers\UserController@login')->name('user.login');
  
 /* RESOURCES */
 Route::resource('user', 'App\Http\Controllers\UserController');
 Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin', 'user' => 'member']]);
 Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
+
+
 
 Route::post('user/store', 'App\Http\Controllers\UserController@store');
 

@@ -17,7 +17,7 @@
                     <input type="submit" id="site-search-submit">
                 </form>
                 <span>
-                    <a href="{{ route('user.create', 'UserController') }}">Login</a>
+                    <a href="{{ route('user.login', 'UserController') }}">Login</a>
                     <a href="{{ route('post.create', 'PostController') }}">Create</a>
                     <a href="/">Home</a>
                     <a href="#">Blogs</a>

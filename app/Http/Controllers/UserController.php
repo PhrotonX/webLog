@@ -29,6 +29,14 @@ class UserController extends Controller
         return view('user.index', compact('users'));
     }
 
+    public function login(Request $request){
+        echo view("user.login");
+
+        $email = $request->input("login-email");
+        $password = $request->input("login-password");
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      */
