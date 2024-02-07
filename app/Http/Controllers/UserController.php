@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\User;
 
 class UserController extends Controller
@@ -35,6 +36,8 @@ class UserController extends Controller
         $email = $request->input("login-email");
         $password = $request->input("login-password");
         
+        $user = new User();
+        //if($use)
     }
 
     /**
@@ -50,11 +53,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //echo "store";
-
+        /*
         $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
-        
-        //echo $birthdate;
 
         $timezone = "Asia/Manila";
 
@@ -62,14 +62,6 @@ class UserController extends Controller
         $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
         $result = $currentDate->diff($dateToCompare, $timezone);
         $age = $result->y;
-
-        /*$this->validate($request, [
-            'signup-username' => 'required',
-            'signup-email' => 'required',
-            'password_hash' => 'required',
-            'birthdate' => 'required',
-            'age' => 'required'
-        ]);*/
         
         $user = new User();
 
@@ -90,8 +82,10 @@ class UserController extends Controller
         $user->privacy = "public";
 
         $user->save();
-
+        */
+        
         return redirect()->route('user.index');
+        
     }
 
     /**
