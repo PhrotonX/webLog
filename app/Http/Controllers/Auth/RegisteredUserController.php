@@ -16,6 +16,10 @@ class RegisteredUserController extends Controller
 {
     private $age = 0;
     private $birthdate = 0;
+    public function create(){
+        return view('user.login');
+    }
+
     /**
      * Handle an incoming registration request.
      *
@@ -30,45 +34,17 @@ class RegisteredUserController extends Controller
             'signup-handle' => ['required', 'regex:[@]\w'],
         ]);
 
-        handleBirthdate($request);
+        $user = User::query("SELECT FROM accounts WHERE email" + $request->input("login-email"));
+        if($user->password === $request->input("login-password")){
+            event(new Registered($user));
+
+            Auth::login($user);
+        }
+
         
-        
-        
-        $user = new User();
-
-        $user->username = $request->input("signup-username");
-        $user->handle = HandleController::addAtSign($request->input("signup-handle"));
-        $user->email = $request->input("signup-email");
-        $user->password_hash = $request->input("signup-password");
-        $user->securepassword = 1;
-        $user->newaccount = 1;
-        $user->type = "member";
-        $user->firstname = $request->input("signup-firstname");
-        $user->middlename = $request->input("signup-middlename");
-        $user->lastname = $request->input("signup-lastname");
-        $user->birthdate = $birthdate;
-        $user->age = $age;
-        $user->gender = trim($request->input("signup-gender"), "emale");
-        $user->country = $request->input("signup-country");
-        $user->privacy = "public";
-
-        $user->save();
-
-        event(new Registered($user));
-
-        Auth::login($user);
 
         return response()->noContent();
     }
 
-    private function handleBirthdate(Request $request){
-        $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
-
-        $timezone = "Asia/Manila";
-
-        $currentDate = new \DateTime($timezone);
-        $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
-        $result = $currentDate->diff($dateToCompare, $timezone);
-        $this->age = $result->y;
-    }
+    
 }

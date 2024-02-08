@@ -6,7 +6,7 @@
 <h1>Log In or Sign Up</h1>
 <p>Already had an account? Login.</p>
 {{-- Update this to use it's own non-resource controller. --}}
-<form action="{{route('user.store')}}" method="post" name="login-form" autocomplete="on">
+<form action="{{route('user.login_config')}}" method="post" name="login-form" autocomplete="on">
     @csrf
     @method('PUT')
     <table class="form-table">

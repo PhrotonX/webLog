@@ -30,7 +30,7 @@ class UserController extends Controller
         return view('user.index', compact('users'));
     }
 
-    public function login(Request $request){
+    /*public function login(Request $request){
         echo view("user.login");
 
         $email = $request->input("login-email");
@@ -38,7 +38,7 @@ class UserController extends Controller
         
         $user = new User();
         //if($use)
-    }
+    }*/
 
     /**
      * Show the form for creating a new resource.
@@ -53,7 +53,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        /*
         $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
 
         $timezone = "Asia/Manila";
@@ -66,7 +65,7 @@ class UserController extends Controller
         $user = new User();
 
         $user->username = $request->input("signup-username");
-        $user->handle = $request->input("signup-handle");
+        $user->handle = HandleController::addAtSign($request->input("signup-handle"));
         $user->email = $request->input("signup-email");
         $user->password_hash = $request->input("signup-password");
         $user->securepassword = 1;
@@ -82,7 +81,6 @@ class UserController extends Controller
         $user->privacy = "public";
 
         $user->save();
-        */
         
         return redirect()->route('user.index');
         
@@ -118,5 +116,16 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    private function handleBirthdate(Request $request){
+        $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
+
+        $timezone = "Asia/Manila";
+
+        $currentDate = new \DateTime($timezone);
+        $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
+        $result = $currentDate->diff($dateToCompare, $timezone);
+        $this->age = $result->y;
     }
 }

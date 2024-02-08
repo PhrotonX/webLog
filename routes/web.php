@@ -36,7 +36,8 @@ Route::name('submit')->/*middleware('check.age')->*/group(function(){
 
 /*Route::get('/user/blogs/{blogTitle?}')*/
 
-Route::get('user/login', 'App\Http\Controllers\UserController@login')->name('user.login');
+Route::get('user/login', 'App\Http\Controllers\Auth\RegisteredUserController@create')->name('user.login');
+Route::get('user/login/config', 'App\Http\Controllers\Auth\RegisteredUserController@store')->name('user.login_config');
  
 /* RESOURCES */
 Route::resource('user', 'App\Http\Controllers\UserController');
