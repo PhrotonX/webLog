@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\User\HandleController;
 use App\Models\User;
 
 class UserController extends Controller

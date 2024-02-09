@@ -9,7 +9,7 @@ class HandleController extends Controller
 {
     public static function addAtSign($handle){
         if(!str_starts_with($handle, "@")){
-            return "@" + $handle;
+            return "@" . $handle;
         }
         
         return $handle;

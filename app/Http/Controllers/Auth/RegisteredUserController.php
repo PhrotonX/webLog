@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::query("SELECT FROM accounts WHERE email" + $request->input("login-email"));
-        if($user->password === $request->input("login-password")){
+        if(Hash::check()){
             event(new Registered($user));
 
             Auth::login($user);
@@ -43,7 +43,8 @@ class RegisteredUserController extends Controller
 
         
 
-        return response()->noContent();
+        //return response()->noContent();
+        return view("index");
     }
 
     

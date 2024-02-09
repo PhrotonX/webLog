@@ -8,7 +8,7 @@
 {{-- Update this to use it's own non-resource controller. --}}
 <form action="{{route('user.login_config')}}" method="post" name="login-form" autocomplete="on">
     @csrf
-    @method('PUT')
+    @method('POST')
     <table class="form-table">
         <colgroup>
             <col class="form-table-label"/>
