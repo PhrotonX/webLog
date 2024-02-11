@@ -31,10 +31,6 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'signup-username' => ['required', 'string', 'max:255'],
-            'signup-email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'signup-password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'signup-handle' => ['required', 'regex:[@]\w'],
         ]);
 
         $user = User::query("SELECT FROM accounts WHERE email" + $request->input("login-email"));

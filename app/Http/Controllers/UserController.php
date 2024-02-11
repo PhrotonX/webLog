@@ -54,7 +54,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
+        /*$birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
 
         $timezone = "Asia/Manila";
 
@@ -83,7 +83,7 @@ class UserController extends Controller
 
         $user->save();
         
-        return redirect()->route('user.index');
+        return redirect()->route('user.index');*/
         
     }
 
