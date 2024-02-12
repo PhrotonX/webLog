@@ -12,7 +12,32 @@ class RegisterController extends Controller
     }
 
     public function register(RegisterRequest $request){
-        $user = User::create($request->validated());
+        $timezone = "Asia/Manila";
+
+        $currentDate = new \DateTime($timezone);
+        $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
+        $result = $currentDate->diff($dateToCompare, $timezone);
+        $age = $result->y;
+        
+        $user = new User();
+
+        $user->username = $request->input("signup-username");
+        $user->handle = HandleController::addAtSign($request->input("signup-handle"));
+        $user->email = $request->input("signup-email");
+        $user->password_hash = $request->input("signup-password");
+        $user->securepassword = 1;
+        $user->newaccount = 1;
+        $user->type = "member";
+        $user->firstname = $request->input("signup-firstname");
+        $user->middlename = $request->input("signup-middlename");
+        $user->lastname = $request->input("signup-lastname");
+        $user->birthdate = $birthdate;
+        $user->age = $age;
+        $user->gender = trim($request->input("signup-gender"), "emale");
+        $user->country = $request->input("signup-country");
+        $user->privacy = "public";
+
+        $user->save($user);
 
         auth()->login();
 

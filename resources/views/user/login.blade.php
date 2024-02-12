@@ -19,7 +19,7 @@
                 <label for="login-email">Email: </label>
             </td>
             <td>
-                <input class="input-text" type="text" id="login-email" name="login-email"/>
+                <input class="input-text" type="email" id="login-email" name="login-email"/>
             </td>
         </tr>
         <tr>
