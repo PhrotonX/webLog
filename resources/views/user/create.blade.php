@@ -1,5 +1,6 @@
-@include('header')
+@extends('layout.master')
 
+@section('content')
 @section('title', 'Sign Up')
 
 <h1>Sign Up</h1>
@@ -585,4 +586,4 @@
     </table>
 </form>
 
-@include('footer')
+@stop

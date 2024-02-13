@@ -1,0 +1,18 @@
+.dropdown{
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    width: 160px;
+    overflow: auto;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content{
+    background-color: green;
+    display: block;
+}
