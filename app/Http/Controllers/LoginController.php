@@ -9,17 +9,18 @@ use Illuminate\Validation\ValidationException;
 class LoginController extends Controller
 {
     public function show(){
-        return view('user.login');
+        return view('user.login', ["status" => "none"]);
     }
 
     public function login(LoginRequest $request){
         try{
             $request->authenticate();
 
-            return view('/');
+            return view('index');
         }catch(ValidationException $e){
-            echo 'Login Error! ' + $e->errorBag() + " " + $e->status();
-            return view('user.login');
+            return view('user.login',[
+                "status" => "error",
+            ]);
         }
     }
 }

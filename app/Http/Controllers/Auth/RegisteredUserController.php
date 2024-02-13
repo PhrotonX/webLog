@@ -40,16 +40,16 @@ class RegisteredUserController extends Controller
             Auth::login($user);
         }
 
-        /*$user = User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]);*/
+        ]);
 
         
 
-        //return response()->noContent();
-        return view("index");
+        return response()->noContent();
+        //return view("index");
     }
 
     

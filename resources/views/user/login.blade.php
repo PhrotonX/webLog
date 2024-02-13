@@ -39,6 +39,14 @@
         </tr>
     </table>
 </form>
+@if ($status == "error")
+    <div class="acrylic shadow parent">
+        <blockquote>
+            <p>Invalid email or password!</p>
+        </blockquote>
+    </div>    
+
+@endif
 
 <p>Don't have an account? <a href="{{route('user.create')}}">Sign Up.</a></p>
 
