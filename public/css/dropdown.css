@@ -2,17 +2,22 @@
     position: relative;
     display: block;
     cursor: pointer;
+    float: right;
 }
 
 .dropdown-content{
     display: none;
     position: absolute;
     width: 160px;
-    overflow: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    /* overflow: auto; */
     z-index: 1;
+    top: 50px;
+    /* float: left; */
 }
 
 .dropdown:hover .dropdown-content{
-    background-color: green;
+    /* background-color: inherit; */
     display: block;
 }

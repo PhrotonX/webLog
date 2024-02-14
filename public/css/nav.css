@@ -1,9 +1,9 @@
 @import url('toolbar.css');
 
 nav{
-    float: right;
-    height: auto;
-    overflow: hidden;
+    /* float: left; */
+    /* height: auto; */
+    overflow: visible;
     width: 100%;
 }
 

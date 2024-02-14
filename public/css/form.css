@@ -49,3 +49,27 @@ input[type=search]:hover, .input-text:hover, .small-button:hover, button:hover, 
 .form-table-field{
     width: 75%;
 }
+
+#site-search{
+    display: flex;
+    float: left;
+    /* height: auto; */
+    /* width: 40%; */
+    /* justify-content: space-between; */
+    /* margin: 0px; */
+}
+
+#site-search-bar{
+    /* background-color: white; */
+    /* height: auto; */
+    padding: 14px;
+    width: 75%;
+}
+
+#site-search-submit{
+    /* background-color: white; */
+    /* height: auto; */
+    padding: 14px 8px;
+    width: 25%;
+    /* border: none; */
+}
