@@ -8,8 +8,6 @@ a, h1, h2, h3, h4, h5, h6, label, p{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
 .parent::after {
     /* background-color: rgba(230, 240, 255, 0.50); */
     background-color: var(--primary);

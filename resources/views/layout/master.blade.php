@@ -22,7 +22,7 @@
                     <a href="/">Home</a>
                     <div class="dropdown">
                         <a href="#">Blogs</a>
-                        <div class="acrylic shadow parent dropdown-content ">
+                        <div class="dropdown-content acrylic shadow parent">
                             <a href="#">Blog type 1</a>
                             <a href="#">Blog type 2</a>
                             <a href="#">Blog type 3</a>
