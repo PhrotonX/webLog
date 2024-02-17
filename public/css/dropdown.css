@@ -1,3 +1,5 @@
+@import url('colors.css');
+
 .dropdown{
     position: relative;
     display: block;
@@ -9,6 +11,7 @@
     display: none;
     position: absolute;
     width: 160px;
+    max-height: 400px;
     overflow-y: auto;
     /* overflow: auto; */
     z-index: 1000;
@@ -17,6 +20,5 @@
 }
 
 .dropdown:hover .dropdown-content{
-    /* background-color: inherit; */
     display: block;
 }

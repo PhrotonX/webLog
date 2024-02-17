@@ -21,7 +21,7 @@
                     <a href="{{ route('post.create', 'PostController') }}">Create</a>
                     <a href="/">Home</a>
                     <div class="dropdown">
-                        <a href="#">Blogs</a>
+                        <a>Blogs</a>
                         <div class="dropdown-content acrylic shadow parent">
                             <a href="#">Blog type 1</a>
                             <a href="#">Blog type 2</a>
