@@ -5,7 +5,9 @@
 
 <h1>Sign Up</h1>
 
-<form method="post" action="{{route('user.store')}}" name="signup-form" autocomplete="on">
+<script src="{{asset('js/user/create.js')}}"></script>
+
+<form method="post" action="{{route('user.store')}}" name="signup-form" autocomplete="on" onload="loadYears()">
     @csrf
     @method("POST")
     <table class="form-table">
@@ -127,7 +129,7 @@
             <td>
                 <label for="signup-birthyear">Birth year:</label>
             </td>
-            <td onload="loadYears()">
+            <td>
                 {{-- <select id="signup-birthyear" name="signup-birthyear">
                     <option selected disabled hidden>Year</option>
                     <option value="2023">2023</option>
@@ -299,11 +301,7 @@
 
                 </select>
                 <script>
-                    var element = document.getElementById('signup-birthyear');
                     
-                    for(let i = new Date.getFullYear(); i > 1860; i--){
-                        element.innerHTML = '<option value="'+i+'">'.i.'</option>';
-                    }
                     
                 </script>
             </td>
