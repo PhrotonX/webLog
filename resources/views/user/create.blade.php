@@ -7,7 +7,7 @@
 
 <script src="{{asset('js/user/create.js')}}"></script>
 
-<form method="post" action="{{route('user.store')}}" name="signup-form" autocomplete="on" onload="loadYears()">
+<form method="post" action="{{route('user.store')}}" name="signup-form" autocomplete="on">
     @csrf
     @method("POST")
     <table class="form-table">
