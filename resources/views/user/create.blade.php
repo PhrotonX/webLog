@@ -5,8 +5,6 @@
 
 <h1>Sign Up</h1>
 
-<script src="{{asset('js/user/create.js')}}"></script>
-
 <form method="post" action="{{route('user.store')}}" name="signup-form" autocomplete="on">
     @csrf
     @method("POST")
@@ -119,9 +117,9 @@
                     <option value="26">26</option>
                     <option value="27">27</option>
                     <option value="28">28</option>
-                    <option value="29">29</option>
+                    {{-- <option value="29">29</option>
                     <option value="30">30</option>
-                    <option value="31">31</option>
+                    <option value="31">31</option> --}}
                 </select>
             </td>
         </tr>
@@ -594,5 +592,7 @@
         </tr>
     </table>
 </form>
+
+<script src="{{asset('js/src/user/create.js')}}"></script>
 
 @stop

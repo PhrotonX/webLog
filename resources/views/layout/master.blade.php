@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>{{$pageTitle ?? 'Web Blog'}} - Web Blog</title>
         <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
-        <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/src/script.js')}}"></script>
     </head>
     <body>
         <span class="acrylic shadow parent" id="navbar">
