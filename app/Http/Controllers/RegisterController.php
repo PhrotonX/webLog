@@ -8,7 +8,7 @@ use App\Http\Requests\RegisterRequest;
 class RegisterController extends Controller
 {
     public function show(){
-        return view('user.register');
+        return view('user.create');
     }
 
     public function register(RegisterRequest $request){

@@ -7,7 +7,7 @@
 
 <script src="{{asset('js/src/months.js')}}"></script>
 
-<form method="post" action="{{route('user.store')}}" name="signup-form" autocomplete="on">
+<form method="post" action="{{route('user.submit')}}" name="signup-form" autocomplete="on">
     @csrf
     @method("POST")
     <table class="form-table">
@@ -366,10 +366,6 @@
         <tr>
             <td>
                 <label for="signup-birthday">Birthday:</label>
-                <!-- @TODO: Use JavaScript and use any technology to disable days 29, 30, and 31
-                depending on month. 
-            
-                Disabling February 29 should be dependent on the year number (e.g. 2020 and 2024) -->
             </td>
             <td>
                 <select id="signup-birthday" name="signup-birthday">
@@ -390,7 +386,7 @@
         </tr>
         <tr>
             <td>
-                <input class="small-button" type="submit" name="singup-submit">
+                <input class="small-button" type="submit" name="signup-submit">
                 <input class="small-button" type="reset" name="signup-reset">
             </td>
         </tr>
