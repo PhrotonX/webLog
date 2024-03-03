@@ -40,13 +40,14 @@ Route::get('user/login', 'App\Http\Controllers\LoginController@show')->name('use
 Route::post('user/login/config', 'App\Http\Controllers\LoginController@login')->name('user.login_config');
  
 /* RESOURCES */
-Route::resource('user', 'App\Http\Controllers\UserController');
+//Route::resource('user', 'App\Http\Controllers\UserController');
 Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin', 'user' => 'member']]);
 Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
 
 
-
+Route::get('user/create', 'App\Http\Controllers\RegisterController@show')->name('user.create');
 Route::post('user/submit', 'App\Http\Controllers\RegisterController@register')->name('user.submit');
+
 
 /* REDIRECTS */
 //Route::get('signup', 'App\Http\Controllers\UserController@create');

@@ -22,11 +22,24 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'signup-username' => ['required', 'string', 'max:255'],
-            'signup-handle' => ["distinct:string"],
-            'signup-email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'signup-password' => ['required', 'confirmed', 'min:8'],
-            'signup-handle' => ['required', 'regex:[@]\w'],
+            'signup-username' => [
+                'required',
+                'string',
+                'max:255',
+                'unique:App\Models\User,username',
+            ],
+            'signup-handle' => [
+                "distinct:string",
+                "unique:App\Models\User,handle",
+            ],
+            'signup-email' => [
+                'required',
+                'string',
+                'lowercase',
+                'email',
+                'max:255',
+                'unique:App\Models\User,email'],
+            'signup-password' => ['required'],
         ];
     }
 }
