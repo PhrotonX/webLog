@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Controllers\User\HandleController;
 use App\Http\Requests\RegisterRequest;
 
 class RegisterController extends Controller
@@ -22,8 +23,7 @@ class RegisterController extends Controller
         $result = $currentDate->diff($dateToCompare, $timezone);
         $age = $result->y;
         
-        $user = new User();
-        $user = User::create($request->validated());
+        $user = new User($request->validated());
 
         $user->username = $request->input("signup-username");
         $user->handle = HandleController::addAtSign($request->input("signup-handle"));
