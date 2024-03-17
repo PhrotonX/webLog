@@ -41,9 +41,9 @@ class RegisterController extends Controller
         $user->country = $request->input("signup-country");
         $user->privacy = "public";
 
-        $user->save($user);
+        $user->save();
 
-        auth()->login();
+        auth()->login($user);
 
         return redirect('/')->with('Registration Success!', "Account Registered successfully!");
     }

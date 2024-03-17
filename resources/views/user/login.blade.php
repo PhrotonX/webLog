@@ -4,7 +4,24 @@
 
 @section('content')
 <h1>Log In or Sign Up</h1>
-<p>Already had an account? Login.</p>
+
+@if ($status == "none")
+    <p>Already had an account? Login.</p>
+@elseif ($status == "error")
+    <div class="acrylic shadow parent">
+        <blockquote>
+            <p>Invalid email or password!</p>
+        </blockquote>
+    </div>    
+
+@elseif ($status == "null")
+    <div class="acrylic shadow parent">
+        <blockquote>
+            <p>null</p>
+        </blockquote>
+    </div>    
+@endif
+
 {{-- Update this to use it's own non-resource controller. --}}
 <form action="{{route('user.login_config')}}" method="post" name="login-form" autocomplete="on">
     @csrf
@@ -39,14 +56,6 @@
         </tr>
     </table>
 </form>
-@if ($status == "error")
-    <div class="acrylic shadow parent">
-        <blockquote>
-            <p>Invalid email or password!</p>
-        </blockquote>
-    </div>    
-
-@endif
 
 <p>Don't have an account? <a href="{{route('user.create')}}">Sign Up.</a></p>
 

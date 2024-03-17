@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -13,14 +14,22 @@ class LoginController extends Controller
     }
 
     public function login(LoginRequest $request){
+        if($request == null){
+            return view('user.login', [
+                "status" => "null",
+            ]);
+        }
         try{
             $request->authenticate();
 
-            return view('index');
+            //Log::info(json_encode($request));
+            
+            return view('/');
         }catch(ValidationException $e){
-            return view('user.login',[
+            return $e->errors();
+            /*return view('user.login',[
                 "status" => "error",
-            ]);
+            ]);*/
         }
     }
 }
