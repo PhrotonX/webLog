@@ -67,7 +67,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Post');
     }
 
+    /*
     public function setPasswordAttribute($password){
         $this->attributes['password_hash'] = $bcrypt($password);
-    }
+    }*/
 }
