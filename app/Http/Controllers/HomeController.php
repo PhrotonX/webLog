@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $data = [
-            'pageTitle' => 'Home'
+        $pageData = [
+            'pageTitle' => 'Home',
         ];
 
-        return view('index', $data);
+        return view('index', $pageData);
+            //->with('pageData', $pageData)
+            //->with('userData', $userData);
     }
 }

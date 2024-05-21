@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
@@ -47,7 +49,17 @@ class LoginController extends Controller
             $user->password = $request->input("login-password");
             auth()->login($user);
 
-            return view('index');
+            
+            $userData = $this->getUserData(Auth::id());
+            if($userData != null){
+                return view('index', $userData);
+            }else{
+                return view('index', [
+                    'error' => 'null',
+                ]);
+            }
+            
+            //HomeController::index();
         }catch(ValidationException $e){
             return $e->errors();
             /*return view('user.login',[
