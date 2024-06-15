@@ -7,6 +7,11 @@
 @if(Auth::check())
     {{-- <h1>Welcome, User {{$userData->username}} {{Auth::id()}} !</h1> --}}
     <h1>User is not null</h1>
+    {{-- <p>User ID: {{Auth::user()->id}}</p> --}}
+    {{-- <p>User ID: {{$userData->username}}</p> --}}
+    <p>Username: {{Auth::user()->username}}</p>
+    {{-- <p>Handle: {{Auth:user()->handle}}</p> --}}
+    {{-- <p>email: {{Auth::user()->email}}</p> --}}
 @else
     <h1>Error: User is null</h1>
 @endif

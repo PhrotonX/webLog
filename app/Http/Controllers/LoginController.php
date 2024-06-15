@@ -16,6 +16,25 @@ class LoginController extends Controller
         return view('user.login', ["status" => "none"]);
     }
 
+    public function login(LoginRequest $request){
+        $credentials = $request->getCredentials();
+
+
+        if(!Auth::validate($credentials)):
+            return redirect()->to('user/login')->withErrors(trans('auth.failed'));
+        endif;
+
+        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+
+        Auth::login($user);
+
+        return $this->authenticated($request, $user);
+    }
+
+    protected function authenticated(Request $request, $user){
+        return redirect()->intended();
+    }
+
     /*public function login(LoginRequest $request){
         if($request == null){
             return view('user.login', [
@@ -24,6 +43,15 @@ class LoginController extends Controller
         }
         try{
             $request->authenticate();
+
+            $userData = Auth::user();
+            if(Auth::check()){
+                return view('index', $userData);
+            }else{
+                return view('index', [
+                    'error' => 'null',
+                ]);
+            }
 
             return view('index');
         }catch(ValidationException $e){
@@ -35,8 +63,8 @@ class LoginController extends Controller
 
         
     }*/
-
-    public function login(Request $request){
+        
+    /*public function login(Request $request){
         if($request == null){
             return view('user.login', [
                 "status" => "null",
@@ -49,24 +77,26 @@ class LoginController extends Controller
             $user->password = $request->input("login-password");
             auth()->login($user);
 
+            return redirect('/')->with('Log Success!', "Account Logged In successfully!");
             
-            $userData = $this->getUserData(Auth::id());
-            if($userData != null){
+            // $userData = $this->getUserData(Auth::id());
+            /*$userData = Auth::user();
+            if(Auth::check()){
                 return view('index', $userData);
             }else{
                 return view('index', [
                     'error' => 'null',
                 ]);
-            }
+            }*/
             
             //HomeController::index();
-        }catch(ValidationException $e){
+        /*}catch(ValidationException $e){
             return $e->errors();
             /*return view('user.login',[
                 "status" => "error",
             ]);*/
-        }
+        /*}
 
         
-    }
+    }*/
 }

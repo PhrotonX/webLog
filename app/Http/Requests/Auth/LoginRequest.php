@@ -25,12 +25,16 @@ class LoginRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'login-email' => ['required', 'string', 'email'],
-            'login-password' => ['required', 'string'],
+            'login-email' => 'required',
+            'login-password' => 'required',
         ];
+    }
+
+    public function getCredentials(){
+        return $this->only('email', 'password_hash');
     }
 
     /**
