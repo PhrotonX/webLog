@@ -5,12 +5,12 @@
 @section('content')
 <h1>Log In or Sign Up</h1>
 
-@if ($status == "none")
+@if (!isset($status))
     <p>Already had an account? Login.</p>
-@elseif ($status == "error")
+@elseif ($status == "error" || $status == "ERROR")
     <div class="acrylic shadow parent">
         <blockquote>
-            <p>Invalid email or password!</p>
+            <p>{{$message}}</p>
         </blockquote>
     </div>    
 

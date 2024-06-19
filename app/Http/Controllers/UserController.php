@@ -46,7 +46,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        return view('user.create', [
+            "routeType" => "signup",
+            "pageTitle" => "Sign Up",
+            "form" => [
+                "action" => "user.submit",
+            ],
+        ]);
     }
 
     /**
@@ -86,7 +92,10 @@ class UserController extends Controller
 
             auth()->login($user);
 
-            return redirect('/')->with('Registration Success!', "Account Registered successfully!");
+            return redirect('/')->with([
+                'status' => 'SUCCESS',
+                'message' => "Account Registered successfully!",
+            ]);
         }catch(Exception $e){
             echo $e->getTraceAsString();
         }
@@ -109,8 +118,9 @@ class UserController extends Controller
             return redirect('/')->with('Login success!', 'Account logged in successfully!');
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+        return back()->with([
+            'status' => 'ERROR',
+            'message' => 'The provided credentials do not match our records.',
         ])->onlyInput('login-email');
     }
 
@@ -123,23 +133,38 @@ class UserController extends Controller
     }
 
     public function showLogin(){
-        return view('user.login', ["status" => "none"]);
+        return view('user.login');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
-        //
+        return view('user.edit', [
+            "id" => Auth::user()->id,
+            "routeType" => "edit",
+            "pageTitle" => "Edit your profile",
+            "form" => [
+                "action" => "user.update",
+            ],
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            //validation here...
+        ]);
+
+        Auth::user()->update($request->all());
+        return('user.index')->with([
+            'status' => 'SUCCESS',
+            'message' => 'user profile updated successfully!',
+        ]);
     }
 
     /**

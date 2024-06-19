@@ -36,18 +36,20 @@ Route::name('submit')->/*middleware('check.age')->*/group(function(){
 
 /*Route::get('/user/blogs/{blogTitle?}')*/
 
-Route::get('user/login', 'App\Http\Controllers\UserController@showLogin')->name('user.login');
-Route::post('user/login/config', 'App\Http\Controllers\UserController@login')->name('user.login_config');
+
  
 /* RESOURCES */
 //Route::resource('user', 'App\Http\Controllers\UserController');
 Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => ['user' => 'admin', 'user' => 'member']]);
 Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
 
-
+Route::get('user/login', 'App\Http\Controllers\UserController@showLogin')->name('user.login');
+Route::post('user/login/config', 'App\Http\Controllers\UserController@login')->name('user.login_config');
 Route::get('user/create', 'App\Http\Controllers\UserController@create')->name('user.create');
 Route::post('user/submit', 'App\Http\Controllers\UserController@store')->name('user.submit');
 Route::get('user/index', 'App\Http\Controllers\UserController@index')->name('user.index');
+Route::get('user/edit', 'App\Http\Controllers\UserController@edit')->name('user.edit');
+Route::post('user/update', 'App\Http\Controllers\UserController@update')->name('user.update');
 
 
 /* REDIRECTS */

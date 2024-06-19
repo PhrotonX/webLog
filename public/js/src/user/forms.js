@@ -1,14 +1,23 @@
 //Paradigm: Event-driven
 
-var birthyear = document.getElementById('signup-birthyear');
-var birthmonth = document.getElementById('signup-birthmonth');
-var birthday = document.getElementById('signup-birthday');
+var birthyear;
+var birthmonth;
+var birthday;
 
-var country = document.getElementById('signup-country');
+var country;
 
 var days = 31;
 
+var type;
+
 document.addEventListener("DOMContentLoaded", (event) => {    
+    type = document.querySelector('meta[name="route_type"]').content;
+
+    birthyear = document.getElementById(type + '-birthyear');
+    birthmonth = document.getElementById(type + '-birthmonth');
+    birthday = document.getElementById(type + '-birthday');
+    country = document.getElementById(type + '-country');
+
     var date = new Date();
     for(let i = date.getFullYear(); i > 1840; i--){
         birthyear.innerHTML += '<option value="'+i+'">'+i+'</option>';
