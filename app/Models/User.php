@@ -50,7 +50,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password_hash',
-        //'remember_token',
+        'remember_token',
     ];
 
     /**
@@ -65,6 +65,10 @@ class User extends Authenticatable
 
     public function post(){
         return $this->hasOne('App\Models\Post');
+    }
+
+    public function getAuthPassword(){
+        return $this->password_hash;
     }
 
     /*

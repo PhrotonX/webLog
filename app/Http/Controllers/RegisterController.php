@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Controllers\User\HandleController;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -30,7 +31,7 @@ class RegisterController extends Controller
             $user->username = $request->input("signup-username");
             $user->handle = HandleController::addAtSign($request->input("signup-handle"));
             $user->email = $request->input("signup-email");
-            $user->password_hash = $request->input("signup-password");
+            $user->password_hash = Hash::make($request->input("signup-password"));
             $user->securepassword = 1;
             $user->newaccount = 1;
             $user->type = "member";

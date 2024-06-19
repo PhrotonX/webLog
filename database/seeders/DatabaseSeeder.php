@@ -16,9 +16,14 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::factory()->create([
             'username' => 'Test User',
+            'handle' => '@test',
             'email' => 'test@example.com',
-            'password_hash' => 'samplepassword',
+            'password_hash' => bcrypt('12345'),
             'age' => 18,
+            'first_name' => 'Testing',
+            'last_name' => 'Account',
+            'birthdate' => 20060101,
+            'privacy' => 'public',
         ]);
     }
 }

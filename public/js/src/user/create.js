@@ -41,10 +41,12 @@ function setBirthDays(){
         default:
             days = 31;
 
+            //Hide December 31, 1844 if the country is set to Philippines.
             if(birthyear.value == '1844' && birthmonth.value === '12'
             && country.value === 'Philippines'){
                 days = 30;
             }
+            
             break;
     }
 

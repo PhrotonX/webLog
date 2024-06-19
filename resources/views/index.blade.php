@@ -11,7 +11,8 @@
     {{-- <p>User ID: {{$userData->username}}</p> --}}
     <p>Username: {{Auth::user()->username}}</p>
     {{-- <p>Handle: {{Auth:user()->handle}}</p> --}}
-    {{-- <p>email: {{Auth::user()->email}}</p> --}}
+    <p>email: {{Auth::user()->email}}</p>
+    <p>id: {{Auth::id()}}</p>
 @else
     <h1>Error: User is null</h1>
 @endif
@@ -19,7 +20,7 @@
 
 @if(isset($userData))
     <h1>UserData is not null</h1>    
-    <h1>Welcome, User {{$userData->username}} {{Auth::id()}} !</h1>
+    <h1>Welcome, User {{$userData->username}}!</h1>
 @elseif(isset($error))
     <h1>UserData is null</h1>
 @endif
