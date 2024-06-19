@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
+/**
+ * \remarks Unused class.
+ * 
+ */
 class RegisteredUserController extends Controller
 {
     private $age = 0;

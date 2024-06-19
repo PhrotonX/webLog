@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers;
+//use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\User\HandleController;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -24,67 +32,86 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        //$users = User::all();
 
-        echo "index";
+        //echo "index";
 
-        return view('user.index', compact('users'));
+        //return view('user.index', compact('users'));
+
+        return view('user.index');
     }
-
-    /*public function login(Request $request){
-        echo view("user.login");
-
-        $email = $request->input("login-email");
-        $password = $request->input("login-password");
-        
-        $user = new User();
-        //if($use)
-    }*/
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //return view('user.create');
+        return view('user.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        /*$birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
+    public function store(RegisterRequest $request)
+    {   
+        try{
+            $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
 
-        $timezone = "Asia/Manila";
+            $timezone = "Asia/Manila";
 
-        $currentDate = new \DateTime($timezone);
-        $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
-        $result = $currentDate->diff($dateToCompare, $timezone);
-        $age = $result->y;
-        
-        $user = new User();
+            $currentDate = new \DateTime($timezone);
+            $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
+            $result = $currentDate->diff($dateToCompare, $timezone);
+            $age = $result->y;
+            
+            $user = new User($request->validated());
 
-        $user->username = $request->input("signup-username");
-        $user->handle = HandleController::addAtSign($request->input("signup-handle"));
-        $user->email = $request->input("signup-email");
-        $user->password_hash = $request->input("signup-password");
-        $user->securepassword = 1;
-        $user->newaccount = 1;
-        $user->type = "member";
-        $user->firstname = $request->input("signup-firstname");
-        $user->middlename = $request->input("signup-middlename");
-        $user->lastname = $request->input("signup-lastname");
-        $user->birthdate = $birthdate;
-        $user->age = $age;
-        $user->gender = trim($request->input("signup-gender"), "emale");
-        $user->country = $request->input("signup-country");
-        $user->privacy = "public";
+            $user->username = $request->input("signup-username");
+            $user->handle = HandleController::addAtSign($request->input("signup-handle"));
+            $user->email = $request->input("signup-email");
+            $user->password_hash = Hash::make($request->input("signup-password"));
+            $user->securepassword = 1;
+            $user->newaccount = 1;
+            $user->type = "member";
+            $user->firstname = $request->input("signup-firstname");
+            $user->middlename = $request->input("signup-middlename");
+            $user->lastname = $request->input("signup-lastname");
+            $user->birthdate = $birthdate;
+            $user->age = $age;
+            $user->gender = trim($request->input("signup-gender"), "emale");
+            $user->country = $request->input("signup-country");
+            $user->privacy = "public";
 
-        $user->save();
-        
-        return redirect()->route('user.index');*/
-        
+            $user->save();
+
+            auth()->login($user);
+
+            return redirect('/')->with('Registration Success!', "Account Registered successfully!");
+        }catch(Exception $e){
+            echo $e->getTraceAsString();
+        }
+    }
+
+    public function login(Request $request) : RedirectResponse{
+        $validatedData = $request->validate([
+            'login-email' => ['required', 'email'],
+            'login-password' => ['required']
+        ]);
+
+        $credentials = [
+            'email' => $validatedData['login-email'],
+            'password' => $validatedData['login-password'],
+        ];
+
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+
+            return redirect('/')->with('Login success!', 'Account logged in successfully!');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('login-email');
     }
 
     /**
@@ -92,7 +119,11 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('user.index');
+    }
+
+    public function showLogin(){
+        return view('user.login', ["status" => "none"]);
     }
 
     /**

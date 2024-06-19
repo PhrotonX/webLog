@@ -17,7 +17,12 @@
                     <input type="submit" id="site-search-submit">
                 </form>
                 <span class="toolbar">
-                    <a href="{{ route('user.login', 'RegisteredUserController') }}">Login</a>
+                    @if (Auth::check())
+                        <a href="{{ route('user.index')}}">Profile</a>
+                    @else
+                        <a href="{{ route('user.login') }}">Login</a>
+                    @endif
+                    
                     <a href="{{ route('post.create', 'PostController') }}">Create</a>
                     <a href="/">Home</a>
                     <div class="dropdown">
