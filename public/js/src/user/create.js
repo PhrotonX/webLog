@@ -51,7 +51,11 @@ function setBirthDays(){
     birthday.innerHTML = '';
 
     for(let i = 1; i <= days; i++){
-        birthday.innerHTML += '<option value="'+i+'">'+i+'</option>';
+        let j = i;
+        if(i < 10){
+            j = "0" + i;
+        }
+        birthday.innerHTML += '<option value="'+j+'">'+i+'</option>';
     }
 }
 
