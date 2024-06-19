@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     {{-- <a href="{{ route('pages.navigate', ['type'=>'article']) }}">News</a> --}}
-                    <a href="#">News</a>
+                    {{-- <a href="#">News</a> --}}
                 </span>
             </nav>
         </span>
