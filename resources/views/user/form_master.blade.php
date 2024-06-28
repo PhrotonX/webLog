@@ -5,7 +5,6 @@
 <h1>{{$pageTitle}}</h1>
 
 <script src="{{asset('js/src/months.js')}}"></script>
-
 <form method="post" action="{{route($form['action'])}}" name="{{$routeType}}-form" autocomplete="on">
     @csrf
     @method("POST")
@@ -33,7 +32,7 @@
         </tr>
         <tr>
             <td>
-                <label for="{{$routeType}}-email">Email Address:</label>
+                <label for="{{$routeType}}-email" id="{{$routeType}}-email-label">Email Address:</label>
             </td>
             <td>
                 <input class="input-text" type="text" name="{{$routeType}}-email" id="{{$routeType}}-email"/>
@@ -41,7 +40,7 @@
         </tr>
         <tr>
             <td>
-                <label for="{{$routeType}}-password">Password:</label>
+                <label for="{{$routeType}}-password" id="{{$routeType}}-password-label">Password:</label>
             </td>
             <td>
                 <input class="input-text" type="password" name="{{$routeType}}-password" id="{{$routeType}}-password" required/>
@@ -377,9 +376,9 @@
                 <label for="{{$routeType}}-gender">Gender:</label>
             </td>
             <td>
-                <input type="radio" id="signip-gender-male" name="{{$routeType}}-gender" value="Male" required>
+                <input type="radio" id="signip-gender-male" name="{{$routeType}}-gender" value="M" required>
                 <label for="{{$routeType}}-gender-male">Male</label>
-                <input type="radio" id="signip-gender-female" name="{{$routeType}}-gender" value="Female" required>
+                <input type="radio" id="signip-gender-female" name="{{$routeType}}-gender" value="F" required>
                 <label for="{{$routeType}}-gender-female">Female</label>
             </td>
         </tr>
@@ -391,7 +390,8 @@
         </tr>
     </table>
 </form>
-
+@yield('form-script')
+<section id="form-script"></section>
 <script src="{{asset('js/src/user/forms.js')}}"></script>
 
 @stop

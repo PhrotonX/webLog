@@ -161,7 +161,7 @@ class UserController extends Controller
         ]);
 
         Auth::user()->update($request->all());
-        return('user.index')->with([
+        return view('user.index')->with([
             'status' => 'SUCCESS',
             'message' => 'user profile updated successfully!',
         ]);
