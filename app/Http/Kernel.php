@@ -67,6 +67,9 @@ class Kernel extends HttpKernel
         'precognitive' => \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'user.edit' => \App\Http\Middleware\User\ValidateEdit::class,
+        'user.login' => \App\Http\Middleware\User\ValidateLogin::class,
+        'user.signup' => \App\Http\Middleware\User\ValidateSignup::class,
         'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
     ];
 }

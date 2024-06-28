@@ -19,6 +19,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RootController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\User\ValidateEdit;
 
 use App\Models\Post;
 use App\Models\User;
@@ -49,7 +50,7 @@ Route::get('user/create', 'App\Http\Controllers\UserController@create')->name('u
 Route::post('user/submit', 'App\Http\Controllers\UserController@store')->name('user.submit');
 Route::get('user/index', 'App\Http\Controllers\UserController@index')->name('user.index');
 Route::get('user/edit', 'App\Http\Controllers\UserController@edit')->name('user.edit');
-Route::post('user/update', 'App\Http\Controllers\UserController@update')->name('user.update');
+Route::post('user/update', 'App\Http\Controllers\UserController@update')->name('user.update')->middleware(ValidateEdit::class);
 
 
 /* REDIRECTS */

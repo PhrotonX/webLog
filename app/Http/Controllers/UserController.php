@@ -8,6 +8,7 @@ use App\Http\Controllers\User\HandleController;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -156,15 +157,22 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate([
-            //validation here...
-        ]);
+        try{
+            Auth::user()->update($request->all());
 
-        Auth::user()->update($request->all());
-        return view('user.index')->with([
-            'status' => 'SUCCESS',
-            'message' => 'user profile updated successfully!',
-        ]);
+            return view('user.index')->with([
+                'status' => 'SUCCESS',
+                'message' => 'User profile updated successfully!',
+            ]);
+        }catch(AuthenticationException $e){
+            return view('user.index')->with([
+                'status' => 'ERROR',
+                'message' => 'User profile failed to update!',
+            ]);
+        }
+        
+
+        
     }
 
     /**
@@ -175,14 +183,19 @@ class UserController extends Controller
         //
     }
 
-    private function handleBirthdate(Request $request){
-        $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
+    private function handleBirthdate(Request $request, string $requestType){
+        $birthdate = $request->input($requestType."-birthyear") . $request->input($requestType."-birthmonth") . $request->input($requestType."-birthday");
 
         $timezone = "Asia/Manila";
 
         $currentDate = new \DateTime($timezone);
         $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
         $result = $currentDate->diff($dateToCompare, $timezone);
-        $this->age = $result->y;
+        $age = $result->y;
+
+        return [
+            'birthdate' => $birthdate,
+            'age' => $age,
+        ];
     }
 }

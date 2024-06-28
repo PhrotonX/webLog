@@ -4,6 +4,9 @@
 @section('title', 'User Profile')
 
 @if (Auth::check())
+    @isset($status)
+        <p>{{$message}}</p>
+    @endisset
     <h1>{{Auth::user()->username}}</h1>
     <p>{{Auth::user()->email}}</p>
     <p>{{Auth::user()->handle}}</p>
