@@ -22,53 +22,51 @@ return new class extends Migration
         Schema::dropIfExists('accounts');
         
         Schema::create('accounts', function(Blueprint $table){
-            $table->unsignedBigInteger('account_id');
-            $table->primary('account_id');
-            $table->string('firstname');
-            $table->string('middlename');
-            $table->string('lastname');
+            $table->unsignedBigInteger('account_id')->autoIncrement();
+            $table->string('firstname')->nullable();
+            $table->string('middlename')->nullable();
+            $table->string('lastname')->nullable();
             $table->string('username');
             $table->string('handle');
             $table->date('birthdate');
             $table->string('country');
             $table->char('gender', 1);
             $table->string('email');
-            $table->string('password');
+            $table->string('password_hash');
+            $table->string('type');
+            $table->string('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::create('categories', function(Blueprint $table){
-            $table->unsignedInteger('category_id');
-            $table->primary('category_id');
+            $table->unsignedInteger('category_id')->autoIncrement();
             $table->string('category_name');
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::create('posts', function(Blueprint $table){
+            $table->unsignedBigInteger('post_id')->autoIncrement();
             $table->unsignedInteger('category_id');
-            $table->unsignedBigInteger('post_id');
             $table->string('title');
             $table->mediumText('description_file_html');
             $table->mediumText('metadata_file_xml');
-            $table->primary('post_id');
             $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::create('tags', function(Blueprint $table){
+            $table->unsignedBigInteger('tag_id')->autoIncrement();
             $table->string('tag_name');
-            $table->primary('tag_name');
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::create('post_comments', function(Blueprint $table){ 
-            $table->unsignedBigInteger('comment_id');
+            $table->unsignedBigInteger('comment_id')->autoIncrement();
             $table->unsignedBigInteger('account_id');
-            $table->primary('comment_id');
             $table->foreign('account_id')->references('account_id')->on('accounts')->onDelete('cascade');
             $table->mediumText('content');
             $table->timestamps();
@@ -78,32 +76,27 @@ return new class extends Migration
         Schema::create('post_comment_replies', function(Blueprint $table){ 
             $table->unsignedBigInteger('reply_id');
             $table->unsignedBigInteger('parent_id');
-            $table->foreign('reply_id')->references('comment_id')->on('post_comments')->onDelete('cascade');
-            $table->foreign('parent_id')->references('comment_id')->on('post_comments')->onDelete('cascade');
+            $table->primary(['reply_id', 'parent_id']);
         });
 
         Schema::create('liked_posts', function(Blueprint $table){
-            $table->unsignedBigInteger('like_id');
             $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('account_id');
             $table->boolean('is_liked');
-            $table->primary(['like_id', 'post_id']);
-            $table->foreign('account_id')->references('account_id')->on('accounts')->onDelete('cascade');
+            $table->primary(['post_id', 'account_id']);
         });
 
         Schema::create('liked_post_comments', function(Blueprint $table){
-            $table->unsignedBigInteger('like_id');
             $table->unsignedBigInteger('comment_id');
             $table->unsignedBigInteger('account_id');
             $table->boolean('is_liked');
-            $table->primary(['like_id', 'comment_id']);
-            $table->foreign('account_id')->references('account_id')->on('accounts')->onDelete('cascade');
+            $table->primary(['comment_id', 'account_id']);
         });
 
         Schema::create('post_tags', function(Blueprint $table){
-            $table->string('tag_name');
+            $table->unsignedBigInteger('tag_id');
             $table->unsignedBigInteger('post_id');
-            $table->foreign('tag_name')->references('tag_name')->on('tags')->onDelete('cascade');
+            $table->foreign('tag_id')->references('tag_id')->on('tags')->onDelete('cascade');
             $table->foreign('post_id')->references('post_id')->on('posts')->onDelete('cascade');
         });
 

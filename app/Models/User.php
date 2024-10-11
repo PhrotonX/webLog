@@ -25,17 +25,13 @@ class User extends Authenticatable
         'email',
         'handle',
         'password_hash',
-        'securepassword',
-        'newaccount',
         'firstname',
         'middlename',
         'lastname',
         'birthdate',
-        'age',
         'gender',
         'description',
         'country',
-        'privacy',
         'type',
     ];
 
@@ -65,6 +61,17 @@ class User extends Authenticatable
 
     public function post(){
         return $this->hasOne('App\Models\Post');
+    }
+
+    public function getAge(){
+        $timezone = "Asia/Manila";
+
+        $currentDate = new \DateTime($timezone);
+        $dateToCompare = new \DateTime($this->birthdate, new \DateTimeZone($timezone));
+        $result = $currentDate->diff($dateToCompare, $timezone);
+        $age = $result->y;
+
+        return $age;
     }
 
     public function getAuthPassword(){
