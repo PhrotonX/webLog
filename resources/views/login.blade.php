@@ -5,6 +5,10 @@
 <p>Already had an account? Login.</p>
 {{-- Update this to use it's own non-resource controller. --}}
 
+@if(isset($status)){
+    <p>{{$message}}</p><br>
+}
+
 <form action="{{route('user.login_config')}}" method="POST" name="login-form" autocomplete="on">
     @csrf
     {{-- @method('PUT') --}}
