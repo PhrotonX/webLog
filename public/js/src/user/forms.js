@@ -12,7 +12,7 @@ var days = 31;
 
 var type;
 
-//document.addEventListener("DOMContentLoaded", (event) => {    
+    
 function loadFormContent(){
     return new Promise((resolve) => {
         alert("forms.js: " + USER.EVENT.FORM_LOADED);
@@ -39,8 +39,10 @@ function loadFormContent(){
     });
 }    
 
-window.loadFormContent = loadFormContent;
-//});
+document.addEventListener("DOMContentLoaded", (event) => {
+    alert("DOM");
+    window.loadFormContent = loadFormContent;
+});
 
 function onBirthdateUpdated(){
     setBirthDays();

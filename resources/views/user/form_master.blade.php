@@ -376,9 +376,9 @@
                 <label for="{{$routeType}}-gender">Gender:</label>
             </td>
             <td>
-                <input type="radio" id="signip-gender-male" name="{{$routeType}}-gender" value="M" required>
+                <input type="radio" id="{{$routeType}}-gender-male" name="{{$routeType}}-gender" value="M" required>
                 <label for="{{$routeType}}-gender-male">Male</label>
-                <input type="radio" id="signip-gender-female" name="{{$routeType}}-gender" value="F" required>
+                <input type="radio" id="{{$routeType}}-gender-female" name="{{$routeType}}-gender" value="F" required>
                 <label for="{{$routeType}}-gender-female">Female</label>
             </td>
         </tr>

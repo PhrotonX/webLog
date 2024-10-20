@@ -6,8 +6,6 @@
 
             //window.addEventListener(USER.EVENT.FORM_LOADED, (event) => {
             async function preloadFromData(){
-                alert("Script loaded");
-
                 var usernameField = document.getElementById("edit-username");
                 usernameField.value = "{{Auth::user()->username}}";
 
@@ -50,10 +48,6 @@
                 let birthyear = birthdate.slice(0, 4);
                 let birthmonth = birthdate.slice(5, 7);
                 let birthday = birthdate.slice(8, 10);
-
-                alert(birthyear);
-                alert(birthmonth);
-                alert(birthday);
 
                 birthYearField.value = birthyear;
                 birthMonthField.value = birthmonth;
