@@ -64,30 +64,19 @@ class UserController extends Controller
         try{
             $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
 
-            $timezone = "Asia/Manila";
-
-            $currentDate = new \DateTime($timezone);
-            $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
-            $result = $currentDate->diff($dateToCompare, $timezone);
-            $age = $result->y;
-            
             $user = new User($request->validated());
 
             $user->username = $request->input("signup-username");
             $user->handle = HandleController::addAtSign($request->input("signup-handle"));
             $user->email = $request->input("signup-email");
             $user->password_hash = Hash::make($request->input("signup-password"));
-            $user->securepassword = 1;
-            $user->newaccount = 1;
             $user->type = "member";
             $user->firstname = $request->input("signup-firstname");
             $user->middlename = $request->input("signup-middlename");
             $user->lastname = $request->input("signup-lastname");
             $user->birthdate = $birthdate;
-            $user->age = $age;
             $user->gender = trim($request->input("signup-gender"), "emale");
             $user->country = $request->input("signup-country");
-            $user->privacy = "public";
 
             $user->save();
 
@@ -125,6 +114,11 @@ class UserController extends Controller
         ])->onlyInput('login-email');
     }
 
+    public function logout(){
+        Auth::logout();
+        return redirect('user/login');
+    }
+
     /**
      * Display the specified resource.
      */
@@ -143,7 +137,7 @@ class UserController extends Controller
     public function edit()
     {
         return view('user.edit', [
-            "id" => Auth::user()->id,
+            "id" => Auth::user()->account_id,
             "routeType" => "edit",
             "pageTitle" => "Edit your profile",
             "form" => [
@@ -183,19 +177,19 @@ class UserController extends Controller
         //
     }
 
+    
     private function handleBirthdate(Request $request, string $requestType){
         $birthdate = $request->input($requestType."-birthyear") . $request->input($requestType."-birthmonth") . $request->input($requestType."-birthday");
-
-        $timezone = "Asia/Manila";
+        
+        //Should be moved to User model.
+        /*$timezone = "Asia/Manila";
 
         $currentDate = new \DateTime($timezone);
         $dateToCompare = new \DateTime($birthdate, new \DateTimeZone($timezone));
         $result = $currentDate->diff($dateToCompare, $timezone);
         $age = $result->y;
+        */
 
-        return [
-            'birthdate' => $birthdate,
-            'age' => $age,
-        ];
+        return $birthdate;
     }
 }

@@ -17,7 +17,7 @@
     <p>{{Auth::user()->age}}</p>
     <br>
     <button onclick="navigate('{{route('user.edit')}}')" class="small-button">Edit</button>
-    <button class="small-button">Log out</button>
+    <button onclick="navigate('{{route('user.logout')}}')" class="small-button">Log out</button>
 
 @else
     {{redirect('user.login')}}
