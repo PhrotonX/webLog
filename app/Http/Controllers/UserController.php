@@ -136,14 +136,25 @@ class UserController extends Controller
      */
     public function edit()
     {
-        return view('user.edit', [
-            "id" => Auth::user()->account_id,
-            "routeType" => "edit",
-            "pageTitle" => "Edit your profile",
-            "form" => [
-                "action" => "user.update",
-            ],
-        ]);
+        $user = Auth::user();
+
+        if($user != null){
+            return view('user.edit', [
+                "id" => Auth::user()->account_id,
+                "routeType" => "edit",
+                "pageTitle" => "Edit your profile",
+                "form" => [
+                    "action" => "user.update",
+                ],
+            ]);
+        }else{
+            return view('user.login', [
+                "status" => "SESSION_EXPIRED",
+                "message" => "Session expired!",
+            ]);
+        }
+
+        
     }
 
     /**

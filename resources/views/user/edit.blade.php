@@ -1,57 +1,93 @@
 @extends('user.form_master')
 @if (Auth::check())
+    @section('form-additional-fields')
+        <tr>
+            <td>
+                <label for="{{$routeType}}-description">Description:</label>
+            </td>
+            <td>
+                <input class="input-text" type="text" id="{{$routeType}}-description" name="{{$routeType}}-description"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="{{$routeType}}-profile-picture">Profile Picture:</label>
+            </td>
+            <td>
+                <input type="file" id="{{$routeType}}-profile-picture" name="{{$routeType}}-profile-picture"/>
+            </td>
+        </tr>
+    @endsection
     @section('form-script')
-        <script>
-            document.addEventListener("DOMContentLoaded", (event) => {
-            alert("Script Loaded!");
-            var usernameField = document.getElementById("edit-username");
-            usernameField.value = "{{Auth::user()->username}}";
+        <script type="module" async="false">
+            import {USER} from '/js/src/constants.js';
 
-            var handleField = document.getElementById("edit-handle");
-            handleField.value = "{{Auth::user()->handle}}";
+            //window.addEventListener(USER.EVENT.FORM_LOADED, (event) => {
+            function preloadFromData(){
+                var usernameField = document.getElementById("edit-username");
+                usernameField.value = "{{Auth::user()->username}}";
 
-            var emailLabel = document.getElementById("edit-email-label");
-            emailLabel.remove();
+                var handleField = document.getElementById("edit-handle");
+                handleField.value = "{{Auth::user()->handle}}";
 
-            //Add middleware to avoid security risk
-            var emailField = document.getElementById("edit-email");
-            emailField.remove();
+                var emailLabel = document.getElementById("edit-email-label");
+                emailLabel.remove();
 
-            //Add middleware to avoid security risk
-            var passwordLabel = document.getElementById("edit-password-label");
-            passwordLabel.remove();
+                //@TODO: Add middleware to avoid security risk from unwanted user input.
+                var emailField = document.getElementById("edit-email");
+                emailField.remove();
 
-            //Add middleware to avoid security risk
-            var passwordField = document.getElementById("edit-password");
-            passwordField.remove();
+                //@TODO: Add middleware to avoid security risk from unwanted user input.
+                var passwordLabel = document.getElementById("edit-password-label");
+                passwordLabel.remove();
 
-            var firstNameField = document.getElementById("edit-firstname");
-            firstNameField.value = "{{Auth::user()->firstname}}";
-            
-            var middleNameField = document.getElementById("edit-middlename");
-            middleNameField.value = "{{Auth::user()->middlename}}";
+                //@TODO: Add middleware to avoid security risk from unwanted user input.
+                var passwordField = document.getElementById("edit-password");
+                passwordField.remove();
 
-            var lastNameField = document.getElementById("edit-lastname");
-            lastNameField.value = "{{Auth::user()->lastname}}";
+                var firstNameField = document.getElementById("edit-firstname");
+                firstNameField.value = "{{Auth::user()->firstname}}";
+                
+                var middleNameField = document.getElementById("edit-middlename");
+                middleNameField.value = "{{Auth::user()->middlename}}";
 
-            var countryField = document.getElementById("edit-country");
-            countryField.value = "{{Auth::user()->country}}";
+                var lastNameField = document.getElementById("edit-lastname");
+                lastNameField.value = "{{Auth::user()->lastname}}";
 
-            var birthYearField = document.getElementById("edit-birthyear");
-            var birthMonthField = document.getElementById("edit-birthmonth");
-            var birthDayField = document.getElementById("edit-birthday");
+                var countryField = document.getElementById("edit-country");
+                countryField.value = "{{Auth::user()->country}}";
 
-            let birthdate = "{{Auth::user()->birthdate}}";
-            birthdate = birthdate.toString();
-            let birthyear = birthdate.slice(0, 3);
-            let birthmonth = birthdate.slice(4, 5);
-            let birthday = birthdate.slice(6, 7);
+                var birthYearField = document.getElementById("edit-birthyear");
+                var birthMonthField = document.getElementById("edit-birthmonth");
+                var birthDayField = document.getElementById("edit-birthday");
 
-            birthYearField.value = birthyear;
-            birthMonthField.value = birthmonth;
-            birthDayField.value = birthday;
-        });
+                let birthdate = "{{Auth::user()->birthdate}}";
+                birthdate = birthdate.toString();
+                let birthyear = birthdate.slice(0, 4);
+                let birthmonth = birthdate.slice(5, 7);
+                let birthday = birthdate.slice(8, 10);
+
+                birthYearField.value = birthyear;
+                birthMonthField.value = birthmonth;
+
+                let gender = "{{Auth::user()->gender}}";
+
+                birthDayField.value = birthday;
+
+                if(gender == 'M'){
+                    document.forms["edit-form"]["edit-gender-male"].checked = true;
+                }else{
+                    document.forms["edit-form"]["edit-gender-female"].checked = true;
+                }
+            }
+
+            window.loadFormContent().then(preloadFromData);
+         // });
         </script>
+    @endsection
+
+    @section('form-additional-buttons')
+        <input class="small-button" onclick="history.back()" type="button" id="{{$routeType}}-cancel" name="{{$routeType}}-cancel" value="Cancel"/>
     @endsection
 @else
     @section('content')
@@ -59,4 +95,3 @@
         <button onclick="navigate('{{route('user.login')}}')">Log in</button>
     @endsection
 @endif
-

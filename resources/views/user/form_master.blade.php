@@ -5,7 +5,7 @@
 <h1>{{$pageTitle}}</h1>
 
 <script src="{{asset('js/src/months.js')}}"></script>
-<form method="post" action="{{route($form['action'])}}" name="{{$routeType}}-form" autocomplete="on">
+<form method="post" action="{{route($form['action'])}}" id="{{$routeType}}-form" name="{{$routeType}}-form" autocomplete="on">
     @csrf
     @method("POST")
     <table class="form-table">
@@ -376,22 +376,31 @@
                 <label for="{{$routeType}}-gender">Gender:</label>
             </td>
             <td>
-                <input type="radio" id="signip-gender-male" name="{{$routeType}}-gender" value="M" required>
+                <input type="radio" id="{{$routeType}}-gender-male" name="{{$routeType}}-gender" value="M" required>
                 <label for="{{$routeType}}-gender-male">Male</label>
-                <input type="radio" id="signip-gender-female" name="{{$routeType}}-gender" value="F" required>
+                <input type="radio" id="{{$routeType}}-gender-female" name="{{$routeType}}-gender" value="F" required>
                 <label for="{{$routeType}}-gender-female">Female</label>
             </td>
         </tr>
+
+        @yield('form-additional-fields')
+        <section id="form-additional-fields"></section>
+
         <tr>
             <td>
                 <input class="small-button" type="submit" name="{{$routeType}}-submit">
                 <input class="small-button" type="reset" name="{{$routeType}}-reset">
+                <br><br>
+                @yield('form-additional-buttons')
+                <div id="form-additional-buttons"></div>
             </td>
         </tr>
     </table>
 </form>
+
+<script type="module" src="{{asset('js/src/user/forms.js')}}" defer></script>
 @yield('form-script')
 <section id="form-script"></section>
-<script src="{{asset('js/src/user/forms.js')}}"></script>
+
 
 @stop

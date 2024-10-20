@@ -1,5 +1,7 @@
 //Paradigm: Event-driven
 
+import {USER} from '../constants.js';
+
 var birthyear;
 var birthmonth;
 var birthday;
@@ -10,23 +12,35 @@ var days = 31;
 
 var type;
 
-document.addEventListener("DOMContentLoaded", (event) => {    
-    type = document.querySelector('meta[name="route_type"]').content;
-
-    birthyear = document.getElementById(type + '-birthyear');
-    birthmonth = document.getElementById(type + '-birthmonth');
-    birthday = document.getElementById(type + '-birthday');
-    country = document.getElementById(type + '-country');
-
-    var date = new Date();
-    for(let i = date.getFullYear(); i > 1840; i--){
-        birthyear.innerHTML += '<option value="'+i+'">'+i+'</option>';
-    }
-
-    birthyear.addEventListener("input", onBirthdateUpdated);
-
-    birthmonth.addEventListener("input", onBirthdateUpdated);
     
+function loadFormContent(){
+    return new Promise((resolve) => {
+        //alert("forms.js: " + USER.EVENT.FORM_LOADED);
+
+        type = document.querySelector('meta[name="route_type"]').content;
+
+        birthyear = document.getElementById(type + '-birthyear');
+        birthmonth = document.getElementById(type + '-birthmonth');
+        birthday = document.getElementById(type + '-birthday');
+        country = document.getElementById(type + '-country');
+
+        var date = new Date();
+        for(let i = date.getFullYear(); i > 1840; i--){
+            birthyear.innerHTML += '<option value="'+i+'">'+i+'</option>';
+        }
+
+        birthyear.addEventListener("input", onBirthdateUpdated);
+
+        birthmonth.addEventListener("input", onBirthdateUpdated);
+
+        onBirthdateUpdated();
+
+        resolve();
+    });
+}    
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    window.loadFormContent = loadFormContent;
 });
 
 function onBirthdateUpdated(){
