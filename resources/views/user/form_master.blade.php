@@ -390,8 +390,10 @@
         </tr>
     </table>
 </form>
+
+<script type="module" src="{{asset('js/src/user/forms.js')}}" defer></script>
 @yield('form-script')
 <section id="form-script"></section>
-<script src="{{asset('js/src/user/forms.js')}}"></script>
+
 
 @stop

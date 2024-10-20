@@ -1,56 +1,63 @@
 @extends('user.form_master')
 @if (Auth::check())
     @section('form-script')
-        <script>
-            document.addEventListener("DOMContentLoaded", (event) => {
-            alert("Script Loaded!");
-            var usernameField = document.getElementById("edit-username");
-            usernameField.value = "{{Auth::user()->username}}";
+        <script type="module" async="false">
+            import {USER} from '/js/src/constants.js';
 
-            var handleField = document.getElementById("edit-handle");
-            handleField.value = "{{Auth::user()->handle}}";
+            window.addEventListener(USER.EVENT.FORM_LOADED, (event) => {
+                alert("Script loaded");
 
-            var emailLabel = document.getElementById("edit-email-label");
-            emailLabel.remove();
+                var usernameField = document.getElementById("edit-username");
+                usernameField.value = "{{Auth::user()->username}}";
 
-            //Add middleware to avoid security risk
-            var emailField = document.getElementById("edit-email");
-            emailField.remove();
+                var handleField = document.getElementById("edit-handle");
+                handleField.value = "{{Auth::user()->handle}}";
 
-            //Add middleware to avoid security risk
-            var passwordLabel = document.getElementById("edit-password-label");
-            passwordLabel.remove();
+                var emailLabel = document.getElementById("edit-email-label");
+                emailLabel.remove();
 
-            //Add middleware to avoid security risk
-            var passwordField = document.getElementById("edit-password");
-            passwordField.remove();
+                //@TODO: Add middleware to avoid security risk from unwanted user input.
+                var emailField = document.getElementById("edit-email");
+                emailField.remove();
 
-            var firstNameField = document.getElementById("edit-firstname");
-            firstNameField.value = "{{Auth::user()->firstname}}";
-            
-            var middleNameField = document.getElementById("edit-middlename");
-            middleNameField.value = "{{Auth::user()->middlename}}";
+                //@TODO: Add middleware to avoid security risk from unwanted user input.
+                var passwordLabel = document.getElementById("edit-password-label");
+                passwordLabel.remove();
 
-            var lastNameField = document.getElementById("edit-lastname");
-            lastNameField.value = "{{Auth::user()->lastname}}";
+                //@TODO: Add middleware to avoid security risk from unwanted user input.
+                var passwordField = document.getElementById("edit-password");
+                passwordField.remove();
 
-            var countryField = document.getElementById("edit-country");
-            countryField.value = "{{Auth::user()->country}}";
+                var firstNameField = document.getElementById("edit-firstname");
+                firstNameField.value = "{{Auth::user()->firstname}}";
+                
+                var middleNameField = document.getElementById("edit-middlename");
+                middleNameField.value = "{{Auth::user()->middlename}}";
 
-            var birthYearField = document.getElementById("edit-birthyear");
-            var birthMonthField = document.getElementById("edit-birthmonth");
-            var birthDayField = document.getElementById("edit-birthday");
+                var lastNameField = document.getElementById("edit-lastname");
+                lastNameField.value = "{{Auth::user()->lastname}}";
 
-            let birthdate = "{{Auth::user()->birthdate}}";
-            birthdate = birthdate.toString();
-            let birthyear = birthdate.slice(0, 3);
-            let birthmonth = birthdate.slice(4, 5);
-            let birthday = birthdate.slice(6, 7);
+                var countryField = document.getElementById("edit-country");
+                countryField.value = "{{Auth::user()->country}}";
 
-            birthYearField.value = birthyear;
-            birthMonthField.value = birthmonth;
-            birthDayField.value = birthday;
-        });
+                var birthYearField = document.getElementById("edit-birthyear");
+                var birthMonthField = document.getElementById("edit-birthmonth");
+                var birthDayField = document.getElementById("edit-birthday");
+
+                let birthdate = "{{Auth::user()->birthdate}}";
+                birthdate = birthdate.toString();
+                let birthyear = birthdate.slice(0, 4);
+                let birthmonth = birthdate.slice(5, 7);
+                let birthday = birthdate.slice(8, 10);
+
+                alert(birthyear);
+                alert(birthmonth);
+                alert(birthday);
+
+                birthYearField.value = birthyear;
+                birthMonthField.value = birthmonth;
+                birthDayField.value = birthday;
+          });
         </script>
     @endsection
 @else

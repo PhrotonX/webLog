@@ -1,5 +1,7 @@
 //Paradigm: Event-driven
 
+import {USER} from '../constants.js';
+
 var birthyear;
 var birthmonth;
 var birthday;
@@ -10,7 +12,9 @@ var days = 31;
 
 var type;
 
-document.addEventListener("DOMContentLoaded", (event) => {    
+//document.addEventListener("DOMContentLoaded", (event) => {        
+    alert("forms.js: " + USER.EVENT.FORM_LOADED);
+
     type = document.querySelector('meta[name="route_type"]').content;
 
     birthyear = document.getElementById(type + '-birthyear');
@@ -26,8 +30,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     birthyear.addEventListener("input", onBirthdateUpdated);
 
     birthmonth.addEventListener("input", onBirthdateUpdated);
-    
-});
+
+    const formEvent = new Event(USER.EVENT.FORM_LOADED);
+    window.dispatchEvent(formEvent);
+//});
 
 function onBirthdateUpdated(){
     setBirthDays();
