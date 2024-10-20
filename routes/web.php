@@ -45,6 +45,7 @@ Route::resource('post', 'App\Http\Controllers\PostController', ['parameters' => 
 Route::resource('article', 'App\Http\Controllers\ArticleController', ['only'=>['create', 'destroy', 'update', 'edit', 'store']]);
 
 Route::get('user/login', 'App\Http\Controllers\UserController@showLogin')->name('user.login');
+Route::get('user/logout', 'App\Http\Controllers\UserController@logout')->name('user.logout');
 Route::post('user/login/config', 'App\Http\Controllers\UserController@login')->name('user.login_config');
 Route::get('user/create', 'App\Http\Controllers\UserController@create')->name('user.create');
 Route::post('user/submit', 'App\Http\Controllers\UserController@store')->name('user.submit');

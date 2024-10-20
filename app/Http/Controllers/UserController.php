@@ -114,6 +114,11 @@ class UserController extends Controller
         ])->onlyInput('login-email');
     }
 
+    public function logout(){
+        Auth::logout();
+        return redirect('user/login');
+    }
+
     /**
      * Display the specified resource.
      */

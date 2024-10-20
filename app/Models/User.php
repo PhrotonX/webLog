@@ -49,6 +49,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $primaryKey = 'account_id';
+
     /**
      * The attributes that should be cast.
      *
