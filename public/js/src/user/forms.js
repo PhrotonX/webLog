@@ -15,7 +15,7 @@ var type;
     
 function loadFormContent(){
     return new Promise((resolve) => {
-        alert("forms.js: " + USER.EVENT.FORM_LOADED);
+        //alert("forms.js: " + USER.EVENT.FORM_LOADED);
 
         type = document.querySelector('meta[name="route_type"]').content;
 
@@ -40,7 +40,6 @@ function loadFormContent(){
 }    
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    alert("DOM");
     window.loadFormContent = loadFormContent;
 });
 

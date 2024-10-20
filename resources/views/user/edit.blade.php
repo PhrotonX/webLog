@@ -1,11 +1,29 @@
 @extends('user.form_master')
 @if (Auth::check())
+    @section('form-additional-fields')
+        <tr>
+            <td>
+                <label for="{{$routeType}}-description">Description:</label>
+            </td>
+            <td>
+                <input class="input-text" type="text" id="{{$routeType}}-description" name="{{$routeType}}-description"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="{{$routeType}}-profile-picture">Profile Picture:</label>
+            </td>
+            <td>
+                <input type="file" id="{{$routeType}}-profile-picture" name="{{$routeType}}-profile-picture"/>
+            </td>
+        </tr>
+    @endsection
     @section('form-script')
         <script type="module" async="false">
             import {USER} from '/js/src/constants.js';
 
             //window.addEventListener(USER.EVENT.FORM_LOADED, (event) => {
-            async function preloadFromData(){
+            function preloadFromData(){
                 var usernameField = document.getElementById("edit-username");
                 usernameField.value = "{{Auth::user()->username}}";
 
@@ -52,14 +70,24 @@
                 birthYearField.value = birthyear;
                 birthMonthField.value = birthmonth;
 
-                
+                let gender = "{{Auth::user()->gender}}";
 
                 birthDayField.value = birthday;
+
+                if(gender == 'M'){
+                    document.forms["edit-form"]["edit-gender-male"].checked = true;
+                }else{
+                    document.forms["edit-form"]["edit-gender-female"].checked = true;
+                }
             }
 
             window.loadFormContent().then(preloadFromData);
          // });
         </script>
+    @endsection
+
+    @section('form-additional-buttons')
+        <input class="small-button" onclick="history.back()" type="button" id="{{$routeType}}-cancel" name="{{$routeType}}-cancel" value="Cancel"/>
     @endsection
 @else
     @section('content')
@@ -67,4 +95,3 @@
         <button onclick="navigate('{{route('user.login')}}')">Log in</button>
     @endsection
 @endif
-

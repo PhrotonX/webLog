@@ -5,7 +5,7 @@
 <h1>{{$pageTitle}}</h1>
 
 <script src="{{asset('js/src/months.js')}}"></script>
-<form method="post" action="{{route($form['action'])}}" name="{{$routeType}}-form" autocomplete="on">
+<form method="post" action="{{route($form['action'])}}" id="{{$routeType}}-form" name="{{$routeType}}-form" autocomplete="on">
     @csrf
     @method("POST")
     <table class="form-table">
@@ -382,10 +382,17 @@
                 <label for="{{$routeType}}-gender-female">Female</label>
             </td>
         </tr>
+
+        @yield('form-additional-fields')
+        <section id="form-additional-fields"></section>
+
         <tr>
             <td>
                 <input class="small-button" type="submit" name="{{$routeType}}-submit">
                 <input class="small-button" type="reset" name="{{$routeType}}-reset">
+                <br><br>
+                @yield('form-additional-buttons')
+                <div id="form-additional-buttons"></div>
             </td>
         </tr>
     </table>
