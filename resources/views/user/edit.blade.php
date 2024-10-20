@@ -4,7 +4,8 @@
         <script type="module" async="false">
             import {USER} from '/js/src/constants.js';
 
-            window.addEventListener(USER.EVENT.FORM_LOADED, (event) => {
+            //window.addEventListener(USER.EVENT.FORM_LOADED, (event) => {
+            async function preloadFromData(){
                 alert("Script loaded");
 
                 var usernameField = document.getElementById("edit-username");
@@ -56,8 +57,14 @@
 
                 birthYearField.value = birthyear;
                 birthMonthField.value = birthmonth;
+
+                
+
                 birthDayField.value = birthday;
-          });
+            }
+
+            window.loadFormContent().then(preloadFromData);
+         // });
         </script>
     @endsection
 @else
