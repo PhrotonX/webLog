@@ -7,6 +7,10 @@
     @isset($status)
         <p>{{$message}}</p>
     @endisset
+    @isset($debug)
+        <p>{{print_r($debug)}}</p>
+    @endisset
+
     <h1>{{Auth::user()->username}}</h1>
     <p>First Name: {{Auth::user()->firstname}}</p>
     <p>Middle Name: {{Auth::user()->middlename}}</p>

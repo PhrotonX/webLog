@@ -62,21 +62,11 @@ class UserController extends Controller
     public function store(RegisterRequest $request)
     {   
         try{
-            $birthdate = $request->input("signup-birthyear") . $request->input("signup-birthmonth") . $request->input("signup-birthday");
 
             $user = new User($request->validated());
-
-            $user->username = $request->input("signup-username");
-            $user->handle = HandleController::addAtSign($request->input("signup-handle"));
-            $user->email = $request->input("signup-email");
-            $user->password_hash = Hash::make($request->input("signup-password"));
-            $user->type = "member";
-            $user->firstname = $request->input("signup-firstname");
-            $user->middlename = $request->input("signup-middlename");
-            $user->lastname = $request->input("signup-lastname");
-            $user->birthdate = $birthdate;
-            $user->gender = trim($request->input("signup-gender"), "emale");
-            $user->country = $request->input("signup-country");
+            $user = $this->getFormValues($user, $request, "signup");
+            $user->email = $request->input($type . "-email");
+            $user->password_hash = Hash::make($request->input($type . "-password"));            
 
             $user->save();
 
@@ -120,7 +110,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * \details Display the specified resource.
      */
     public function show(string $id)
     {
@@ -132,7 +122,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * \details Show the form for editing the specified resource.
      */
     public function edit()
     {
@@ -163,11 +153,18 @@ class UserController extends Controller
     public function update(Request $request)
     {
         try{
-            Auth::user()->update($request->all());
+            //Code 1
+            //Auth::user()->update($request->all());
+
+            //Code 2
+            $user = $this->getFormValues(Auth::user(), $request, "edit");
+            //$user->account_id = Auth::user()->account_id;
+            Auth::user()->update();
 
             return view('user.index')->with([
                 'status' => 'SUCCESS',
                 'message' => 'User profile updated successfully!',
+                'debug' => $user->toArray()
             ]);
         }catch(AuthenticationException $e){
             return view('user.index')->with([
@@ -176,7 +173,10 @@ class UserController extends Controller
             ]);
         }
         
-
+        return view('user.index')->with([
+            'status' => 'ERROR',
+            'message' => 'User profile failed to update due to an unknown error!',
+        ]);
         
     }
 
@@ -203,4 +203,29 @@ class UserController extends Controller
 
         return $birthdate;
     }
+
+    /**
+     * Get values from a form.
+     * \remarks Does not include user id, email, and password.
+     * 
+     * @param Request $request
+     * @param string $type The type of request such as "edit" and "signup" which iis the same as
+     * the route type. It should start with small letter.
+     * @return App\Models\User
+     */
+    private function getFormValues(User $user, Request $request, string $type) : User{
+        $birthdate = $request->input($type . "-birthyear") . $request->input($type . "-birthmonth") . $request->input($type . "-birthday");
+
+        $user->username = $request->input($type . "-username");
+        $user->handle = HandleController::addAtSign($request->input($type . "-handle"));
+        $user->type = "member";
+        $user->firstname = $request->input($type . "-firstname");
+        $user->middlename = $request->input($type . "-middlename");
+        $user->lastname = $request->input($type . "-lastname");
+        $user->birthdate = $birthdate;
+        $user->gender = trim($request->input($type . "-gender"), "emale");
+        $user->country = $request->input($type . "-country");
+
+        return $user;
+    } 
 }
