@@ -79,6 +79,10 @@
                 }else{
                     document.forms["edit-form"]["edit-gender-female"].checked = true;
                 }
+
+                let description = "{{Auth::user()->description}}";
+                var descriptionField = document.getElementById("edit-description");
+                descriptionField.value = description;
             }
 
             window.loadFormContent().then(preloadFromData);

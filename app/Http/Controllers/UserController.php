@@ -64,10 +64,7 @@ class UserController extends Controller
         try{
 
             $user = new User($request->validated());
-            $user = $this->getFormValues($user, $request, "signup");
-            $user->email = $request->input($type . "-email");
-            $user->password_hash = Hash::make($request->input($type . "-password"));            
-
+            $user = $this->getFormValues($user, $request, "signup");  
             $user->save();
 
             auth()->login($user);
@@ -158,13 +155,11 @@ class UserController extends Controller
 
             //Code 2
             $user = $this->getFormValues(Auth::user(), $request, "edit");
-            //$user->account_id = Auth::user()->account_id;
             Auth::user()->update();
 
             return view('user.index')->with([
                 'status' => 'SUCCESS',
-                'message' => 'User profile updated successfully!',
-                'debug' => $user->toArray()
+                'message' => 'User profile updated successfully!'
             ]);
         }catch(AuthenticationException $e){
             return view('user.index')->with([
@@ -205,7 +200,7 @@ class UserController extends Controller
     }
 
     /**
-     * Get values from a form.
+     * Syntactic sugar for getting values from a form.
      * \remarks Does not include user id, email, and password.
      * 
      * @param Request $request
@@ -225,6 +220,19 @@ class UserController extends Controller
         $user->birthdate = $birthdate;
         $user->gender = trim($request->input($type . "-gender"), "emale");
         $user->country = $request->input($type . "-country");
+
+        switch($type){
+            case "edit-sensitive":
+            case "signup":
+                $user->email = $request->input($type . "-email");
+                $user->password_hash = Hash::make($request->input($type . "-password"));
+                break;
+            case "edit":
+                $user->description = $request->input($type . "-description");
+                break;
+            default;
+                break;
+        }
 
         return $user;
     } 
