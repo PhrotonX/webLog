@@ -19,8 +19,12 @@ class ImageUploadController extends Controller
         if($request->$file($requestName)){
             $file = $request->file($requestName);
             $filename = $date('YmdHIi').file->getClientOriginalName();
-            $file->move(public_path('public/data/img'))
+            $file->move(public_path('public/data/img'), $filename);
+            $data['picture_path'] = $filename;
         }
+
+        $data->save();
+        //return view here...
     }
 
     public function view(){
