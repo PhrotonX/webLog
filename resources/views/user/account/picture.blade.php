@@ -6,7 +6,12 @@
 @endsection
 
 @section('dialog-content')
-    <p>This is an example content</p>
+    @if(Auth::user()->profile_picture_id)
+        <p>Profile Pictures:</p>
+    @else
+        <p>No profile picture found</p>
+    @endif
+    
 @endsection
 
 @section('dialog-buttons')
