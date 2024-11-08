@@ -9,14 +9,14 @@
                 <input class="input-text" type="text" id="{{$routeType}}-description" name="{{$routeType}}-description"/>
             </td>
         </tr>
-        <tr>
+        {{-- <tr>
             <td>
                 <label for="{{$routeType}}-profile-picture">Profile Picture:</label>
             </td>
             <td>
                 <input type="file" id="{{$routeType}}-profile-picture" name="{{$routeType}}-profile-picture"/>
             </td>
-        </tr>
+        </tr> --}}
     @endsection
     @section('form-script')
         <script type="module" async="false">
