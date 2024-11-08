@@ -1,4 +1,4 @@
-<div class="container dialog acrylic shadow parent">
+<div class="container dialog acrylic shadow parent" id="@yield('dialog-id')">
     <section class="dialog-title"></section>
     @yield('dialog-title')
     <section class="dialog-content"></section>
