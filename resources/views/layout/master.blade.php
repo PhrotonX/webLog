@@ -52,13 +52,22 @@
             </nav>
         </span>
         {{-- <section id="content"> --}}
+        {{-- <section></section> --}}
 
         <section class="parent" id="content">
             @yield('content')
+            
+        </section>
         <footer class="acrylic shadow parent">
             <p>For testing purposes only.</p>
             {{-- <a href="{{ route('pages.navigate', ['type'=>'about']) }}"><p>About</p></a> --}}
             <a href="#"><p>About</p></a>
         </footer>
+
+        <section id="dialog-boxes">
+            @yield('dialog-boxes')            
+            
+        </section>
+        
     </body>
 </html>
