@@ -8,9 +8,13 @@ function navigate(url){
 
 function toggleDialog(dialogName){
     var dialogBox = document.getElementById(dialogName);
-    if(dialogBox.style["display"] != "none"){
-        dialogBox.style["display"] = "none";    
+
+    if((dialogBox.style["display"] == "none") || (dialogBox.style["display"] == "")
+    || (dialogBox.style["display"] == null)){
+        dialogBox.style["display"] = "block";    
     }else{
-        dialogBox.style["display"] = "block";
+        dialogBox.style["display"] = "none";
     }
+
+    
 }
