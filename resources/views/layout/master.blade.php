@@ -52,7 +52,7 @@
             </nav>
         </span>
         {{-- <section id="content"> --}}
-        <section></section>
+        {{-- <section></section> --}}
 
         <section class="parent" id="content">
             @yield('content')
@@ -64,6 +64,10 @@
             <a href="#"><p>About</p></a>
         </footer>
 
-        @extends('layout.master.dialog')
+        <section id="dialog-boxes">
+            @yield('dialog-boxes')            
+            
+        </section>
+        
     </body>
 </html>

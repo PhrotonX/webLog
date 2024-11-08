@@ -94,6 +94,11 @@
     @section('form-additional-buttons')
         <input class="small-button" onclick="history.back()" type="button" id="{{$routeType}}-cancel" name="{{$routeType}}-cancel" value="Cancel"/>
     @endsection
+
+    @section('dialog-boxes')
+        @include('user.account.picture')
+    @endsection
+
 @else
     @section('content')
         <h1>Not logged in!</h1>
