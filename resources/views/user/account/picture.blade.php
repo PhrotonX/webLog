@@ -11,6 +11,15 @@
     @else
         <p>No profile picture found</p>
     @endif
+
+    <p>Upload</p>
+    <form method="post" action="image/store/edit-profile-picture" id="edit-profile-picture-form" name="edit-profile-picture-form">
+        @csrf
+        @method("POST")
+        <input type="file" id="edit-profile-picture" name="edit-profile-picture"/>
+        <input type="submit" id="edit-profile-picture-submit" name="editprofile-picture-submit"/>
+    </form>
+    
     
 @endsection
 
