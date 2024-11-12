@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('picture', function($table){
             $table->string('picture_path')->nullable()->change();
+            $table->string('type')->nullable()->change();
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('picture', function($table){
             $table->string('picture_path')->change();
+            $table->string('type')->change();
         });
     }
 };
