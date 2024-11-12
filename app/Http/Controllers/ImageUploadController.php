@@ -14,7 +14,7 @@ class ImageUploadController extends Controller
 
     }
 
-    public function store(string $requestName){
+    public function store(Request $request, string $requestName){
         $data = new Picture();
 
         switch($requestName){
@@ -30,12 +30,14 @@ class ImageUploadController extends Controller
         }
         
 
-        if($request->$file($requestName)){
+        if($request->file($requestName)){
             $file = $request->file($requestName);
             $filename = $date('YmdHIi').file->getClientOriginalName();
             $file->move(public_path($directory), $filename);
             $data['picture_path'] = $filename;
         }
+
+        $data['account_id'] = Auth::user()->account_id;
 
         $data->save();
         //return view here...
