@@ -8,39 +8,67 @@ use Illuminate\Support\Facades\Auth;
 
 class ImageUploadController extends Controller
 {
-    protected $directory = 'public/data/img/';
+    protected $directory = 'data/img/';
+    protected $errorImage = 'res/img/question_mark.png';
+    protected $type = 'post';
 
     public function add(){
 
     }
 
     public function store(Request $request, string $requestName){
+        //Create model object.
         $data = new Picture();
+        $tempDir = "";
+        $accountId = Auth::id();
 
+        //Setup filepath.
         switch($requestName){
-            case 'edit-profile-picture-form':
-            case 'upload-profile-picture-form':
-                $tempDir  = $this->directory . Auth::id() . "/profile/picture/";
+            case 'edit-profile-picture':
+            case 'upload-profile-picture':
+                $tempDir  = $this->directory . $accountId . "/pfp/";
+                $this->type = 'profile_picture';
                 break;
-            case 'upload-post-picture-form':
-                $tempDir = $this->directory . Auth::id() . "/post/";
+            case 'edit-profile-banner':
+            case 'upload-profile-banner':
+                $tempDir  = $this->directory . $accountId . "/banner/";
+                $this->type = 'profile_banner';
+                break;
+            case 'upload-post-picture':
+                //@TODO: Add post ID into the directory.
+                $tempDir = $this->directory . $accountId . "/post/";
                 break;
             default:
-                $tempDir = $this->directory;
+                $tempDir = $this->directory . $accountId;
         }
 
+        //Handle image
         if($request->file($requestName)){
+            //Get the image
             $file = $request->file($requestName);
-            //$filename = $date('YmdHIi').file->getClientOriginalName();
-            $filename = $tempDir . $file->getClientOriginalName();
-            $file->move(public_path($directory), $filename);
-            $data['picture_path'] = $filename;
+
+            //Add filename and filepath into the image
+            $filename = date('YmdHIi') . '_' . $file->hashName();
+            $filepath = $tempDir . $filename;
+
+            //Move the image into the directory set initially.
+            $file->move(public_path($tempDir), $filepath);
+
+            //Put the filepath into the DB
+            $data['picture_path'] = $filepath;
         }else{
-            //$data['picture_path'] = $this->directory . "image"
-            echo $request;
+            //Put the erorr image filepath into the DB
+            $data['picture_path'] = $this->errorImage;
+
+            //Display debug message
+            echo $request->file("edit-profile-picture");
         }
 
-        $data['account_id'] = Auth::user()->account_id;
+        //Set the type of the image, be it banner, pfp, or post
+        $data['type'] = $this->type;
+
+        //Save the account id.
+        $data['account_id'] = $accountId;
 
         $data->save();
         //return view here...

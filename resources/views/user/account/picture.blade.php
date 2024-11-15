@@ -13,7 +13,12 @@
     @endif
 
     <p>Upload</p>
-    <form method="post" action="image/store/edit-profile-picture" id="edit-profile-picture-form" name="edit-profile-picture-form">
+    <form
+        method="post"
+        action="image/store/edit-profile-picture"
+        id="edit-profile-picture-form"
+        name="edit-profile-picture-form"
+        enctype="multipart/form-data">
         @csrf
         @method("POST")
         <input type="file" id="edit-profile-picture" name="edit-profile-picture"/>
