@@ -61,7 +61,7 @@ class ImageUploadController extends Controller
             $data['picture_path'] = $this->errorImage;
 
             //Display debug message
-            echo $request->file("edit-profile-picture");
+            echo $request->file($requestName);
         }
 
         //Set the type of the image, be it banner, pfp, or post
