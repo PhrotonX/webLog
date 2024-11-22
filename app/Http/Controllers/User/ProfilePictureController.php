@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\PictureController;
+use App\Models\Picture;
+use App\Models\ProfilePicture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +18,16 @@ class ProfilePictureController extends PictureController
 
         PictureController::store($request, $requestName);
 
+        //return view here...
+    }
+
+    protected function onSaveToAssociativeTable(Picture $picture){
+        $accountId = Auth::id();
+        $profilePicture = new ProfilePicture();
         
+        $profilePicture['account_id'] = $accountId;
+        $profilePicture['picture_id'] = $picture->id;
+
+        $profilePicture->save();
     }
 }

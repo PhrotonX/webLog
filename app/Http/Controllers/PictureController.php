@@ -6,7 +6,7 @@ use App\Models\Picture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PictureController extends Controller
+abstract class PictureController extends Controller
 {
     public const IMAGE_DIRECTORY = 'data/img/';
     protected $directory = 'data/img/';
@@ -47,14 +47,14 @@ class PictureController extends Controller
         //Set the type of the image, be it banner, pfp, or post
         $data['type'] = $this->type;
 
-        //Save the account id.
-        $data['account_id'] = $accountId;
-
         $data->save();
-        //return view here...
+
+        $this->onSaveToAssociativeTable($data);
     }
 
     public function view(){
 
     }
+
+    abstract protected function onSaveToAssociativeTable(Picture $picture);
 }

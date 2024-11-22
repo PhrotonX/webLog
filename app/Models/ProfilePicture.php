@@ -9,5 +9,7 @@ class ProfilePicture extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $table = "account_profile_picture";
 }
