@@ -23,12 +23,28 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        static $index = 0;
+
+        $gender = ($index % 2) != 0 ? 'F' : 'M';
+
+        $year = date('Y');
+        $birthdate = (($year - 25) + $index) . '1010';
+
+        $index++;
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'username' => 'Sample' . $index,
+            'firstname' => fake()->name(),
+            'middlename' => fake()->name(),
+            'lastname' => fake()->name(),
+            'handle' => '@sample' . $index,
+            'email' => 'sample' . $index . '@example.com',
+            'password_hash' => Hash::make('sample' . $index),
+            'birthdate' => $birthdate,
+            'gender' => $gender,
+            'country' => 'Philippines',
+            'type' => 'test',
+            'description' => 'Test Account ' . $index . '. For testing purposes only.',
         ];
     }
 
