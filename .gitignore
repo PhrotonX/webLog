@@ -20,3 +20,4 @@ yarn-error.log
 public/sql/backups/
 testroutes.php
 /res/img/data
+/public/data

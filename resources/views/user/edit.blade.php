@@ -14,7 +14,7 @@
                 <label for="{{$routeType}}-profile-picture">Profile Picture:</label>
             </td>
             <td>
-                <input type="file" id="{{$routeType}}-profile-picture" name="{{$routeType}}-profile-picture"/>
+                <button type="button" id="{{$routeType}}-profile-picture" class="small-button" onclick="toggleDialog('profile-picture-selector')">Edit</button>
             </td>
         </tr>
     @endsection
@@ -93,6 +93,11 @@
     @section('form-additional-buttons')
         <input class="small-button" onclick="history.back()" type="button" id="{{$routeType}}-cancel" name="{{$routeType}}-cancel" value="Cancel"/>
     @endsection
+
+    @section('dialog-boxes')
+        @include('user.account.picture')
+    @endsection
+
 @else
     @section('content')
         <h1>Not logged in!</h1>
