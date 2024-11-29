@@ -27,6 +27,11 @@ nav a{
     top: 0;
     width: 100%;
     z-index: 500;
+
+    /* @NOTE: Add keyframes here that transitions the margin from 1.5 into 0 and
+    width from 97% into 100% when scrolled. */
+    /* margin: 1.5%; */
+    /* width: 97%; */
 }
 
 #navbar-title a{
