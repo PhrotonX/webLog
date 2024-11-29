@@ -29,5 +29,5 @@
 @endsection
 
 @section('dialog-buttons')
-    <button>Cancel</button>
+    <button class="acrylic child small-button" onclick="toggleDialog('profile-picture-selector')">Cancel</button>
 @endsection

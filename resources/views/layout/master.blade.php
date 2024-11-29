@@ -64,6 +64,7 @@
             <a href="#"><p>About</p></a>
         </footer>
 
+        <section id="modal" class="acrylic parent"></section>
         <section id="dialog-boxes">
             @yield('dialog-boxes')            
             
