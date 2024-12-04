@@ -8,6 +8,8 @@
 @section('dialog-content')
     @if(Auth::user()->profile_picture_id)
         <p>Profile Pictures:</p>
+        <script>
+        </script>
     @else
         <p>No profile picture found</p>
     @endif
