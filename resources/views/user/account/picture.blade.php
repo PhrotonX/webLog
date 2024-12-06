@@ -9,6 +9,11 @@
     @if(Auth::user()->profile_picture_id)
         <p>Profile Pictures:</p>
         <script>
+            fetch('/profile/picture')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Profile picture ')
+                })
         </script>
     @else
         <p>No profile picture found</p>
