@@ -43,7 +43,13 @@
                 <label for="{{$routeType}}-password" id="{{$routeType}}-password-label">Password:</label>
             </td>
             <td>
-                <input class="input-text" type="password" name="{{$routeType}}-password" id="{{$routeType}}-password" required/>
+                <input
+                    class="input-text"
+                    type="password"
+                    name="{{$routeType}}-password" 
+                    id="{{$routeType}}-password"
+                    autocomplete="current-password"
+                    required/>
             </td>
         </tr>
         <tr>
