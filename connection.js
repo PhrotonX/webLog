@@ -8,11 +8,8 @@ const connection = mysql.createConnection({
     database: process.env.DB_DATABASE,
 });
 
-connection.connect(err => {
-    if(err){
-        console.error("Error connecting to the database");
-        return;
-    }
+connection.connect(error => {
+    if(error) throw error;
     console.log("Connected to weblogdb");
 });
 
