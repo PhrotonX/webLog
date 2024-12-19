@@ -14,7 +14,12 @@
                 <label for="{{$routeType}}-profile-picture">Profile Picture:</label>
             </td>
             <td>
-                <button type="button" id="{{$routeType}}-profile-picture" class="small-button" onclick="toggleDialog('profile-picture-selector')">Edit</button>
+                <button
+                    type="button"
+                    id="{{$routeType}}-profile-picture-button"
+                    class="small-button"
+                    onclick="toggleDialog('profile-picture-selector')"
+                >Edit</button>
             </td>
         </tr>
     @endsection
