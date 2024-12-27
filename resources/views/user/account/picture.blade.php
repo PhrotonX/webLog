@@ -12,8 +12,16 @@
         <p>No profile picture found</p>
     @endif
 
+    <script>
+        $(document).ready(function(){
+            
+        });
+    </script>
+
     <p>Profile Pictures:</p>
-    <p class="sample"></p>
+    <div id="profile-picture-selection-table">
+        
+    </div>
 
     <p>Upload</p>
     <form
