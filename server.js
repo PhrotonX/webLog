@@ -7,8 +7,6 @@ app.use(cors);
 app.use(express.json());
 
 app.get('/api/user/image/list', (req, res) => {
-
-    alert('run');
     //const userId = req.params.user_id;
 
     var query = "SELECT * FROM account_profile_pictures";

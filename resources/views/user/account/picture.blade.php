@@ -15,16 +15,6 @@
     <p>Profile Pictures:</p>
     <p class="sample"></p>
 
-    <script>
-        fetch('http://127.0.0.1:3000/api/user/image/list')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('sample').innerHTML = "sample";
-                
-            })
-            .catch(error => console.error('Error fetching users:', error));
-    </script>
-
     <p>Upload</p>
     <form
         method="post"
