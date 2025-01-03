@@ -30,4 +30,23 @@ class ProfilePictureController extends PictureController
 
         $profilePicture->save();
     }
+
+    /**
+     * Retrieves all the profile pictures
+     * @param id The account id that is associated with the picture.
+     */
+    public static function getPictures($id) : array{
+        echo $id;
+        $profilePictures = ProfilePicture::where('account_id', $id)->get();
+
+        $pictures = [];
+
+        foreach($profilePictures as $profilePicture){
+            //$pictures[] = Picture::find($profilePictures->picture_id);
+        }
+
+        var_dump($profilePictures);
+
+        return $pictures;
+    }
 }
