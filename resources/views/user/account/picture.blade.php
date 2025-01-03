@@ -9,7 +9,7 @@
     @if(Auth::user()->profile_picture_id)
         
     @else
-        <p>No profile picture found</p>
+        <p>No profile picture set.</p>
     @endif
 
     <script>
@@ -20,7 +20,15 @@
 
     <p>Profile Pictures:</p>
     <div id="profile-picture-selection-table">
-        
+        <p>Account {{$id}}</p>
+        @if($account_pictures != null)
+            <p>{{sizeof($accoount_pictures)}} profile pictures found!</p>
+            @foreach($account_pictures as $picture)
+                <p>Picture: {{$picture->picture_path}}</p>
+            @endforeach
+        @else
+            <p>Profile pictures not found!</p>
+        @endif
     </div>
 
     <p>Upload</p>
