@@ -22,9 +22,9 @@
     <div id="profile-picture-selection-table">
         <p>Account {{$id}}</p>
         @if($account_pictures != null)
-            <p>{{sizeof($accoount_pictures)}} profile pictures found!</p>
+            <p>{{sizeof($account_pictures)}} profile pictures found!</p>
             @foreach($account_pictures as $picture)
-                <p>Picture: {{$picture->picture_path}}</p>
+                <p>Picture: {{$picture[0]->picture_path}}</p>
             @endforeach
         @else
             <p>Profile pictures not found!</p>

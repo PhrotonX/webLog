@@ -42,10 +42,10 @@ class ProfilePictureController extends PictureController
         $pictures = [];
 
         foreach($profilePictures as $profilePicture){
-            //$pictures[] = Picture::find($profilePictures->picture_id);
+            $pictures[] = Picture::where('picture_id', $profilePicture->picture_id)->get();
         }
 
-        var_dump($profilePictures);
+        var_dump($pictures[0]);
 
         return $pictures;
     }
