@@ -1,0 +1,18 @@
+@import url('picture.css');
+
+.alt-text{
+    position: relative;
+}
+
+.dynamic-table{
+    display: flex;
+    border: 2px solid gray;
+    padding: 4px;
+}
+
+.dynamic-table-cell{
+    flex: 1 1 auto;
+    width: 20%;
+    height: auto;
+    /* border: 2px solid gray; */
+}

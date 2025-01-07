@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers;
 //use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\User\HandleController;
+use App\Http\Controllers\User\ProfilePictureController;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
@@ -126,8 +127,12 @@ class UserController extends Controller
         $user = Auth::user();
 
         if($user != null){
+            $account_id = Auth::user()->account_id;
+            $picture = ProfilePictureController::getPictures($account_id);
+
             return view('user.edit', [
-                "id" => Auth::user()->account_id,
+                "id" => $account_id,
+                "account_pictures" => $picture,
                 "routeType" => "edit",
                 "pageTitle" => "Edit your profile",
                 "form" => [
