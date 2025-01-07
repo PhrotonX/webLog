@@ -36,16 +36,13 @@ class ProfilePictureController extends PictureController
      * @param id The account id that is associated with the picture.
      */
     public static function getPictures($id) : array{
-        echo $id;
         $profilePictures = ProfilePicture::where('account_id', $id)->get();
 
         $pictures = [];
 
         foreach($profilePictures as $profilePicture){
-            $pictures[] = Picture::where('picture_id', $profilePicture->picture_id)->get();
+            $pictures[] = Picture::where('picture_id', $profilePicture->picture_id)->first();
         }
-
-        var_dump($pictures[0]);
 
         return $pictures;
     }

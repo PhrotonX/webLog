@@ -26,7 +26,7 @@
             <table>
                 @foreach($account_pictures as $picture)
                     <tr>
-                        <img class="profile-picture-large" src="{{asset($picture[0]->picture_path)}}" alt="Profile picture"/>
+                        <img class="profile-picture-large" src="{{asset($picture->picture_path)}}" alt="Profile picture"/>
                     </tr>
                 @endforeach
             </table>
