@@ -23,12 +23,23 @@
         <p>Account {{$id}}</p>
         @if($account_pictures != null)
             <p>{{sizeof($account_pictures)}} profile pictures found!</p>
-            <table>
+            <div class="dynamic-table">
                 @foreach($account_pictures as $picture)
-                    <tr>
-                        <img class="profile-picture-large" src="{{asset($picture->picture_path)}}" alt="Profile picture"/>
-                    </tr>
+                    <div class="dynamic-table-cell">
+                        <div class="profile-picture-table-item">
+                            <img class="profile-picture-large" src="{{asset($picture->picture_path)}}" alt="{{asset($picture->alt_text)}}"/>
+                            {{-- @if ($picture->alt_text != "")
+                                <p class="alt-text">{{$picture->alt_text}}</p>    
+                            @else
+                                <p class="alt-text">Profile Picture</p>
+                            @endif --}}
+                            
+                        </div>
+                    </div>
                 @endforeach
+            </div>
+            <table>
+                
             </table>
             
         @else
