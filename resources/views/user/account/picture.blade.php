@@ -23,9 +23,14 @@
         <p>Account {{$id}}</p>
         @if($account_pictures != null)
             <p>{{sizeof($account_pictures)}} profile pictures found!</p>
-            @foreach($account_pictures as $picture)
-                <p>Picture: {{$picture[0]->picture_path}}</p>
-            @endforeach
+            <table>
+                @foreach($account_pictures as $picture)
+                    <tr>
+                        <img class="profile-picture-large" src="{{asset($picture[0]->picture_path)}}" alt="Profile picture"/>
+                    </tr>
+                @endforeach
+            </table>
+            
         @else
             <p>Profile pictures not found!</p>
         @endif
