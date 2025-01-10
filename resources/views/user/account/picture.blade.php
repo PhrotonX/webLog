@@ -27,7 +27,12 @@
                 @foreach($account_pictures as $picture)
                     <div class="dynamic-table-cell">
                         <div class="profile-picture-table-item">
-                            <img class="profile-picture-large" src="{{asset($picture->picture_path)}}" alt="{{asset($picture->alt_text)}}"/>
+                            <img
+                                class="profile-picture-large"
+                                src="{{asset($picture->picture_path)}}"
+                                alt="{{asset($picture->alt_text)}}"
+                            />
+
                             {{-- @if ($picture->alt_text != "")
                                 <p class="alt-text">{{$picture->alt_text}}</p>    
                             @else
