@@ -5,6 +5,7 @@
 <h1>{{$pageTitle}}</h1>
 
 <script src="{{asset('js/src/months.js')}}"></script>
+<script src="{{asset('js/src/forms.js')}}"></script>
 <form method="post" action="{{route($form['action'])}}" id="{{$routeType}}-form" name="{{$routeType}}-form" autocomplete="on">
     @csrf
     @method("POST")

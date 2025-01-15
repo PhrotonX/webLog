@@ -22,6 +22,12 @@
                 >Edit</button>
             </td>
         </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input class="input-text" id="{{$routeType}}-profile-picture-id" type="number" name="{{$routeType}}-profile-picture-id"/>
+            </td>
+        </tr>
     @endsection
     @section('form-script')
         <script type="module" async="false">

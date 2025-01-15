@@ -12,12 +12,6 @@
         <p>No profile picture set.</p>
     @endif
 
-    <script>
-        $(document).ready(function(){
-            
-        });
-    </script>
-
     <p>Profile Pictures:</p>
     <div id="profile-picture-selection-table">
         <p>Account {{$id}}</p>
@@ -31,6 +25,7 @@
                                 class="profile-picture-large"
                                 src="{{asset($picture->picture_path)}}"
                                 alt="{{asset($picture->alt_text)}}"
+                                onclick="editStringField('edit-profile-picture-id', {{$picture->picture_id}})"
                             />
 
                             {{-- @if ($picture->alt_text != "")
