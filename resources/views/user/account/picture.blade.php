@@ -44,6 +44,21 @@
         @else
             <p>Profile pictures not found!</p>
         @endif
+
+        <p>Upload</p>
+        <form
+            method="post"
+            action="image/store/edit-profile-picture"
+            id="edit-profile-picture-form"
+            name="edit-profile-picture-form"
+            enctype="multipart/form-data">
+            @csrf
+            @method("POST")
+            <input type="file" id="edit-profile-picture" name="edit-profile-picture"/>
+            <input type="submit" id="edit-profile-picture-submit" name="editprofile-picture-submit"/>
+        </form>
+
+        <br>
     </div>
 @endsection
 
