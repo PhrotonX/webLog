@@ -7,14 +7,13 @@
 
 @section('dialog-content')
     @if(Auth::user()->profile_picture_id)
-        
+        {{-- <img class="profile-picture-small" src="{{asset($picture)}}"/> --}}
     @else
         <p>No profile picture set.</p>
     @endif
 
     <p>Profile Pictures:</p>
     <div id="profile-picture-selection-table">
-        <p>Account {{$id}}</p>
         @if($account_pictures != null)
             <p>{{sizeof($account_pictures)}} profile pictures found!</p>
             <div class="dynamic-table">
@@ -46,21 +45,6 @@
             <p>Profile pictures not found!</p>
         @endif
     </div>
-
-    <p>Upload</p>
-    <form
-        method="post"
-        action="image/store/edit-profile-picture"
-        id="edit-profile-picture-form"
-        name="edit-profile-picture-form"
-        enctype="multipart/form-data">
-        @csrf
-        @method("POST")
-        <input type="file" id="edit-profile-picture" name="edit-profile-picture"/>
-        <input type="submit" id="edit-profile-picture-submit" name="editprofile-picture-submit"/>
-    </form>
-    
-    
 @endsection
 
 @section('dialog-buttons')

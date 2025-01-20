@@ -234,6 +234,7 @@ class UserController extends Controller
                 break;
             case "edit":
                 $user->description = $request->input($type . "-description");
+                $user->profile_picture_id = $request->input($type . "-profile-picture-id");
                 break;
             default;
                 break;
