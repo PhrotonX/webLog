@@ -49,4 +49,5 @@
 
 @section('dialog-buttons')
     <button class="acrylic child small-button" onclick="toggleDialog('profile-picture-selector')">Cancel</button>
+    <button class="acrylic child small-button" onclick="editStringField('edit-profile-picture-id', '')">Remove Picture</button>
 @endsection
