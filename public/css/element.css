@@ -6,12 +6,13 @@
 
 .dynamic-table{
     display: flex;
+    flex-wrap: wrap;
     border: 2px solid gray;
     padding: 4px;
 }
 
 .dynamic-table-cell{
-    flex: 1 1 auto;
+    flex: 1 1 calc(15% - 8px);
     width: 20%;
     height: auto;
     /* border: 2px solid gray; */
