@@ -9,5 +9,9 @@ class Picture extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
+    protected $primaryKey = "picture_id";
     protected $table = "picture";
+    protected $keyType = 'int';
 }
