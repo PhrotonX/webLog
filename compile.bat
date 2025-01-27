@@ -1,0 +1,1 @@
+npx tsc public/js/src/picture.ts
