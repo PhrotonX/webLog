@@ -1,3 +1,5 @@
+const { Picture } = require("./picture");
+
 function testButton(){
     alert("Sample Script");
 }
@@ -21,3 +23,8 @@ function toggleDialog(dialogName){
 
     
 }
+
+/**
+ *  @description An object of Picture class.
+ */
+const picture = new Picture();
