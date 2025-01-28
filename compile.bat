@@ -1,1 +1,1 @@
-npx tsc public/js/src/picture.ts
+npx tsc resources/js/src/picture.ts
