@@ -1,6 +1,6 @@
 //Paradigm: Event-driven
 
-import {USER} from '../constants.js';
+//import {USER} from '../constants.js';
 
 var birthyear;
 var birthmonth;

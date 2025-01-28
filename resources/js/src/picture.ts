@@ -4,7 +4,7 @@ const PictureSize = Object.freeze({
     Large: "PictureSize.Large",
 } as const);
 
-export class Picture {
+class Picture {
     constructor() {
     }
 
@@ -17,3 +17,5 @@ export class Picture {
         
     }
 }
+
+export const picture = new Picture();

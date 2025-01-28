@@ -2,7 +2,6 @@ const mix = require('laravel-mix');
 
 mix.css('resources/css/style.css', 'public/css/app.css')
     .scripts([
-        'resources/js/src/constants.js',
         'resources/js/src/forms.js',
         'resources/js/src/months.js',
         'resources/js/src/picture.js',

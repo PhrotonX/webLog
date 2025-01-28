@@ -3,7 +3,7 @@
 @section('content')
 {{-- Soon, this form must be able to validate the user role type (e.g., member or admin) --}}
 
-<script src="{{asset('js/view.js')}}"></script>
+{{-- <script src="{{asset('js/view.js')}}"></script> --}}
 
 <h1>Create Blog</h1>
 <form action="{{route('post.store', 'PostController')}}" method="post">
