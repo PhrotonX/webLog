@@ -31,7 +31,7 @@
     @endsection
     @section('form-script')
         <script type="module" async="false">
-            import {USER} from '/js/src/constants.js';
+            //import {USER} from '/js/app.js';
 
             //window.addEventListener(USER.EVENT.FORM_LOADED, (event) => {
             function preloadFromData(){

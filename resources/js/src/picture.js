@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Picture = void 0;
+exports.picture = void 0;
 var PictureSize = Object.freeze({
     Small: "PictureSize.Small",
     Medium: "PictureSize.Medium",
@@ -18,4 +18,4 @@ var Picture = /** @class */ (function () {
     };
     return Picture;
 }());
-exports.Picture = Picture;
+exports.picture = new Picture();
