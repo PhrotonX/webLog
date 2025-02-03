@@ -24,7 +24,7 @@
                                 class="profile-picture-large"
                                 src="{{asset($pfp->picture->picture_path)}}"
                                 alt="{{asset($pfp->picture->alt_text)}}"
-                                onclick="editStringField('edit-profile-picture-id', {{$pfp->picture->picture_id}})"
+                                onclick="editStringField('edit-profile-picture-id', {{$pfp->pfp_id}})"
                             />
 
                             {{-- @if ($picture->alt_text != "")
