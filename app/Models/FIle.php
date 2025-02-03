@@ -20,4 +20,18 @@ trait File{
             return $extension;
         }
     }
+
+    /**
+     * Retrieves the filepath without an extension.
+     * 
+     * @param path The path of the file.
+     * 
+     * @return filepath The filepath without an extension of string type.
+     */
+    public function removeFileExtension(string $path) : string{
+        $parts = explode(".", $path);
+        $filepath = $parts[0];
+
+        return $filepath;
+    }
 }
