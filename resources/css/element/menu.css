@@ -1,0 +1,6 @@
+/* Style for menu button */
+.menu-button div{
+    border-bottom: 1px;
+    border-color: black;
+    border-style: solid;
+}

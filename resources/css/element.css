@@ -1,4 +1,5 @@
-@import url('picture.css');
+@import url('element/menu.css');
+@import url('element/picture.css');
 
 .alt-text{
     position: relative;
@@ -17,3 +18,4 @@
     height: auto;
     /* border: 2px solid gray; */
 }
+

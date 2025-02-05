@@ -32,6 +32,15 @@
                             @else
                                 <p class="alt-text">Profile Picture</p>
                             @endif --}}
+
+                            <div class="overlay">
+                                <div class="menu-button">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            
                             
                         </div>
                     </div>
