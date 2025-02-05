@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Picture;
+use App\Models\AccountProfilePicture;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -84,11 +85,14 @@ class User extends Authenticatable
     /**
      * Retrieves the Picture object set on a User.
      * 
-     * @return picture The picture set on a user. May return null.
+     * @return ProfilePicture The picture set on a user. May return null.
      */
-    public function getProfilePicture(){
-        $picture = Picture::where('picture_id', $this->profile_picture_id)->first();
-        return $picture;
+    public function getProfilePicture() : ProfilePicture{
+        //$accountProfilePicture = AccountProfilePicture::where('pfp_id', $this->profile_picture_id)->first();
+        //return $accountProfilePicture->profilePicture;
+        $profilePicture = ProfilePIcture::where('pfp_id', $this->profile_picture_id)->first();
+
+        return $profilePicture;
     }
 
     /*

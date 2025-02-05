@@ -17,14 +17,14 @@
         @if($account_pictures != null)
             <p>{{sizeof($account_pictures)}} profile pictures found!</p>
             <div class="dynamic-table">
-                @foreach($account_pictures as $picture)
+                @foreach($account_pictures as $pfp)
                     <div class="dynamic-table-cell">
                         <div class="profile-picture-table-item">
                             <img
                                 class="profile-picture-large"
-                                src="{{asset($picture->picture_path)}}"
-                                alt="{{asset($picture->alt_text)}}"
-                                onclick="editStringField('edit-profile-picture-id', {{$picture->picture_id}})"
+                                src="{{asset($pfp->picture->picture_path)}}"
+                                alt="{{asset($pfp->picture->alt_text)}}"
+                                onclick="editStringField('edit-profile-picture-id', {{$pfp->pfp_id}})"
                             />
 
                             {{-- @if ($picture->alt_text != "")

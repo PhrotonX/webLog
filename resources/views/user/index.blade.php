@@ -15,8 +15,24 @@
 
     @if(Auth::user()->getProfilePicture() != null)
         <img
-            src="{{asset(Auth::user()->getProfilePicture()->picture_path)}}"
-            alt="{{asset(Auth::user()->getProfilePicture()->alt_text)}}"
+            src="{{asset(Auth::user()->getProfilePicture()->pfp_xs)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
+        />
+        <img
+            src="{{asset(Auth::user()->getProfilePicture()->pfp_small)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
+        />
+        <img
+            src="{{asset(Auth::user()->getProfilePicture()->pfp_medium)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
+        />
+        <img
+            src="{{asset(Auth::user()->getProfilePicture()->pfp_large)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
+        />
+        <img
+            src="{{asset(Auth::user()->getProfilePicture()->picture->picture_path)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
         />
     @else
         <p>No profile picture set!</p>

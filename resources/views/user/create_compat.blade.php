@@ -5,7 +5,7 @@
 
 <h1>Sign Up</h1>
 
-<script src="{{asset('js/src/months.js')}}"></script>
+{{-- <script src="{{asset('js/src/months.js')}}"></script> --}}
 
 <form method="post" action="{{route('user.submit')}}" name="signup-form" autocomplete="on">
     @csrf
