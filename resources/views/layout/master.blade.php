@@ -7,8 +7,9 @@
         @endif
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{$pageTitle ?? 'Web Blog'}} - Web Blog</title>
-        <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
-        <script type="text/javascript" src="{{asset('js/src/script.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
+        <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/vendor.js')}}"></script>
     </head>
     <body>
         <span class="acrylic shadow parent" id="navbar">
@@ -64,6 +65,7 @@
             <a href="#"><p>About</p></a>
         </footer>
 
+        <section id="modal" class="acrylic parent"></section>
         <section id="dialog-boxes">
             @yield('dialog-boxes')            
             

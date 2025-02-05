@@ -7,27 +7,62 @@
 
 @section('dialog-content')
     @if(Auth::user()->profile_picture_id)
-        <p>Profile Pictures:</p>
+        {{-- <img class="profile-picture-small" src="{{asset($picture)}}"/> --}}
     @else
-        <p>No profile picture found</p>
+        <p>No profile picture set.</p>
     @endif
 
-    <p>Upload</p>
-    <form
-        method="post"
-        action="image/store/edit-profile-picture"
-        id="edit-profile-picture-form"
-        name="edit-profile-picture-form"
-        enctype="multipart/form-data">
-        @csrf
-        @method("POST")
-        <input type="file" id="edit-profile-picture" name="edit-profile-picture"/>
-        <input type="submit" id="edit-profile-picture-submit" name="editprofile-picture-submit"/>
-    </form>
-    
-    
+    <p>Profile Pictures:</p>
+    <div id="profile-picture-selection-table">
+        @if($account_pictures != null)
+            <p>{{sizeof($account_pictures)}} profile pictures found!</p>
+            <div class="dynamic-table">
+                @foreach($account_pictures as $pfp)
+                    <div class="dynamic-table-cell">
+                        <div class="profile-picture-table-item">
+                            <img
+                                class="profile-picture-large"
+                                src="{{asset($pfp->picture->picture_path)}}"
+                                alt="{{asset($pfp->picture->alt_text)}}"
+                                onclick="editStringField('edit-profile-picture-id', {{$pfp->pfp_id}})"
+                            />
+
+                            {{-- @if ($picture->alt_text != "")
+                                <p class="alt-text">{{$picture->alt_text}}</p>    
+                            @else
+                                <p class="alt-text">Profile Picture</p>
+                            @endif --}}
+                            
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <table>
+                
+            </table>
+            
+        @else
+            <p>Profile pictures not found!</p>
+        @endif
+
+        <p>Upload</p>
+        <form
+            method="post"
+            action="image/store/edit-profile-picture"
+            id="edit-profile-picture-form"
+            name="edit-profile-picture-form"
+            enctype="multipart/form-data">
+            @csrf
+            @method("POST")
+            <input type="file" id="edit-profile-picture" name="edit-profile-picture"/>
+            <input type="submit" id="edit-profile-picture-submit" name="editprofile-picture-submit"/>
+        </form>
+
+        <br>
+    </div>
 @endsection
 
 @section('dialog-buttons')
-    <button>Cancel</button>
+    <button class="acrylic child small-button" onclick="toggleDialog('profile-picture-selector')">Cancel</button>
+    <button class="acrylic child small-button" onclick="editStringField('edit-profile-picture-id', '')">Remove Picture</button>
 @endsection

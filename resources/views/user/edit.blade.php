@@ -14,52 +14,63 @@
                 <label for="{{$routeType}}-profile-picture">Profile Picture:</label>
             </td>
             <td>
-                <button type="button" id="{{$routeType}}-profile-picture" class="small-button" onclick="toggleDialog('profile-picture-selector')">Edit</button>
+                <button
+                    type="button"
+                    id="{{$routeType}}-profile-picture-button"
+                    class="small-button"
+                    onclick="toggleDialog('profile-picture-selector')"
+                >Edit</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input class="input-text" id="{{$routeType}}-profile-picture-id" type="number" name="{{$routeType}}-profile-picture-id"/>
             </td>
         </tr>
     @endsection
     @section('form-script')
         <script type="module" async="false">
-            import {USER} from '/js/src/constants.js';
+            //import {USER} from '/js/app.js';
 
             //window.addEventListener(USER.EVENT.FORM_LOADED, (event) => {
             function preloadFromData(){
-                var usernameField = document.getElementById("edit-username");
+                var usernameField = document.getElementById("{{$routeType}}-username");
                 usernameField.value = "{{Auth::user()->username}}";
 
-                var handleField = document.getElementById("edit-handle");
+                var handleField = document.getElementById("{{$routeType}}-handle");
                 handleField.value = "{{Auth::user()->handle}}";
 
-                var emailLabel = document.getElementById("edit-email-label");
+                var emailLabel = document.getElementById("{{$routeType}}-email-label");
                 emailLabel.remove();
 
                 //@TODO: Add middleware to avoid security risk from unwanted user input.
-                var emailField = document.getElementById("edit-email");
+                var emailField = document.getElementById("{{$routeType}}-email");
                 emailField.remove();
 
                 //@TODO: Add middleware to avoid security risk from unwanted user input.
-                var passwordLabel = document.getElementById("edit-password-label");
+                var passwordLabel = document.getElementById("{{$routeType}}-password-label");
                 passwordLabel.remove();
 
                 //@TODO: Add middleware to avoid security risk from unwanted user input.
-                var passwordField = document.getElementById("edit-password");
+                var passwordField = document.getElementById("{{$routeType}}-password");
                 passwordField.remove();
 
-                var firstNameField = document.getElementById("edit-firstname");
+                var firstNameField = document.getElementById("{{$routeType}}-firstname");
                 firstNameField.value = "{{Auth::user()->firstname}}";
                 
-                var middleNameField = document.getElementById("edit-middlename");
+                var middleNameField = document.getElementById("{{$routeType}}-middlename");
                 middleNameField.value = "{{Auth::user()->middlename}}";
 
-                var lastNameField = document.getElementById("edit-lastname");
+                var lastNameField = document.getElementById("{{$routeType}}-lastname");
                 lastNameField.value = "{{Auth::user()->lastname}}";
 
-                var countryField = document.getElementById("edit-country");
+                var countryField = document.getElementById("{{$routeType}}-country");
                 countryField.value = "{{Auth::user()->country}}";
 
-                var birthYearField = document.getElementById("edit-birthyear");
-                var birthMonthField = document.getElementById("edit-birthmonth");
-                var birthDayField = document.getElementById("edit-birthday");
+                var birthYearField = document.getElementById("{{$routeType}}-birthyear");
+                var birthMonthField = document.getElementById("{{$routeType}}-birthmonth");
+                var birthDayField = document.getElementById("{{$routeType}}-birthday");
 
                 let birthdate = "{{Auth::user()->birthdate}}";
                 birthdate = birthdate.toString();
@@ -75,14 +86,17 @@
                 birthDayField.value = birthday;
 
                 if(gender == 'M'){
-                    document.forms["edit-form"]["edit-gender-male"].checked = true;
+                    document.forms["{{$routeType}}-form"]["{{$routeType}}-gender-male"].checked = true;
                 }else{
-                    document.forms["edit-form"]["edit-gender-female"].checked = true;
+                    document.forms["{{$routeType}}-form"]["{{$routeType}}-gender-female"].checked = true;
                 }
 
                 let description = "{{Auth::user()->description}}";
-                var descriptionField = document.getElementById("edit-description");
+                var descriptionField = document.getElementById("{{$routeType}}-description");
                 descriptionField.value = description;
+
+                let profile_picture_field = document.getElementById("{{$routeType}}-profile-picture-id");
+                profile_picture_field.value = "{{Auth::user()->profile_picture_id}}";
             }
 
             window.loadFormContent().then(preloadFromData);

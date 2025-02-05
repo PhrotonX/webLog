@@ -8,12 +8,15 @@ function navigate(url){
 
 function toggleDialog(dialogName){
     var dialogBox = document.getElementById(dialogName);
+    var modal = document.getElementById("modal");
 
     if((dialogBox.style["display"] == "none") || (dialogBox.style["display"] == "")
     || (dialogBox.style["display"] == null)){
-        dialogBox.style["display"] = "block";    
+        dialogBox.style["display"] = "block";
+        modal.style["display"] = "block";
     }else{
         dialogBox.style["display"] = "none";
+        modal.style["display"] = "none";
     }
 
     

@@ -10,7 +10,7 @@ abstract class PictureController extends Controller
 {
     public const IMAGE_DIRECTORY = 'data/img/';
     protected $directory = 'data/img/';
-    protected $errorImage = 'res/img/question_mark.png';
+    //protected $errorImage = 'res/img/question_mark.png';
     protected $type = 'post';
 
     public function add(){
@@ -38,7 +38,7 @@ abstract class PictureController extends Controller
             $data['picture_path'] = $filepath;
         }else{
             //Put the erorr image filepath into the DB
-            $data['picture_path'] = $this->errorImage;
+            $data['picture_path'] = Picture::obtainNullPicture();
 
             //Display debug message
             echo $request->file($requestName);

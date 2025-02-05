@@ -1,3 +1,4 @@
+# Ignore Laravel-related files
 /.phpunit.cache
 /node_modules
 /public/build
@@ -17,7 +18,19 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-public/sql/backups/
 testroutes.php
+
+# Ignore filesystem-based user data
 /res/img/data
 /public/data
+
+# Ignore SQL Backups
+public/sql/backups/
+
+# Ignore "hidden" folder
+/hidden
+
+# Ignore Laravel Mix output files
+public/js/
+public/css/
+public/mix-manifest.json

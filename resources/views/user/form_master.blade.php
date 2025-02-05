@@ -4,7 +4,8 @@
 
 <h1>{{$pageTitle}}</h1>
 
-<script src="{{asset('js/src/months.js')}}"></script>
+{{-- <script src="{{asset('js/src/months.js')}}"></script> --}}
+{{-- <script src="{{asset('js/src/forms.js')}}"></script> --}}
 <form method="post" action="{{route($form['action'])}}" id="{{$routeType}}-form" name="{{$routeType}}-form" autocomplete="on">
     @csrf
     @method("POST")
@@ -43,7 +44,13 @@
                 <label for="{{$routeType}}-password" id="{{$routeType}}-password-label">Password:</label>
             </td>
             <td>
-                <input class="input-text" type="password" name="{{$routeType}}-password" id="{{$routeType}}-password" required/>
+                <input
+                    class="input-text"
+                    type="password"
+                    name="{{$routeType}}-password" 
+                    id="{{$routeType}}-password"
+                    autocomplete="current-password"
+                    required/>
             </td>
         </tr>
         <tr>
@@ -398,7 +405,7 @@
     </table>
 </form>
 
-<script type="module" src="{{asset('js/src/user/forms.js')}}" defer></script>
+{{-- <script type="module" src="{{asset('js/src/user/forms.js')}}" defer></script> --}}
 @yield('form-script')
 <section id="form-script"></section>
 

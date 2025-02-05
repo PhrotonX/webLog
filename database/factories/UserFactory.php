@@ -32,11 +32,14 @@ class UserFactory extends Factory
 
         $index++;
 
+        $name = explode(' ', fake()->name(), 2);
+        $secondName = explode(' ', fake()->name(), 2);
+
         return [
             'username' => 'Sample' . $index,
-            'firstname' => fake()->name(),
-            'middlename' => fake()->name(),
-            'lastname' => fake()->name(),
+            'firstname' => $name[0],
+            'middlename' => isset($secondName[1]) ? $secondName[1] : '',
+            'lastname' => isset($name[1]) ? $name[1] : '',
             'handle' => '@sample' . $index,
             'email' => 'sample' . $index . '@example.com',
             'password_hash' => Hash::make('sample' . $index),

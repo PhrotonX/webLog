@@ -12,6 +12,32 @@
     @endisset
 
     <h1>{{Auth::user()->username}}</h1>
+
+    @if(Auth::user()->getProfilePicture() != null)
+        <img
+            src="{{asset(Auth::user()->getProfilePicture()->pfp_xs)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
+        />
+        <img
+            src="{{asset(Auth::user()->getProfilePicture()->pfp_small)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
+        />
+        <img
+            src="{{asset(Auth::user()->getProfilePicture()->pfp_medium)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
+        />
+        <img
+            src="{{asset(Auth::user()->getProfilePicture()->pfp_large)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
+        />
+        <img
+            src="{{asset(Auth::user()->getProfilePicture()->picture->picture_path)}}"
+            alt="{{asset(Auth::user()->getProfilePicture()->picture->alt_text ?? "")}}"
+        />
+    @else
+        <p>No profile picture set!</p>
+    @endif
+    
     <p>First Name: {{Auth::user()->firstname}}</p>
     <p>Middle Name: {{Auth::user()->middlename}}</p>
     <p>Last Name: {{Auth::user()->lastname}}</p>
