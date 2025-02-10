@@ -1,3 +1,4 @@
+@import url('element/dynamic-table.css');
 @import url('element/menu.css');
 @import url('element/picture.css');
 
@@ -5,17 +6,4 @@
     position: relative;
 }
 
-.dynamic-table{
-    display: flex;
-    flex-wrap: wrap;
-    border: 2px solid gray;
-    padding: 4px;
-}
-
-.dynamic-table-cell{
-    flex: 1 1 calc(15% - 8px);
-    width: 20%;
-    height: auto;
-    /* border: 2px solid gray; */
-}
 
