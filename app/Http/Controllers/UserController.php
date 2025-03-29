@@ -235,5 +235,9 @@ class UserController extends Controller
         }
 
         return $user;
-    } 
+    }
+
+    public function setupProfilePicture(User $user, Request $request){
+        
+    }
 }

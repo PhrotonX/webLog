@@ -35,6 +35,8 @@ return new class extends Migration
             $table->timestamps(); // Adds created_at and updated_at columns
             $table->softDeletes(); // Adds deleted_at column for soft deletes
         });
+
+        Schema::dropIfExists('users');
     }
 
     /**
@@ -45,5 +47,15 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('accounts');
+
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 };

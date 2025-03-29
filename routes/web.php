@@ -53,6 +53,9 @@ Route::get('user/index', 'App\Http\Controllers\UserController@index')->name('use
 Route::get('user/edit', 'App\Http\Controllers\UserController@edit')->name('user.edit');
 Route::post('user/update', 'App\Http\Controllers\UserController@update')->name('user.update')->middleware(ValidateEdit::class);
 
+Route::post('user/image/add', 'App\Http\Controllers\User\ProfilePictureController@add')->name('user.image.add');
+Route::post('user/image/store/{requestName}', 'App\Http\Controllers\User\ProfilePictureController@store')->name('user.image.store');
+Route::get('user/image/view', 'App\Http\Controllers\User\ProfilePictureController@view')->name('user.image.view');
 
 /* REDIRECTS */
 //Route::get('signup', 'App\Http\Controllers\UserController@create');
